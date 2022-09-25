@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage[makeroom]{cancel}
 \usepackage{tabularx}
+\usepackage{bookmark}
 \usepackage{adjustbox}
 \usepackage{pgf, tikz}
 \usetikzlibrary{shapes}
@@ -39,7 +40,7 @@
 		\begin{tabular}{c|c}
 			\textbf{F}alsch & \textbf{W}ahr \\
 			0 & 1 \\
-			\bot & \top \\
+			$\bot$ & $\top$ \\
 			\textbf{L}ow & \textbf{H}igh
 		\end{tabular}
 	
@@ -47,20 +48,20 @@
 	
 	\item[Junktoren] (Verknüpfer)
 		\begin{description}
-			\item[Negation] \neg A \, ''nicht'', ''NOT'', auch: \textasciitilde $A$, $\bar{A}$, $A'$ \\
+			\item[Negation] $\neg A$ \, ''nicht'', ''NOT'', auch: $A$, $\bar{A}$, $A'$ \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c}
-						A & \neg A  \\ \hline
+						A & $\neg A$  \\ \hline
 						0 & 1 \\
 						1 & 0
 					\end{tabular} &
 					Mathematisch: $\neg A = (A + 1) \bmod 2$ \\ \hline
 				\end{tabularx}
 			
-			\item[Konjunktion] A\wedge B \, ''A und B'', ''AND'', auch A\cdot B, AB \\
+			\item[Konjunktion] $A\wedge B$ \, ''A und B'', ''AND'', auch $A\cdot B$, AB \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
-						A & B & A\wedge B \\ \hline\hline
+						A & B & $A \wedge B$ \\ \hline\hline
 						0 & 0 & 0 \\ \hline
 						0 & 1 & 0 \\ \hline
 						1 & 0 & 0 \\ \hline
@@ -75,10 +76,10 @@
 					\end{tabular} \\ \hline
 				\end{tabularx}	
 			
-			\item[Disjunktion] A\vee B \, ''A oder B'' (inklusiv), ''OR'' \\
+			\item[Disjunktion] $A\vee B$ \, ''A oder B'' (inklusiv), ''OR'' \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
-						A & B & A\vee B \\ \hline\hline
+						A & B & $A \vee B$ \\ \hline\hline
 						0 & 0 & 0 \\ \hline
 						0 & 1 & 1 \\ \hline
 						1 & 0 & 1 \\ \hline
@@ -93,10 +94,10 @@
 					\end{tabular} \\ \hline
 				\end{tabularx}
 				
-			\item[Kontravalenz] A$\dot{\vee}$B \, ''entweder A, oder B'' (exclusiv), ''XOR'', auch: A\oplus B \\
+			\item[Kontravalenz] $A\dot{\vee}B$ \, ''entweder A, oder B'' (exclusiv), ''XOR'', auch: $A\oplus B$ \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
-						A & B & A$\dot{\vee}$B \\ \hline\hline
+						A & B & $A \dot{\vee} B$ \\ \hline\hline
 						0 & 0 & 0 \\ \hline
 						0 & 1 & 1 \\ \hline
 						1 & 0 & 1 \\ \hline
@@ -106,15 +107,15 @@
 						Mathematisch: & $A \dot{\vee} B = (A + B)\bmod 2$ \\
 						Kommutativ: & $A \dot{\vee} B \equiv B \dot{\vee} A$ \\
 						Assoziativ: & $A \dot{\vee} (B \dot{\vee} C) \equiv (A \dot{\vee} B) \dot{\vee} C$ \\
-						\neg Idempotent: & $A \dot{\vee} A \equiv \bot$ \\
+						$\neg$ Idempotent: & $A \dot{\vee} A \equiv \bot$ \\
 						$A \dot{\vee} \bot \equiv A$ & $A \dot{\vee} \top \equiv \neg A$
 					\end{tabular} \\ \hline
 				\end{tabularx}
 				
-			\item[Konditional] A\Rightarrow B ''wenn A dann B'' auch ''Subjunktion'', ''Implikation'', ''IMPLY'' \\
+			\item[Konditional] $A\Rightarrow B$ ''wenn A dann B'' auch ''Subjunktion'', ''Implikation'', ''IMPLY'' \\
 				\begin{tabularx}{\linewidth}{c|c|X}
 					\begin{tabular}[t]{c|c||c}
-						A & B & A\Rightarrow B \\ \hline\hline
+						A & B & $A \Rightarrow B$ \\ \hline\hline
 						0 & 0 & 1 \\ \hline
 						0 & 1 & 1 \\ \hline
 						1 & 0 & 0 \\ \hline
@@ -136,10 +137,10 @@
 					Kettenschluss & $((A \Rightarrow B) \wedge (B \Rightarrow C)) \Rightarrow (A \Rightarrow C)$
 				\end{tabular}							
 				
-			\item[Bikonditional] A\Leftrightarrow B ''A genau dann, wenn B'', ''XNOR'', auch ''Aquivalenz'' \equiv \\
+			\item[Bikonditional] $A \Leftrightarrow B$ ''A genau dann, wenn B'', ''XNOR'', auch ''Aquivalenz'' $\equiv$ \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c | c || c}
-						A & B & A\Leftrightarrow B \\ \hline\hline
+						A & B & $A \Leftrightarrow B$ \\ \hline\hline
 						0 & 0 & 1 \\ \hline
 						0 & 1 & 0 \\ \hline
 						1 & 0 & 0 \\ \hline
@@ -149,7 +150,7 @@
 						Mathematisch: & $A \Leftrightarrow B = (A + B + 1)\bmod 2$ \\
 						Kommutativ: & $A \Leftrightarrow B \equiv B \Leftrightarrow A$ \\
 						Assoziativ: & $A \Leftrightarrow (B \Leftrightarrow C) \equiv (A \Leftrightarrow B) \Leftrightarrow C$ \\
-						\neg Idempotent: & $A \Leftrightarrow A \equiv \top$ \\
+						$\neg$ Idempotent: & $A \Leftrightarrow A \equiv \top$ \\
 						$A \Leftrightarrow \bot \equiv \neg A$ & $A \Leftrightarrow \top \equiv A$
 					\end{tabular} \\ \hline
 				\end{tabularx}
@@ -186,11 +187,11 @@
 		\item[Quantoren] Außer der Belegung der Variablen mit Werten gibt es noch andere Möglichkeiten aus einer Aussageform eine Aussage zu machen. Ein Grundbereich $M$ muss vorgegeben sein.
 		
 		''Für alle x aus $M$ gilt A(x)'' \newline
-		Für alle $x \in \mathbb{N}$ gilt $3 + x = 5$ (falsche Aussage) kurz mit Allquantor \forall :
+		Für alle $x \in \mathbb{N}$ gilt $3 + x = 5$ (falsche Aussage) kurz mit Allquantor $\forall$ :
 		$$(\forall x \in \mathbb{N})\ 3 + x = 5$$
 		
 		''Es existiert ein x aus $M$ mit A(x)'' \newline 
-		Es existiert (mindestens) ein $x \in \mathbb{N}$ mit $3 + x = 5$ (wahre Aussage) kurz mit Existenzquantor \exists :
+		Es existiert (mindestens) ein $x \in \mathbb{N}$ mit $3 + x = 5$ (wahre Aussage) kurz mit Existenzquantor $\exists$ :
 		$$(\exists x \in M)\ 3 + x = 5$$
 		
 		''Es existiert höchsten ein x aus $M$ mit A(x)''
@@ -602,15 +603,15 @@ Funktionen sind im wesentlich Zuordnungen.
 \subsection{Teilbarkeit}
 $a \in \mathbb{Z},\ a \geq 2,\ a=(z_{n-1}z_{n-2} \dots z_1z_0)$ \\
 \begin{tabular}{rcl}
-	2 & \Leftrightarrow & $z_0$ gerade \\
-	3 & \Leftrightarrow & Quersumme durch 3 teilbar \\
-	4 & \Leftrightarrow & $(z_1z_0)_{10}$ durch 4 teilbar \\
-	5 & \Leftrightarrow & $z_0 \in \lbrace 0; 1 \rbrace$ \\
-	6 & \Leftrightarrow & durch 2 und 3 teilbar \\
-	7 & \Leftrightarrow & ... \\
-	8 & \Leftrightarrow & $(z_2z_1z_0)_{(10)}$ durch 8 teilbar \\
-	9 & \Leftrightarrow & quersumme durch 9 teilbar \\
-	10 & \Leftrightarrow & durch 2 und 5 teilbar bzw. $z_0=0$
+	2 & $\Leftrightarrow$ & $z_0$ gerade \\
+	3 & $\Leftrightarrow$ & Quersumme durch 3 teilbar \\
+	4 & $\Leftrightarrow$ & $(z_1z_0)_{10}$ durch 4 teilbar \\
+	5 & $\Leftrightarrow$ & $z_0 \in \lbrace 0; 1 \rbrace$ \\
+	6 & $\Leftrightarrow$ & durch 2 und 3 teilbar \\
+	7 & $\Leftrightarrow$ & ... \\
+	8 & $\Leftrightarrow$ & $(z_2z_1z_0)_{(10)}$ durch 8 teilbar \\
+	9 & $\Leftrightarrow$ & quersumme durch 9 teilbar \\
+	10 & $\Leftrightarrow$ & durch 2 und 5 teilbar bzw. $z_0=0$
 \end{tabular}
 
 \subsection{Additionssysteme}

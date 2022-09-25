@@ -35,258 +35,258 @@
 \subsection{Begriffe}
 \begin{description}
 	\item[Aussage:] Eine Aussage ist eine Formel oder ein sprachliches Gebilde dem genau ein Wahrheitswert zugeordnet werden kann.
-	
+
 	\item[Warheitswerte] Genau der Eine oder der Andere \\
 		\begin{tabular}{c|c}
 			\textbf{F}alsch & \textbf{W}ahr \\
-			0 & 1 \\
-			$\bot$ & $\top$ \\
-			\textbf{L}ow & \textbf{H}igh
+			0               & 1             \\
+			$\bot$          & $\top$        \\
+			\textbf{L}ow    & \textbf{H}igh
 		\end{tabular}
-	
+
 	\item[Aussagevariable] A,B,C etc. stehen für eine Aussage
-	
+
 	\item[Junktoren] (Verknüpfer)
 		\begin{description}
 			\item[Negation] $\neg A$ \, ''nicht'', ''NOT'', auch: $A$, $\bar{A}$, $A'$ \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c}
-						A & $\neg A$  \\ \hline
-						0 & 1 \\
+						A & $\neg A$ \\ \hline
+						0 & 1        \\
 						1 & 0
 					\end{tabular} &
 					Mathematisch: $\neg A = (A + 1) \bmod 2$ \\ \hline
 				\end{tabularx}
-			
+
 			\item[Konjunktion] $A\wedge B$ \, ''A und B'', ''AND'', auch $A\cdot B$, AB \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
 						A & B & $A \wedge B$ \\ \hline\hline
-						0 & 0 & 0 \\ \hline
-						0 & 1 & 0 \\ \hline
-						1 & 0 & 0 \\ \hline
+						0 & 0 & 0            \\ \hline
+						0 & 1 & 0            \\ \hline
+						1 & 0 & 0            \\ \hline
 						1 & 1 & 1
 					\end{tabular} &
 					\begin{tabular}[t]{ll}
-						Mathematisch: & $A \wedge B = A \cdot B$ \\
-						Kommutativ: & $A \wedge B \equiv B \wedge A$ \\
-						Assoziativ: & $A \wedge (B \wedge C) \equiv (A \wedge B) \wedge C$ \\
-						Idempotent: & $A \wedge A \equiv A$ \\
+						Mathematisch:               & $A \wedge B = A \cdot B$                             \\
+						Kommutativ:                 & $A \wedge B \equiv B \wedge A$                       \\
+						Assoziativ:                 & $A \wedge (B \wedge C) \equiv (A \wedge B) \wedge C$ \\
+						Idempotent:                 & $A \wedge A \equiv A$                                \\
 						$A \wedge \bot \equiv \bot$ & $A \wedge \top \equiv A$
 					\end{tabular} \\ \hline
-				\end{tabularx}	
-			
+				\end{tabularx}
+
 			\item[Disjunktion] $A\vee B$ \, ''A oder B'' (inklusiv), ''OR'' \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
 						A & B & $A \vee B$ \\ \hline\hline
-						0 & 0 & 0 \\ \hline
-						0 & 1 & 1 \\ \hline
-						1 & 0 & 1 \\ \hline
-					1 & 1 & 1
+						0 & 0 & 0          \\ \hline
+						0 & 1 & 1          \\ \hline
+						1 & 0 & 1          \\ \hline
+						1 & 1 & 1
 					\end{tabular} &
 					\begin{tabular}[t]{ll}
-						Mathematisch: & $A \vee B = \min(A+B;1)$ \\
-						Kommutativ: & $A \vee B \equiv B \vee A$ \\
-						Assoziativ: & $A \vee (B \vee C) \equiv (A \vee B) \vee C$ \\
-						Idempotent: & $A \vee A \equiv A$ \\
+						Mathematisch:           & $A \vee B = \min(A+B;1)$                     \\
+						Kommutativ:             & $A \vee B \equiv B \vee A$                   \\
+						Assoziativ:             & $A \vee (B \vee C) \equiv (A \vee B) \vee C$ \\
+						Idempotent:             & $A \vee A \equiv A$                          \\
 						$A \vee \bot \equiv A $ & $A \vee \top \equiv \top$
 					\end{tabular} \\ \hline
 				\end{tabularx}
-				
+
 			\item[Kontravalenz] $A\dot{\vee}B$ \, ''entweder A, oder B'' (exclusiv), ''XOR'', auch: $A\oplus B$ \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
 						A & B & $A \dot{\vee} B$ \\ \hline\hline
-						0 & 0 & 0 \\ \hline
-						0 & 1 & 1 \\ \hline
-						1 & 0 & 1 \\ \hline
+						0 & 0 & 0                \\ \hline
+						0 & 1 & 1                \\ \hline
+						1 & 0 & 1                \\ \hline
 						1 & 1 & 0
 					\end{tabular} &
 					\begin{tabular}[t]{ll}
-						Mathematisch: & $A \dot{\vee} B = (A + B)\bmod 2$ \\
-						Kommutativ: & $A \dot{\vee} B \equiv B \dot{\vee} A$ \\
-						Assoziativ: & $A \dot{\vee} (B \dot{\vee} C) \equiv (A \dot{\vee} B) \dot{\vee} C$ \\
-						$\neg$ Idempotent: & $A \dot{\vee} A \equiv \bot$ \\
+						Mathematisch:                & $A \dot{\vee} B = (A + B)\bmod 2$                                    \\
+						Kommutativ:                  & $A \dot{\vee} B \equiv B \dot{\vee} A$                               \\
+						Assoziativ:                  & $A \dot{\vee} (B \dot{\vee} C) \equiv (A \dot{\vee} B) \dot{\vee} C$ \\
+						$\neg$ Idempotent:           & $A \dot{\vee} A \equiv \bot$                                         \\
 						$A \dot{\vee} \bot \equiv A$ & $A \dot{\vee} \top \equiv \neg A$
 					\end{tabular} \\ \hline
 				\end{tabularx}
-				
+
 			\item[Konditional] $A\Rightarrow B$ ''wenn A dann B'' auch ''Subjunktion'', ''Implikation'', ''IMPLY'' \\
 				\begin{tabularx}{\linewidth}{c|c|X}
 					\begin{tabular}[t]{c|c||c}
 						A & B & $A \Rightarrow B$ \\ \hline\hline
-						0 & 0 & 1 \\ \hline
-						0 & 1 & 1 \\ \hline
-						1 & 0 & 0 \\ \hline
+						0 & 0 & 1                 \\ \hline
+						0 & 1 & 1                 \\ \hline
+						1 & 0 & 0                 \\ \hline
 						1 & 1 & 1
 					\end{tabular} &
 					\begin{tabular}[t]{c|c}
-						A & B \\ \hline
-						Prämisse & Konklusion \\
+						A             & B          \\ \hline
+						Prämisse      & Konklusion \\
 						Voraussetzung & Konsequenz \\
-						hinreichende & notwendige
-					\end{tabular} &
+						hinreichende  & notwendige
+					\end{tabular}      &
 					$A \Rightarrow B \equiv \neg A \vee B$ \newline
 					Mathematisch: $A \Rightarrow B = \newline \min((A + 1) \bmod 2 + B; 1)$ \\ \hline
 				\end{tabularx} \\
 				\begin{tabular}[t]{rl}
-					Eigenschaften & $A \Rightarrow \bot \equiv \neg A; \quad A \Rightarrow \top \equiv \top; \quad \bot \Rightarrow A \equiv \top; \quad \top \Rightarrow A \equiv A$ \\
-					Kontraposition & $A \Rightarrow B \equiv \neg B \Rightarrow \neg A$ \\
-					Abtrennungsregel & $(A \wedge (A \Rightarrow B)) \Rightarrow B$ \\
-					Kettenschluss & $((A \Rightarrow B) \wedge (B \Rightarrow C)) \Rightarrow (A \Rightarrow C)$
-				\end{tabular}							
-				
+					Eigenschaften    & $A \Rightarrow \bot \equiv \neg A; \quad A \Rightarrow \top \equiv \top; \quad \bot \Rightarrow A \equiv \top; \quad \top \Rightarrow A \equiv A$ \\
+					Kontraposition   & $A \Rightarrow B \equiv \neg B \Rightarrow \neg A$                                                                                                \\
+					Abtrennungsregel & $(A \wedge (A \Rightarrow B)) \Rightarrow B$                                                                                                      \\
+					Kettenschluss    & $((A \Rightarrow B) \wedge (B \Rightarrow C)) \Rightarrow (A \Rightarrow C)$
+				\end{tabular}
+
 			\item[Bikonditional] $A \Leftrightarrow B$ ''A genau dann, wenn B'', ''XNOR'', auch ''Aquivalenz'' $\equiv$ \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c | c || c}
 						A & B & $A \Leftrightarrow B$ \\ \hline\hline
-						0 & 0 & 1 \\ \hline
-						0 & 1 & 0 \\ \hline
-						1 & 0 & 0 \\ \hline
+						0 & 0 & 1                     \\ \hline
+						0 & 1 & 0                     \\ \hline
+						1 & 0 & 0                     \\ \hline
 						1 & 1 & 1
 					\end{tabular} &
 					\begin{tabular}[t]{ll}
-						Mathematisch: & $A \Leftrightarrow B = (A + B + 1)\bmod 2$ \\
-						Kommutativ: & $A \Leftrightarrow B \equiv B \Leftrightarrow A$ \\
-						Assoziativ: & $A \Leftrightarrow (B \Leftrightarrow C) \equiv (A \Leftrightarrow B) \Leftrightarrow C$ \\
-						$\neg$ Idempotent: & $A \Leftrightarrow A \equiv \top$ \\
+						Mathematisch:                          & $A \Leftrightarrow B = (A + B + 1)\bmod 2$                                               \\
+						Kommutativ:                            & $A \Leftrightarrow B \equiv B \Leftrightarrow A$                                         \\
+						Assoziativ:                            & $A \Leftrightarrow (B \Leftrightarrow C) \equiv (A \Leftrightarrow B) \Leftrightarrow C$ \\
+						$\neg$ Idempotent:                     & $A \Leftrightarrow A \equiv \top$                                                        \\
 						$A \Leftrightarrow \bot \equiv \neg A$ & $A \Leftrightarrow \top \equiv A$
 					\end{tabular} \\ \hline
 				\end{tabularx}
-		\end{description}	
+		\end{description}
 \end{description}
 
 \subsection{Terme}
-	\begin{description}
-		\item[Tautologie] Ein Term W heißt heißt Tautologie, wenn er nur den Wahrheitswert 1 hat.
-		\item[Äquivalenz] Zwei aussagenlogische Terme W und V heißen logisch äquivalent $$W \equiv V$$ wenn sie gleichen Wahrheitswert haben. Zwei Terme W und V sind genau dann logisch äquivalent, wenn der Term $W\Leftrightarrow V$ Tautologie ist.
+\begin{description}
+	\item[Tautologie] Ein Term W heißt heißt Tautologie, wenn er nur den Wahrheitswert 1 hat.
+	\item[Äquivalenz] Zwei aussagenlogische Terme W und V heißen logisch äquivalent $$W \equiv V$$ wenn sie gleichen Wahrheitswert haben. Zwei Terme W und V sind genau dann logisch äquivalent, wenn der Term $W\Leftrightarrow V$ Tautologie ist.
 	\item[Klammern] Regeln:
-			\begin{itemize}
-				\item Außenklammern können weggelassen werden
-				\item Die stärke der Zeichen ist konventionell: $\neg > \wedge > \vee$. D.h.:
-					$$\neg A \vee B \wedge C \equiv (\neg A) \vee (B \wedge C)$$
-				\item $\wedge$ und $\vee$ sind distributiv zueinander:
-					$$A \wedge (A \vee B) \equiv (A \wedge B) \vee (A \wedge C)$$
-					$$A \vee (A \wedge B) \equiv (A \vee B) \wedge (A \vee C)$$
-				\item $\wedge$ ist distributiv über $\dot{\vee}$:
-					$$A \wedge (B \dot{\vee} C) \equiv (A \wedge B) \dot{\vee} (A \wedge C)$$
-			\end{itemize}
-		\item[De-Morganische Gesetze] $$\overline{A \wedge B} \equiv \overline{A} \vee \overline{B}$$ $$\overline{A \vee B} \equiv \overline{A} \wedge \overline{B}$$
-	\end{description}
+		\begin{itemize}
+			\item Außenklammern können weggelassen werden
+			\item Die stärke der Zeichen ist konventionell: $\neg > \wedge > \vee$. D.h.:
+			      $$\neg A \vee B \wedge C \equiv (\neg A) \vee (B \wedge C)$$
+			\item $\wedge$ und $\vee$ sind distributiv zueinander:
+			      $$A \wedge (A \vee B) \equiv (A \wedge B) \vee (A \wedge C)$$
+			      $$A \vee (A \wedge B) \equiv (A \vee B) \wedge (A \vee C)$$
+			\item $\wedge$ ist distributiv über $\dot{\vee}$:
+			      $$A \wedge (B \dot{\vee} C) \equiv (A \wedge B) \dot{\vee} (A \wedge C)$$
+		\end{itemize}
+	\item[De-Morganische Gesetze] $$\overline{A \wedge B} \equiv \overline{A} \vee \overline{B}$$ $$\overline{A \vee B} \equiv \overline{A} \wedge \overline{B}$$
+\end{description}
 
 \subsection{Beweise}
-	\begin{description}
-		\item[Aussageform] Haben die Form einer Aussage, enthalte aber Variablen.
+\begin{description}
+	\item[Aussageform] Haben die Form einer Aussage, enthalte aber Variablen.
 		$$3 + x = 5;\ A(x);\ B(x;y)$$
 		\begin{itemize}
 			\item werden zu Aussagen, wenn die Variablen belegt werden. Für die Variablen ist ein eingrenzender Grundbereich vorzugeben. Z.B.: $x \in \mathbb{N}$
 			\item Wie Aussagen kann man Aussageformen miteinander Verknüpfen (mit Junktoren) und man erhält neue Aussageformen
 		\end{itemize}
-		
-		\item[Quantoren] Außer der Belegung der Variablen mit Werten gibt es noch andere Möglichkeiten aus einer Aussageform eine Aussage zu machen. Ein Grundbereich $M$ muss vorgegeben sein.
-		
+
+	\item[Quantoren] Außer der Belegung der Variablen mit Werten gibt es noch andere Möglichkeiten aus einer Aussageform eine Aussage zu machen. Ein Grundbereich $M$ muss vorgegeben sein.
+
 		''Für alle x aus $M$ gilt A(x)'' \newline
 		Für alle $x \in \mathbb{N}$ gilt $3 + x = 5$ (falsche Aussage) kurz mit Allquantor $\forall$ :
 		$$(\forall x \in \mathbb{N})\ 3 + x = 5$$
-		
-		''Es existiert ein x aus $M$ mit A(x)'' \newline 
+
+		''Es existiert ein x aus $M$ mit A(x)'' \newline
 		Es existiert (mindestens) ein $x \in \mathbb{N}$ mit $3 + x = 5$ (wahre Aussage) kurz mit Existenzquantor $\exists$ :
 		$$(\exists x \in M)\ 3 + x = 5$$
-		
+
 		''Es existiert höchsten ein x aus $M$ mit A(x)''
 		$$(\forall x)(\forall y)\ (A(x) \wedge A(y) \Rightarrow x = y)$$
-		
+
 		''Es existiert genau ein x aus $M$ mit A(x)''
 		$$(\exists ! x) A(x) \equiv ((\exists x) A(x)) \wedge ((\forall x)(\forall y)\ (A(x) \wedge A(y) \Rightarrow x = y))$$
-	\end{description}
+\end{description}
 
 \section{Mengenlehre}
 \subsection{Begriffe}
 Georg Cantor (1845-1918)
-	\begin{description}
-		\item[Cantors naive Mengendefinition] Unter einer Menge verstehen wir eine Zusammenfassung von wohldefinierten Objekten $m$ unserer Anschauung oder unseres Denkens welche die Elemente von $M$ genannt werden, zu einem einheitlichen Ganzen.
-		\item[Schreibweise]\ 
-			\begin{itemize}
-				\item $m \in M$ ($m$ ist Element von $M$)
-				\item $m \not\in M$ ($m$ ist nicht Element von $M$, $\neg\ m \in M$)
-			\end{itemize}
-		\item[Mengendarstellung] verschiedene Möglichkeiten:
-			\begin{itemize}
-				\item allgemein mitels Eigenschaft $E(m)$ (Aussageform) $A=\lbrace m|E(m) \rbrace$ bzw.
-					$$A = \lbrace m \in M | E(m) \rbrace = \lbrace m | m \in M \wedge E(m) \rbrace$$
-				\item explizit für Menge mit wenigen endlich vielen Elementen:
-					 $$A=\lbrace a, b, c\rbrace$$
-			\end{itemize}
-		\item[Problem] Man darf nicht alle möglichen Zusammenfassungen bilden. Z.B.: die Menge aller Mengen die sich nicht selbst enthalten:
-			$$R=\lbrace M | M \not \in M \rbrace$$
-			$$R \in R \Leftrightarrow R \not \in R \equiv \bot$$
-		\item[Lösung] Axiomatischer Aufbau der Mengenlehre
-			\begin{description}
-				\item[Extensionalitätsaxiom] Zwei Mengen A und B sind genau dann gleich, wenn sie die selben Elemente haben:
-					$$A = B \Leftrightarrow (\forall x)(x \in A \Leftrightarrow x \in B)$$
-				\item[Leere Menge] $\emptyset = \lbrace x | x \not = x\rbrace = \lbrace\rbrace$
-				\item[Einermenge] $A=\lbrace a \rbrace$, $A = \lbrace x | x = a \rbrace$, $A \not = a$
-				\item[Zweiermenge] $A=\lbrace a; b \rbrace$, $A = \lbrace x|(x=a \vee x=b) \wedge a \not = b \rbrace$
-				\item[andere Mengen] \ 
-					\begin{itemize}
-						\item $\mathbb{N} = \lbrace 0;1;2;3;\dots \rbrace$ natürliche Zahlen
-						\item $\mathbb{Z} = \lbrace \dots; (-1);0;1;\dots \rbrace$ ganze Zahlen
-						\item $\mathbb{Q}$ rationale Zahlen
-						\item $\mathbb{R}$ reelle Zahlen
-						\item $\mathbb{C}$ komplexe Zahlen
-					\end{itemize}
-			\end{description}
-		\item[Betrag] Anzahl der Elemente in der Menge (bei endlichen Mengen)
-		\item[Teilmenge] $A \subseteq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B)$
-			$$A \subseteq B \wedge B \subseteq C \Rightarrow A \subseteq C$$
-			$$A \subseteq B \wedge B \subseteq A \Rightarrow A = B$$
-		\item[Echte Teilmenge] $A \subset B$ oder $A \subsetneqq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B) \wedge A \not = B $
-		\item[disjunkt] Die Mengen $A$ und $B$ heißen disjunkt (elementfremd) wenn: $A \cap B = \emptyset$
-		\item[Kardinalität] Mächtigkeit
-			\begin{description}
-				\item[gleichmächtig] Zwei Mengen $A;B$ heißen gleich mächtig, wenn es eine bijektive Funktion $f : A \longrightarrow B$ gibt.
-					$$A \sim B \Leftrightarrow (\exists f : A \longrightarrow B)$$
-					$$A \sim B \wedge B \sim C \Rightarrow A \sim C$$
-				\item[endlich] Menge $A$ heißt endlich, wenn $|A| \in \mathbb{N}$
-				\item[abzählbar unendlich ] Eine Menge $A$ heißt abzählbar unendlich, wenn $$\mathbb{N} \sim A \wedge \exists f : \mathbb{N} \longrightarrow A\ \textrm{(bijektiv)}$$
-				\item[nicht abzählbar unendlich] Meine Menge heißt nicht abzählbar unendlich, wenn sie weder endlich noch abzählbar unendlich ist.
+\begin{description}
+	\item[Cantors naive Mengendefinition] Unter einer Menge verstehen wir eine Zusammenfassung von wohldefinierten Objekten $m$ unserer Anschauung oder unseres Denkens welche die Elemente von $M$ genannt werden, zu einem einheitlichen Ganzen.
+		\item[Schreibweise]\
+		\begin{itemize}
+			\item $m \in M$ ($m$ ist Element von $M$)
+			\item $m \not\in M$ ($m$ ist nicht Element von $M$, $\neg\ m \in M$)
+		\end{itemize}
+	\item[Mengendarstellung] verschiedene Möglichkeiten:
+		\begin{itemize}
+			\item allgemein mitels Eigenschaft $E(m)$ (Aussageform) $A=\lbrace m|E(m) \rbrace$ bzw.
+			      $$A = \lbrace m \in M | E(m) \rbrace = \lbrace m | m \in M \wedge E(m) \rbrace$$
+			\item explizit für Menge mit wenigen endlich vielen Elementen:
+			      $$A=\lbrace a, b, c\rbrace$$
+		\end{itemize}
+	\item[Problem] Man darf nicht alle möglichen Zusammenfassungen bilden. Z.B.: die Menge aller Mengen die sich nicht selbst enthalten:
+		$$R=\lbrace M | M \not \in M \rbrace$$
+		$$R \in R \Leftrightarrow R \not \in R \equiv \bot$$
+	\item[Lösung] Axiomatischer Aufbau der Mengenlehre
+		\begin{description}
+			\item[Extensionalitätsaxiom] Zwei Mengen A und B sind genau dann gleich, wenn sie die selben Elemente haben:
+				$$A = B \Leftrightarrow (\forall x)(x \in A \Leftrightarrow x \in B)$$
+			\item[Leere Menge] $\emptyset = \lbrace x | x \not = x\rbrace = \lbrace\rbrace$
+			\item[Einermenge] $A=\lbrace a \rbrace$, $A = \lbrace x | x = a \rbrace$, $A \not = a$
+			\item[Zweiermenge] $A=\lbrace a; b \rbrace$, $A = \lbrace x|(x=a \vee x=b) \wedge a \not = b \rbrace$
+			\item[andere Mengen] \
+				\begin{itemize}
+					\item $\mathbb{N} = \lbrace 0;1;2;3;\dots \rbrace$ natürliche Zahlen
+					\item $\mathbb{Z} = \lbrace \dots; (-1);0;1;\dots \rbrace$ ganze Zahlen
+					\item $\mathbb{Q}$ rationale Zahlen
+					\item $\mathbb{R}$ reelle Zahlen
+					\item $\mathbb{C}$ komplexe Zahlen
+				\end{itemize}
+		\end{description}
+	\item[Betrag] Anzahl der Elemente in der Menge (bei endlichen Mengen)
+	\item[Teilmenge] $A \subseteq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B)$
+		$$A \subseteq B \wedge B \subseteq C \Rightarrow A \subseteq C$$
+		$$A \subseteq B \wedge B \subseteq A \Rightarrow A = B$$
+	\item[Echte Teilmenge] $A \subset B$ oder $A \subsetneqq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B) \wedge A \not = B $
+	\item[disjunkt] Die Mengen $A$ und $B$ heißen disjunkt (elementfremd) wenn: $A \cap B = \emptyset$
+	\item[Kardinalität] Mächtigkeit
+		\begin{description}
+			\item[gleichmächtig] Zwei Mengen $A;B$ heißen gleich mächtig, wenn es eine bijektive Funktion $f : A \longrightarrow B$ gibt.
+				$$A \sim B \Leftrightarrow (\exists f : A \longrightarrow B)$$
+				$$A \sim B \wedge B \sim C \Rightarrow A \sim C$$
+			\item[endlich] Menge $A$ heißt endlich, wenn $|A| \in \mathbb{N}$
+			\item[abzählbar unendlich ] Eine Menge $A$ heißt abzählbar unendlich, wenn $$\mathbb{N} \sim A \wedge \exists f : \mathbb{N} \longrightarrow A\ \textrm{(bijektiv)}$$
+			\item[nicht abzählbar unendlich] Meine Menge heißt nicht abzählbar unendlich, wenn sie weder endlich noch abzählbar unendlich ist.
 				\item[Potenzmengen]$M \not \sim \mathcal{P}(M)$\\ Beweis:
-					Angenommen es gäbe eine bijektive Funktion $f : A \longrightarrow \mathcal{P}(M)$ und
-						$$A = \lbrace x \in M | x \not \in f(x) \rbrace \subset M$$
-						Wir nehmen an dass $(\exists x \in M)\ f(x) = A$
-						\begin{itemize}
-							\item wenn $x \in f(x) $ dann $x \not \in A$ wegen $x \not \in f(x)$. Widerspruch da: $x \not \in A = x \not \in f(x)$
-							\item wenn $x \not \in f(x)$ dann $x \in A$ wegen $x \in M$. Widerspruch da: $x \not \in A = x \not \in f(x)$ 
-						\end{itemize}
-			\end{description}			 
-	\end{description}
-	
+				Angenommen es gäbe eine bijektive Funktion $f : A \longrightarrow \mathcal{P}(M)$ und
+				$$A = \lbrace x \in M | x \not \in f(x) \rbrace \subset M$$
+				Wir nehmen an dass $(\exists x \in M)\ f(x) = A$
+				\begin{itemize}
+					\item wenn $x \in f(x) $ dann $x \not \in A$ wegen $x \not \in f(x)$. Widerspruch da: $x \not \in A = x \not \in f(x)$
+					\item wenn $x \not \in f(x)$ dann $x \in A$ wegen $x \in M$. Widerspruch da: $x \not \in A = x \not \in f(x)$
+				\end{itemize}
+		\end{description}
+\end{description}
+
 \subsection{Operationen auf Mengen}
-	\begin{description}
-		\item[Vereinigung] $A \cup B = \lbrace x | x \in A \vee x \in B \rbrace$ \\
-			\begin{tabular}{l|l|l}
-				\adjustbox{valign = t}{
+\begin{description}
+	\item[Vereinigung] $A \cup B = \lbrace x | x \in A \vee x \in B \rbrace$ \\
+		\begin{tabular}{l|l|l}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 2cm, fill=red}]
 					\node [set, label={90:$A$}] (A) at (-0.5,0) {};
 					\node [set, label={90:$B$}] (B) at (0.5,0) {};
 					\draw (-0.5,0) circle(1);
 					\draw (0.5,0) circle(1);
 				\end{tikzpicture}
-				} &
-				\adjustbox{valign = t}{
-				\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 2cm, draw = black, fill=red}]
+			}                                                               &
+			\adjustbox{valign = t}{
+			\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 2cm, draw = black, fill=red}]
 					\node [set, label={90:$A$}] (A) at (-1.1,0) {};
 					\node [set, label={90:$B$}] (B) at (1.1,0) {};
-				\end{tikzpicture}} &	
-				$\begin{array}{r c l}
-					|A \cup B| & = & |A| + |B \setminus A| \\
-              		 & = & |B| + |A \setminus B|
-				\end{array}$
-			\end{tabular}
-		\item[Durchschnitt] $A \cap B := \lbrace x | x \in A \wedge x \in B \rbrace$ \\
-			\begin{tabular}{l|l|l}
-				\adjustbox{valign = t}{
+				\end{tikzpicture}} &
+			$\begin{array}{r c l}
+					 |A \cup B| & = & |A| + |B \setminus A| \\
+					            & = & |B| + |A \setminus B|
+				 \end{array}$
+		\end{tabular}
+	\item[Durchschnitt] $A \cap B := \lbrace x | x \in A \wedge x \in B \rbrace$ \\
+		\begin{tabular}{l|l|l}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 2cm, draw = black}]
 					\begin{scope}
 						\clip (-0.5,0) circle(1);
@@ -295,21 +295,21 @@ Georg Cantor (1845-1918)
 					\node [set, label={90:$A$}] (A) at (-0.5,0) {};
 					\node [set, label={90:$B$}] (B) at (0.5,0) {};
 				\end{tikzpicture}
-				} &
-				\adjustbox{valign = t}{
+			} &
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 2cm, draw = black}]
 					\node [set, label={90:$A$}] (A) at (-1.1,0) {};
 					\node [set, label={90:$B$}] (B) at (1.1,0) {};
 				\end{tikzpicture}
-				} &
-				$\begin{array}{r c l}
-					|A \cap B| & = & |A| - |A \setminus B| \\
-              		 & = & |B| - |B \setminus A|
-				\end{array}$
-			\end{tabular}
-		\item[Mengendifferenz] $A \setminus B = \lbrace x | x \in A \wedge x \not \in B \rbrace$ \\
-			\begin{tabular}{l|l|l}
-				\adjustbox{valign = t}{
+			} &
+			$\begin{array}{r c l}
+					 |A \cap B| & = & |A| - |A \setminus B| \\
+					            & = & |B| - |B \setminus A|
+				 \end{array}$
+		\end{tabular}
+	\item[Mengendifferenz] $A \setminus B = \lbrace x | x \in A \wedge x \not \in B \rbrace$ \\
+		\begin{tabular}{l|l|l}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 2cm, draw = black}]
 					\begin{scope} [even odd rule]
 						\clip (-0.5,0) circle(1) (0.5,0) circle(1);1
@@ -318,80 +318,80 @@ Georg Cantor (1845-1918)
 					\node [set, label={90:$A$}] (A) at (-0.5,0) {};
 					\node [set, label={90:$B$}] (B) at (0.5,0) {};
 				\end{tikzpicture}
-				} &
-				\adjustbox{valign = t}{
+			} &
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[baseline=(current bounding box.north), thick, set/.style = {circle, minimum size = 2cm, draw = black}]
 					\node [set, fill = red, label={90:$A$}] (A) at (-1.1,0) {};
 					\node [set, label={90:$B$}] (B) at (1.1,0) {};
 				\end{tikzpicture}
-				} &
-			\end{tabular}
-		\item[symmetrische Differenz] $A \Delta B = (A \setminus B) \cup (B \setminus A)$ \\
-			\begin{tabular}{l|l|l}
-				\adjustbox{valign = t}{
+			} &
+		\end{tabular}
+	\item[symmetrische Differenz] $A \Delta B = (A \setminus B) \cup (B \setminus A)$ \\
+		\begin{tabular}{l|l|l}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 2cm, draw = black}]
 					\fill [even odd rule, red] (-0.5,0) circle (1) (0.5,0) circle (1);
 					\node [set, label={90:$A$}] (A) at (-0.5,0) {};
 					\node [set, label={90:$B$}] (B) at (0.5,0) {};
 				\end{tikzpicture}
-				} &
-				\adjustbox{valign = t}{
+			} &
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[baseline=(current bounding box.north), thick, set/.style = {circle, minimum size = 2cm, draw = black, fill = red}]
 					\node [set, label={90:$A$}] (A) at (-1.1,0) {};
 					\node [set, label={90:$B$}] (B) at (1.1,0) {};
 				\end{tikzpicture}
-				} & 
-				$|A \Delta B| = |A \setminus B| + |B \setminus A|$
-			\end{tabular}
-			
-		
-		\item[Potenzmengen] $\mathcal{P}(A) \coloneqq \lbrace B|B \subseteq A \rbrace;\ |\mathcal{P}(A)| = 2^{|A|}$
-		
-		\item[ungeordnets Paar] $\lbrace a,b \rbrace = \lbrace c,d \rbrace \Rightarrow (a=c \wedge b=d) \vee (a=d \wedge b=c)$
-		
-		\item[geordnetes Paar] $\lbrace a,b \rbrace = \lbrace c,d \rbrace \Rightarrow a=c \wedge b=d$ (Das geht!)
-			
-		\item[Mengenprodukt] $A \times B = \lbrace (a,b)|a \in A \wedge b \in B \rbrace$ (nicht Kommutativ, (strenggenommen) nicht assoziativ)
-			\begin{align*}
-				(A \times B) \times C &\not = A \times (B \times C) \\
-				((a,b),c) &\not = (a,(b,c))
-			\end{align*}
-			Gegeben sein
-			$$A = \lbrace 1, 2 \rbrace$$
-			$$B = \lbrace a, b, c \rbrace$$
-			dann ist:
-			$$A \times B = \lbrace (1,a),(2,a)(1,b)(2,b),(1,c)(2,c) \rbrace$$ \\
-			$|A \times B| = |A| \cdot |B|$
-	\end{description}
+			} &
+			$|A \Delta B| = |A \setminus B| + |B \setminus A|$
+		\end{tabular}
+
+
+	\item[Potenzmengen] $\mathcal{P}(A) \coloneqq \lbrace B|B \subseteq A \rbrace;\ |\mathcal{P}(A)| = 2^{|A|}$
+
+	\item[ungeordnets Paar] $\lbrace a,b \rbrace = \lbrace c,d \rbrace \Rightarrow (a=c \wedge b=d) \vee (a=d \wedge b=c)$
+
+	\item[geordnetes Paar] $\lbrace a,b \rbrace = \lbrace c,d \rbrace \Rightarrow a=c \wedge b=d$ (Das geht!)
+
+	\item[Mengenprodukt] $A \times B = \lbrace (a,b)|a \in A \wedge b \in B \rbrace$ (nicht Kommutativ, (strenggenommen) nicht assoziativ)
+		\begin{align*}
+			(A \times B) \times C & \not = A \times (B \times C) \\
+			((a,b),c)             & \not = (a,(b,c))
+		\end{align*}
+		Gegeben sein
+		$$A = \lbrace 1, 2 \rbrace$$
+		$$B = \lbrace a, b, c \rbrace$$
+		dann ist:
+		$$A \times B = \lbrace (1,a),(2,a)(1,b)(2,b),(1,c)(2,c) \rbrace$$ \\
+		$|A \times B| = |A| \cdot |B|$
+\end{description}
 
 \section{Funktionen}
 Funktionen sind im wesentlich Zuordnungen.
 
 \subsection{Begriffe}
-	\begin{description}
-		\item[Definition] Zur Definition einer Funktion $f$ braucht man drei Dinge
-			\begin{itemize}
-				\item Menge $A$, der Definitionsbereich von $f$, $A = D_f$
-				\item Menge $B$, der Wertevorrat von $f$, $B = W_f$
-				\item Eine Zuordnung, die jedem $a \in A$ genau ein Element $b \in B$ zuordnet \\
-					Schreibweise: $b = f(a)$ bzw. $a \longmapsto f(a)$ \\
-					Mathematisch wird diese Zuordnung gegeben durch eine Menge von geordneten Paaren
-					$$\textrm{Graph}(f) = \lbrace(a,f(a)) | a \in A \rbrace \subseteq A \times B$$
-					mit den Eigenschaften:
-					\begin{itemize}
-						\item $(\forall a \in A)(\exists b \in B)\ (a;b) \in \textrm{Graph}(f)$ (Vollständigkeit)
-						\item $(\forall a \in A)(\forall b_1,b_2 \in B)\ (a;b_1);(a;b_2) \in \textrm{Graph}(f)\Rightarrow b_1 = b_2$ (Eindeutigkeit)
-					\end{itemize}
-			\end{itemize}
-		\item[Schreibweise]
-			\begin{alignat*}{3}
-				f :\ &A \longrightarrow &&B \quad , \quad a &&\longmapsto f(a) = \cdots \\
-				&D_f &&W_v && \textrm{Graph}
-			\end{alignat*}
-		\item[Bild] Die Menge aller Funktionswerte von $f$. $\lbrace f(a) | a \in A \rbrace = \lbrace b \in B  | (\exists a \in A) b = f(a) \rbrace \subseteq B$ 
-		\item[surjektiv] $(\forall b \in B)(\exists a \in A) \ f(a) = b$ \\
-			\begin{tabularx}{\linewidth}{l|X}
-				\adjustbox{valign = t}{
+\begin{description}
+	\item[Definition] Zur Definition einer Funktion $f$ braucht man drei Dinge
+		\begin{itemize}
+			\item Menge $A$, der Definitionsbereich von $f$, $A = D_f$
+			\item Menge $B$, der Wertevorrat von $f$, $B = W_f$
+			\item Eine Zuordnung, die jedem $a \in A$ genau ein Element $b \in B$ zuordnet \\
+			      Schreibweise: $b = f(a)$ bzw. $a \longmapsto f(a)$ \\
+			      Mathematisch wird diese Zuordnung gegeben durch eine Menge von geordneten Paaren
+			      $$\textrm{Graph}(f) = \lbrace(a,f(a)) | a \in A \rbrace \subseteq A \times B$$
+			      mit den Eigenschaften:
+			      \begin{itemize}
+				      \item $(\forall a \in A)(\exists b \in B)\ (a;b) \in \textrm{Graph}(f)$ (Vollständigkeit)
+				      \item $(\forall a \in A)(\forall b_1,b_2 \in B)\ (a;b_1);(a;b_2) \in \textrm{Graph}(f)\Rightarrow b_1 = b_2$ (Eindeutigkeit)
+			      \end{itemize}
+		\end{itemize}
+	\item[Schreibweise]
+		\begin{alignat*}{3}
+			f :\  & A \longrightarrow &  & B \quad , \quad a &  & \longmapsto f(a) = \cdots \\
+			      & D_f               &  & W_v               &  & \textrm{Graph}
+		\end{alignat*}
+	\item[Bild] Die Menge aller Funktionswerte von $f$. $\lbrace f(a) | a \in A \rbrace = \lbrace b \in B  | (\exists a \in A) b = f(a) \rbrace \subseteq B$
+	\item[surjektiv] $(\forall b \in B)(\exists a \in A) \ f(a) = b$ \\
+		\begin{tabularx}{\linewidth}{l|X}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {ellipse, minimum width = 2cm, minimum height = 4cm, draw = black, align = center}, element/.style = {circle, draw = black, minimum size = 0.7, outer sep = 0.05cm}]
 					\node [set, label={90:$A$}] (A) at (-1.5,0) {};
 					\node [set, label={90:$B$}] (B) at (1.5,0) {};
@@ -407,13 +407,13 @@ Funktionen sind im wesentlich Zuordnungen.
 					\draw [->] (3) to (C);
 					\draw [->] (4) to (C);
 				\end{tikzpicture}
-				} &
-				Für jedes Element in $B$ existiert (mindestens) ein Urbild in $A$. Für jede rein surjektive Abbildung gilt:
-					$$|A|>|B|$$ \\ \hline
-			\end{tabularx}
-		\item[injektiv] $(\forall a_1,a_2 \in A) (a_1 \not = a_2 \Rightarrow f(a_1) \not = f(a_2))$ \\
-			\begin{tabularx}{\linewidth}{l|X}
-				\adjustbox{valign = t}{
+			} &
+			Für jedes Element in $B$ existiert (mindestens) ein Urbild in $A$. Für jede rein surjektive Abbildung gilt:
+			$$|A|>|B|$$ \\ \hline
+		\end{tabularx}
+	\item[injektiv] $(\forall a_1,a_2 \in A) (a_1 \not = a_2 \Rightarrow f(a_1) \not = f(a_2))$ \\
+		\begin{tabularx}{\linewidth}{l|X}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {ellipse, minimum width = 2cm, minimum height = 4cm, draw = black, align = center}, element/.style = {circle, draw = black, minimum size = 0.7, outer sep = 0.05cm}]
 					\node [set, label={90:$A$}] (A) at (-1.5,0) {};
 					\node [set, label={90:$B$}] (B) at (1.5,0) {};
@@ -428,13 +428,13 @@ Funktionen sind im wesentlich Zuordnungen.
 					\draw [->] (2) to (B);
 					\draw [->] (3) to (D);
 				\end{tikzpicture}
-				} &
-				Für jede zwei Elemente in $A$ gilt, dass wenn sie verschieden von einander sind, dann auch ihre Funktionswerte von $f$ verschieden sind. Also hat jedes Element in $B$ höchstens ein Urbild. Für jede rein injektive Abbildung gilt:
-					$$|A|<|B|$$ \\ \hline
-			\end{tabularx} 
-		\item[bijektiv]  surjektiv $\wedge$ injektiv: $(\forall b \in B)(\exists ! a \in A)\ f(a) = b$ \\
+			} &
+			Für jede zwei Elemente in $A$ gilt, dass wenn sie verschieden von einander sind, dann auch ihre Funktionswerte von $f$ verschieden sind. Also hat jedes Element in $B$ höchstens ein Urbild. Für jede rein injektive Abbildung gilt:
+			$$|A|<|B|$$ \\ \hline
+		\end{tabularx}
+	\item[bijektiv]  surjektiv $\wedge$ injektiv: $(\forall b \in B)(\exists ! a \in A)\ f(a) = b$ \\
 		\begin{tabularx}{\linewidth}{l|X}
-				\adjustbox{valign = t}{
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[thick, set/.style = {ellipse, minimum width = 2cm, minimum height = 4cm, draw = black, align = center}, element/.style = {circle, draw = black, minimum size = 0.7, outer sep = 0.05cm}]
 					\node [set, label={90:$A$}] (A) at (-1.5,0) {};
 					\node [set, label={90:$B$}] (B) at (1.5,0) {};
@@ -451,33 +451,33 @@ Funktionen sind im wesentlich Zuordnungen.
 					\draw [->] (3) to (C);
 					\draw [->] (4) to (D);
 				\end{tikzpicture}
-				} &
-				Für jedes Element in $B$ existiert genau ein Urbild in $A$. Für jede bijektive Abbildung gilt:
-					$$|A|=|B|$$ \\ \hline
-			\end{tabularx}
-		\item[Identitätsfunktion] $id_A : A \longrightarrow A , a \longmapsto a$ z.B. $f(x) = x$
-		\item[Komposition] $f : A \longrightarrow B;\ g : B \longrightarrow C$
-			$$(g \circ f) : A \longrightarrow C, a \longmapsto g(f(a))$$
-			\begin{alignat*}{3}
-				f : A \longrightarrow B \Rightarrow &f &&= f \circ id_A &&= id_A \circ f \\
-				&f(a) &&= f(id_A(a)) &&= id_A(f(a))
-			\end{alignat*}		
-	\end{description}
+			} &
+			Für jedes Element in $B$ existiert genau ein Urbild in $A$. Für jede bijektive Abbildung gilt:
+			$$|A|=|B|$$ \\ \hline
+		\end{tabularx}
+	\item[Identitätsfunktion] $id_A : A \longrightarrow A , a \longmapsto a$ z.B. $f(x) = x$
+	\item[Komposition] $f : A \longrightarrow B;\ g : B \longrightarrow C$
+		$$(g \circ f) : A \longrightarrow C, a \longmapsto g(f(a))$$
+		\begin{alignat*}{3}
+			f : A \longrightarrow B \Rightarrow & f    &  & = f \circ id_A &  & = id_A \circ f \\
+			                                    & f(a) &  & = f(id_A(a))   &  & = id_A(f(a))
+		\end{alignat*}
+\end{description}
 
 \subsection{Umkehrfunktion}
-	\begin{description}
-		\item[Umkehrbarkeit] (im engeren sinne) $f : A \longrightarrow B$
-			$$\leftrightarrow (\exists g : B \longrightarrow A) g \circ f = id_A \wedge f \cdot g = id_B$$
-			$$(\forall a \in A)\ g(f(a)) = a$$
-			$$(\forall b \in B)\ f(g(b)) = b$$
-			Die Funktion $g : B \longrightarrow A$ heißt dann Umkehrfunktion von f, geschrieben $g = f^{-1}$.
-			$$f^{-1} \not = (f)^{-1}$$
-			Satz: Eine Funktion $f : A \longrightarrow B$ ist genau dann umkehrbar (i.e.s), wenn sie bijektiv ist.
-		\item[Umkehrbarkeit in der Analysis] Eine Funktion $f : A \longrightarrow B$ heißt Umkehrbar, wenn die zugehörige Funktion $f : A \longrightarrow \textrm{Bild}(f)$ umkehrbar ist.
-			Satz: Eine Funktion $f : A \longrightarrow B$ ist genau dann umkehrbar (i.w.s), wenn sie injektiv ist.
-		\item[Quadratische] $f : \mathbb{R} \longrightarrow \mathbb{R}, x \longmapsto x^2$ \\
-			\begin{tabularx}{\linewidth}{l X}
-				\adjustbox{valign = t}{
+\begin{description}
+	\item[Umkehrbarkeit] (im engeren sinne) $f : A \longrightarrow B$
+		$$\leftrightarrow (\exists g : B \longrightarrow A) g \circ f = id_A \wedge f \cdot g = id_B$$
+		$$(\forall a \in A)\ g(f(a)) = a$$
+		$$(\forall b \in B)\ f(g(b)) = b$$
+		Die Funktion $g : B \longrightarrow A$ heißt dann Umkehrfunktion von f, geschrieben $g = f^{-1}$.
+		$$f^{-1} \not = (f)^{-1}$$
+		Satz: Eine Funktion $f : A \longrightarrow B$ ist genau dann umkehrbar (i.e.s), wenn sie bijektiv ist.
+	\item[Umkehrbarkeit in der Analysis] Eine Funktion $f : A \longrightarrow B$ heißt Umkehrbar, wenn die zugehörige Funktion $f : A \longrightarrow \textrm{Bild}(f)$ umkehrbar ist.
+		Satz: Eine Funktion $f : A \longrightarrow B$ ist genau dann umkehrbar (i.w.s), wenn sie injektiv ist.
+	\item[Quadratische] $f : \mathbb{R} \longrightarrow \mathbb{R}, x \longmapsto x^2$ \\
+		\begin{tabularx}{\linewidth}{l X}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}
 					\draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
 					\draw[->] (0, -1) -- (0, 3) node[above] {$y$};
@@ -485,13 +485,13 @@ Funktionen sind im wesentlich Zuordnungen.
 					\draw[domain=-1:3, smooth, variable=\x, gray, dotted] plot (\x, \x);
 					\draw[domain=0:3, smooth, variable=\x, blue]  plot(\x, {\x^(0.5)});
 				\end{tikzpicture}
-				} &
-				$f^* : \mathbb{R}^+_0\longrightarrow \mathbb{R}^+_0$ (bijektiv) \newline
-				$f^{*-1} : \mathbb{R}_0^+ \longrightarrow \mathbb{R}_0^+, x \longmapsto \sqrt{x}$
-			\end{tabularx}
-		\item[Exponentialfunktion] $\exp_B : \mathbb{R} \longrightarrow \mathbb{R}^+, x \longmapsto B^x$ mit Basis $B > 1$\\
-			\begin{tabularx}{\linewidth}{l X}
-				\adjustbox{valign = t}{
+			} &
+			$f^* : \mathbb{R}^+_0\longrightarrow \mathbb{R}^+_0$ (bijektiv) \newline
+			$f^{*-1} : \mathbb{R}_0^+ \longrightarrow \mathbb{R}_0^+, x \longmapsto \sqrt{x}$
+		\end{tabularx}
+	\item[Exponentialfunktion] $\exp_B : \mathbb{R} \longrightarrow \mathbb{R}^+, x \longmapsto B^x$ mit Basis $B > 1$\\
+		\begin{tabularx}{\linewidth}{l X}
+			\adjustbox{valign = t}{
 				\begin{tikzpicture}[baseline]
 					\draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
 					\draw[->] (0, -3) -- (0, 3) node[above] {$y$};
@@ -499,165 +499,165 @@ Funktionen sind im wesentlich Zuordnungen.
 					\draw[domain=-3:3, smooth, variable=\x, gray, dotted] plot ({\x}, {\x});
 					\draw[domain=0.05:3, smooth, variable=\x, blue]  plot(\x,{ln((\x))});
 				\end{tikzpicture}
-				} &
-				$\exp_B^{-1}:\mathbb{R}_0^+ \longrightarrow \mathbb{R}, x \longmapsto \log_B(x)$
-			\end{tabularx}	
-	\end{description}
-	
+			} &
+			$\exp_B^{-1}:\mathbb{R}_0^+ \longrightarrow \mathbb{R}, x \longmapsto \log_B(x)$
+		\end{tabularx}
+\end{description}
+
 \section{Zahlen}
 
 \subsection{Sprachunterschiede}
-	\begin{tabular}{|l|l|l|} \hline
-		& deutsch & US-Englisch \\ \hline \hline
-		$10^6$ & Million & million \\ \hline
-		$10^9$ & Milliarde & billion \\ \hline
-		$10^{12}$ & Billion & trillion \\ \hline
-		$10^{15}$ & Billiarde & quadrillion \\ \hline
-		$10^{18}$ & Trillion & quintillion \\ \hline
-	\end{tabular}
+\begin{tabular}{|l|l|l|} \hline
+	          & deutsch   & US-Englisch \\ \hline \hline
+	$10^6$    & Million   & million     \\ \hline
+	$10^9$    & Milliarde & billion     \\ \hline
+	$10^{12}$ & Billion   & trillion    \\ \hline
+	$10^{15}$ & Billiarde & quadrillion \\ \hline
+	$10^{18}$ & Trillion  & quintillion \\ \hline
+\end{tabular}
 \subsection{natürliche Zahlen}
-	$\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
-	\begin{description}
-		\item[unendlichkeits Axiom] Es gibt unendliche Mengen
-		\item[Peano-Axiome] 5 Stück:
-			\begin{itemize}
-				\item $0 \in \mathbb{N}$, null ist eine natürliche Zahl
-				\item es gibt eine Nachfolgerfunktion $s : \mathbb{N} \longrightarrow \mathbb{N}$
-				\item $s$ ist injektiv
-				\item $0 \not \in \textrm{Bild}(s)$, Null ist nicht Nachfolger einer natürlichen Zahl
-				\item Für jede Menge $M \subseteq \mathbb{N}$ gilt:
-				$$(0 \in \mathbb{N} \wedge (\forall n \in \mathbb{N})(n \in M \Rightarrow s(n) \in M)) \Rightarrow M = \mathbb{N}$$
-				Modifikation: steht $M \subseteq \mathbb{N}$ kann man das auch als Eigenschaft $E_M(n)$ ausdrücken.
-				$$E_M(n) \Leftrightarrow n \in M$$
-			\end{itemize}
-		\item[Vollständige Induktion] am Beispiel für einen Beweis der Gaußschen Summenformel
-			\begin{description}
-				\item[Induktionsvoraussetzung] Die Annahme: $A(n) \Leftrightarrow 1 + 2 + \dots + n = \frac{n(n+1)}{2}$
-				\item[Induktionsanfang] Der Beweis, dass der Anfang gültig ist: $A(1) = 1$
-				\item[Induktionsbehauptung] Das Einsetzen von $(n + 1)$ für $n$:
-					$$A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1)= \frac{(n + 1)((n + 1)+1)}{2}$$
-				\item[Induktionsschritt] Zeigen, dass aus der Induktionsvoraussetzung
-					$$A(n) \Leftrightarrow 1 + \dots + n = \frac{n(n+1)}{2}$$
-					die Induktionsbehauptung
-					$$A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) = \frac{(n + 1)((n + 1)+1)}{2}$$
-					folgt. In diesem speziellen Fall:
-					\begin{align*}
-						A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) &= \frac{n(n + 1)}{2} + (n + 1) \\
-						&= \frac{n(n + 1) + 2(n + 1)}{2} \\
-						&= \frac{(n + 1)(n + 2)}{2} \\
-						&= \frac{(n + 1)((n + 1)+1)}{2}
-					\end{align*}
-			\end{description}
-		\item[Addition] $m \in \mathbb{N}; m$ fest
-			$$m+0\coloneqq m$$
-			$$m + s(n) \coloneqq s(m + n)$$
-			(rekursive (induktive) Definition für $m + n$)
-			$$m \cdot 0\coloneqq 0$$
-			$$m \cdot s(n) \coloneqq m + s(m + n)$$
-	\end{description}
+$\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
+\begin{description}
+	\item[unendlichkeits Axiom] Es gibt unendliche Mengen
+	\item[Peano-Axiome] 5 Stück:
+		\begin{itemize}
+			\item $0 \in \mathbb{N}$, null ist eine natürliche Zahl
+			\item es gibt eine Nachfolgerfunktion $s : \mathbb{N} \longrightarrow \mathbb{N}$
+			\item $s$ ist injektiv
+			\item $0 \not \in \textrm{Bild}(s)$, Null ist nicht Nachfolger einer natürlichen Zahl
+			\item Für jede Menge $M \subseteq \mathbb{N}$ gilt:
+			      $$(0 \in \mathbb{N} \wedge (\forall n \in \mathbb{N})(n \in M \Rightarrow s(n) \in M)) \Rightarrow M = \mathbb{N}$$
+			      Modifikation: steht $M \subseteq \mathbb{N}$ kann man das auch als Eigenschaft $E_M(n)$ ausdrücken.
+			      $$E_M(n) \Leftrightarrow n \in M$$
+		\end{itemize}
+	\item[Vollständige Induktion] am Beispiel für einen Beweis der Gaußschen Summenformel
+		\begin{description}
+			\item[Induktionsvoraussetzung] Die Annahme: $A(n) \Leftrightarrow 1 + 2 + \dots + n = \frac{n(n+1)}{2}$
+			\item[Induktionsanfang] Der Beweis, dass der Anfang gültig ist: $A(1) = 1$
+			\item[Induktionsbehauptung] Das Einsetzen von $(n + 1)$ für $n$:
+				$$A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1)= \frac{(n + 1)((n + 1)+1)}{2}$$
+			\item[Induktionsschritt] Zeigen, dass aus der Induktionsvoraussetzung
+				$$A(n) \Leftrightarrow 1 + \dots + n = \frac{n(n+1)}{2}$$
+				die Induktionsbehauptung
+				$$A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) = \frac{(n + 1)((n + 1)+1)}{2}$$
+				folgt. In diesem speziellen Fall:
+				\begin{align*}
+					A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) & = \frac{n(n + 1)}{2} + (n + 1)  \\
+					                                                 & = \frac{n(n + 1) + 2(n + 1)}{2} \\
+					                                                 & = \frac{(n + 1)(n + 2)}{2}      \\
+					                                                 & = \frac{(n + 1)((n + 1)+1)}{2}
+				\end{align*}
+		\end{description}
+	\item[Addition] $m \in \mathbb{N}; m$ fest
+		$$m+0\coloneqq m$$
+		$$m + s(n) \coloneqq s(m + n)$$
+		(rekursive (induktive) Definition für $m + n$)
+		$$m \cdot 0\coloneqq 0$$
+		$$m \cdot s(n) \coloneqq m + s(m + n)$$
+\end{description}
 
 \subsection{Ganze Zahlen}
-	\begin{description}
-		\item[Motivation] $\mathbb{Z} \coloneqq \lbrace 0, 1, -1, 2, -2 \dots \rbrace$ (abzählbar)\\
-			\begin{tabular}[t]{ll}
-				$x+1=0$ & ist nicht lösbar in $\mathbb{N}$ \\
-				$x+a=0$ & man nimmt zu jeder Zahl $a \in \mathbb{N}$ eine Gegenzahl $-a$
-			\end{tabular} \\
-			Lösung für $x+a=0$ (Ausnahme: $a=0$, denn $-0=0$)
-		\item[Operationen] $+; \ -; \ \cdot$
-		\item[spezielle Elemente] $0,\ 1$
-		\item[lineare Ordnung] $<;\ \leq;\ >;\ \geq$
-		\item[Gesetze] $(\forall a \in \mathbb{Z})$ gilt: \\
-			\begin{tabular}{l|c|c}
-				& Addition & Multiplikation \\ \hline
-				& $a+0 = a$ & $a \cdot 1 = a$ \\ \hline
-				Kommutativ & $a+b = b+a$ & $a \cdot b = b \cdot a $ \\ \hline
-				Assoziativ & $(a+b)+c = a+(b+c)$ & $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ \\ \hline
-				& $a+(-a) = 0$
-			\end{tabular} \\
-			Ring-Identitäten: $a \cdot (b + c) = a \cdot b + a \cdot c$
-		\item[Betrag] $|a| = \left\lbrace \begin{array}{rc} a & a \geq 0 \\ -a & a < 0\end{array} \right.$
-		\item[Division] Es sein $a;m \in \mathbb{Z}|m \geq 1$ dann gibt es $q \in \mathbb{Z}$ mit $a=q \cdot m + r$ und $0 \leq r < m$. $q;r$ sind eindeutig bestimmt
-	\end{description}
+\begin{description}
+	\item[Motivation] $\mathbb{Z} \coloneqq \lbrace 0, 1, -1, 2, -2 \dots \rbrace$ (abzählbar)\\
+		\begin{tabular}[t]{ll}
+			$x+1=0$ & ist nicht lösbar in $\mathbb{N}$                               \\
+			$x+a=0$ & man nimmt zu jeder Zahl $a \in \mathbb{N}$ eine Gegenzahl $-a$
+		\end{tabular} \\
+		Lösung für $x+a=0$ (Ausnahme: $a=0$, denn $-0=0$)
+	\item[Operationen] $+; \ -; \ \cdot$
+	\item[spezielle Elemente] $0,\ 1$
+	\item[lineare Ordnung] $<;\ \leq;\ >;\ \geq$
+	\item[Gesetze] $(\forall a \in \mathbb{Z})$ gilt: \\
+		\begin{tabular}{l|c|c}
+			           & Addition            & Multiplikation                              \\ \hline
+			           & $a+0 = a$           & $a \cdot 1 = a$                             \\ \hline
+			Kommutativ & $a+b = b+a$         & $a \cdot b = b \cdot a $                    \\ \hline
+			Assoziativ & $(a+b)+c = a+(b+c)$ & $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ \\ \hline
+			           & $a+(-a) = 0$
+		\end{tabular} \\
+		Ring-Identitäten: $a \cdot (b + c) = a \cdot b + a \cdot c$
+	\item[Betrag] $|a| = \left\lbrace \begin{array}{rc} a & a \geq 0 \\ -a & a < 0\end{array} \right.$
+	\item[Division] Es sein $a;m \in \mathbb{Z}|m \geq 1$ dann gibt es $q \in \mathbb{Z}$ mit $a=q \cdot m + r$ und $0 \leq r < m$. $q;r$ sind eindeutig bestimmt
+\end{description}
 
 \subsection{Primzahlen}
-	\begin{description}
-		\item[Teiler] $a;b \in \mathbb{Z}$\\
-			$a$ ist ein Teiler von $b$, geschrieben $a \mid c$, falls $(\exists c \in \mathbb{Z})\quad a \cdot c = b$\\
-			Jede ganze Zahl $b$ ist teilbar durch: 1, -1, b , -b. Diese heißen die trivialen Teiler von $b$. Eigenschaften: \\
-			$a \mid 0;\, a \mid 0$ \\
-			$a \mid b \wedge b \mid c \Rightarrow a \mid b$ \\
-			$a \mid b \Rightarrow a \mid (-b), (-a) \mid b, (-a) \mid (-b)$ \\
-			$a;b \geq 1 \wedge a \mid b \Rightarrow a \leq b$
-		\item[Primzahl] Eigenschaften:
-			\begin{itemize}
-				\item Eine ganze Zahl $p \in \mathbb{Z}$ heißt Primzahl, wenn $p \geq 2$ und $p$ nur triviale Teiler hat.
-				\item Jede ganze Zahl $b \geq 2$ hat mindesten einen Primitiver.
-				\item Es gibt unendlich viele Primzahlen. Beweis durch Widerspruch
-					$$|\mathbb{P}| \in \mathbb{N}$$
-					$n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P} = \lbrace p_1;p_2;p_3;\dots ; p_n \rbrace$. Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$. Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$. Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden. Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
-				\item Der kleinste Teiler einer Zahl $b \in \mathbb{N}|b \geq 2$ ist eine Primzahl.
-			\end{itemize}
-		\item[Fundamentalsatz der Arithmetik] Jede Zahl $b \geq 2$ lässt sich als Produktion von Primzahlen darstellen (Primfaktorisierung). Vorkommende Primzahlen und ihre Anzahl sind bis auf Reihenfolge eindeutig bestimmt.
-	\end{description}
+\begin{description}
+	\item[Teiler] $a;b \in \mathbb{Z}$\\
+		$a$ ist ein Teiler von $b$, geschrieben $a \mid c$, falls $(\exists c \in \mathbb{Z})\quad a \cdot c = b$\\
+		Jede ganze Zahl $b$ ist teilbar durch: 1, -1, b , -b. Diese heißen die trivialen Teiler von $b$. Eigenschaften: \\
+		$a \mid 0;\, a \mid 0$ \\
+		$a \mid b \wedge b \mid c \Rightarrow a \mid b$ \\
+		$a \mid b \Rightarrow a \mid (-b), (-a) \mid b, (-a) \mid (-b)$ \\
+		$a;b \geq 1 \wedge a \mid b \Rightarrow a \leq b$
+	\item[Primzahl] Eigenschaften:
+		\begin{itemize}
+			\item Eine ganze Zahl $p \in \mathbb{Z}$ heißt Primzahl, wenn $p \geq 2$ und $p$ nur triviale Teiler hat.
+			\item Jede ganze Zahl $b \geq 2$ hat mindesten einen Primitiver.
+			\item Es gibt unendlich viele Primzahlen. Beweis durch Widerspruch
+			      $$|\mathbb{P}| \in \mathbb{N}$$
+			      $n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P} = \lbrace p_1;p_2;p_3;\dots ; p_n \rbrace$. Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$. Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$. Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden. Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
+			\item Der kleinste Teiler einer Zahl $b \in \mathbb{N}|b \geq 2$ ist eine Primzahl.
+		\end{itemize}
+	\item[Fundamentalsatz der Arithmetik] Jede Zahl $b \geq 2$ lässt sich als Produktion von Primzahlen darstellen (Primfaktorisierung). Vorkommende Primzahlen und ihre Anzahl sind bis auf Reihenfolge eindeutig bestimmt.
+\end{description}
 \subsection{Teilbarkeit}
 $a \in \mathbb{Z},\ a \geq 2,\ a=(z_{n-1}z_{n-2} \dots z_1z_0)$ \\
 \begin{tabular}{rcl}
-	2 & $\Leftrightarrow$ & $z_0$ gerade \\
-	3 & $\Leftrightarrow$ & Quersumme durch 3 teilbar \\
-	4 & $\Leftrightarrow$ & $(z_1z_0)_{10}$ durch 4 teilbar \\
-	5 & $\Leftrightarrow$ & $z_0 \in \lbrace 0; 1 \rbrace$ \\
-	6 & $\Leftrightarrow$ & durch 2 und 3 teilbar \\
-	7 & $\Leftrightarrow$ & ... \\
-	8 & $\Leftrightarrow$ & $(z_2z_1z_0)_{(10)}$ durch 8 teilbar \\
-	9 & $\Leftrightarrow$ & quersumme durch 9 teilbar \\
+	2  & $\Leftrightarrow$ & $z_0$ gerade                         \\
+	3  & $\Leftrightarrow$ & Quersumme durch 3 teilbar            \\
+	4  & $\Leftrightarrow$ & $(z_1z_0)_{10}$ durch 4 teilbar      \\
+	5  & $\Leftrightarrow$ & $z_0 \in \lbrace 0; 1 \rbrace$       \\
+	6  & $\Leftrightarrow$ & durch 2 und 3 teilbar                \\
+	7  & $\Leftrightarrow$ & ...                                  \\
+	8  & $\Leftrightarrow$ & $(z_2z_1z_0)_{(10)}$ durch 8 teilbar \\
+	9  & $\Leftrightarrow$ & quersumme durch 9 teilbar            \\
 	10 & $\Leftrightarrow$ & durch 2 und 5 teilbar bzw. $z_0=0$
 \end{tabular}
 
 \subsection{Additionssysteme}
-	''Strichliste (mit Abkürzungen)'' \\
-	Z.B.: $5 = ||||| = \cancel{||||}$ oder römische Ziffern: \\
-	\begin{tabular}[t]{|c|c|c|c|c|c|c|c|} \hline
-		Großbuchstaben & \rom{1} & \rom{5} & \rom{10} & \rom{50} & \rom{100} & \rom{500} & \rom{1000} \\ \hline
-		Wert & 1 & 5 & 10 & 50 & 100 & 500 & 1000 \\ \hline
-	\end{tabular}
-	
+''Strichliste (mit Abkürzungen)'' \\
+Z.B.: $5 = ||||| = \cancel{||||}$ oder römische Ziffern: \\
+\begin{tabular}[t]{|c|c|c|c|c|c|c|c|} \hline
+	Großbuchstaben & \rom{1} & \rom{5} & \rom{10} & \rom{50} & \rom{100} & \rom{500} & \rom{1000} \\ \hline
+	Wert           & 1       & 5       & 10       & 50       & 100       & 500       & 1000       \\ \hline
+\end{tabular}
+
 \subsection{Positionssysteme}
-	\begin{itemize}
-		\item Basis $B$, $B \in \mathbb{N}$, $B>=2$
-		\item Ziffern für $0$ bis $B-1$. Jede Ziffer ein Zeichen.
-		\item Zahl $= \dots z_2B^2+z_1B^1+z_0B^0+z_{-1}B^{-1} \dots$
-	\end{itemize}
-	
-	\subsubsection{Umrechnung}
-		\begin{description}
-			\item[Polynom] $(z_{n-1}B^{n-1}z_{n-2}B^{n-2} \dots z_1B^{1}z_0B^{0})_{(B)}$
-			\item[zu kleinere Basis] Fortgesetzte ganzzahlige Division mit Rest
-				$217_{(10)}$ zur Basis 3 \\
-				\begin{tabular}{r c}
-					217 & 1 \\
-					72 & 0 \\
-					24 & 0 \\
-					8 & 2 \\
-					2 & 2 \\
-					0 & 0
-				\end{tabular} $217_{(10)} = 22001_{(3)}$
-			\item[zu größerer Basis] mit Horner-Schema zum Dezimalsystem:
-			
-				\begin{tabular}{|c||c|c|c|c|c|} \hline
-					Ziffern & 2 & 2 & 0 & 0 & 1 \\ \hline \hline
-					$B=3$ & 0 & 6 & 24 & 72 & 216 \\ \hline
-					& 2 & 8 & 24 & 72 & 217 \\ \hline
-				\end{tabular} Addition $\downarrow$ dann Multiplikation $\nearrow$ mit $B$
-				
-				Wenn die Zielbasis eine Potenz der Ursprungsbasis ist, können $\log_{B_U}(B_Z)$ Stellen direkt zusammengefasst werden:
-				$$(1000\ 0111\ 0001\ 1111)_{(2)}=(?)_{(16)}$$
-				Hier können jeweils $\log_2(16)=4$ Stellen zusammengefasst werden:
-				
-				\begin{tabular}[t]{|l||c|c|c|c|} \hline
-					$B = 2$ & 1000 & 0111 & 0001 & 1111 \\ \hline
-					$B = 10$ & 8 & 7 & 1 & 15 \\ \hline
-					$B = 16$ & 8 & 7 & 1 & F \\ \hline
-				\end{tabular}		
-		\end{description}
+\begin{itemize}
+	\item Basis $B$, $B \in \mathbb{N}$, $B>=2$
+	\item Ziffern für $0$ bis $B-1$. Jede Ziffer ein Zeichen.
+	\item Zahl $= \dots z_2B^2+z_1B^1+z_0B^0+z_{-1}B^{-1} \dots$
+\end{itemize}
+
+\subsubsection{Umrechnung}
+\begin{description}
+	\item[Polynom] $(z_{n-1}B^{n-1}z_{n-2}B^{n-2} \dots z_1B^{1}z_0B^{0})_{(B)}$
+	\item[zu kleinere Basis] Fortgesetzte ganzzahlige Division mit Rest
+		$217_{(10)}$ zur Basis 3 \\
+		\begin{tabular}{r c}
+			217 & 1 \\
+			72  & 0 \\
+			24  & 0 \\
+			8   & 2 \\
+			2   & 2 \\
+			0   & 0
+		\end{tabular} $217_{(10)} = 22001_{(3)}$
+	\item[zu größerer Basis] mit Horner-Schema zum Dezimalsystem:
+
+		\begin{tabular}{|c||c|c|c|c|c|} \hline
+			Ziffern & 2 & 2 & 0  & 0  & 1   \\ \hline \hline
+			$B=3$   & 0 & 6 & 24 & 72 & 216 \\ \hline
+			        & 2 & 8 & 24 & 72 & 217 \\ \hline
+		\end{tabular} Addition $\downarrow$ dann Multiplikation $\nearrow$ mit $B$
+
+		Wenn die Zielbasis eine Potenz der Ursprungsbasis ist, können $\log_{B_U}(B_Z)$ Stellen direkt zusammengefasst werden:
+		$$(1000\ 0111\ 0001\ 1111)_{(2)}=(?)_{(16)}$$
+		Hier können jeweils $\log_2(16)=4$ Stellen zusammengefasst werden:
+
+		\begin{tabular}[t]{|l||c|c|c|c|} \hline
+			$B = 2$  & 1000 & 0111 & 0001 & 1111 \\ \hline
+			$B = 10$ & 8    & 7    & 1    & 15   \\ \hline
+			$B = 16$ & 8    & 7    & 1    & F    \\ \hline
+		\end{tabular}
+\end{description}
 \end{document}

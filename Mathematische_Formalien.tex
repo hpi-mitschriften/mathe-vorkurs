@@ -8,9 +8,15 @@
 \usepackage{bookmark}
 \usepackage{adjustbox}
 \usepackage{pgf, tikz}
+\usepackage{pgfplots}
+ \pgfplotsset{compat = newest}
 \usetikzlibrary{shapes}
 \usepackage[german]{babel}
 \usepackage[]{hyperref}
+\DeclareMathOperator\ggt{ggT}
+\DeclareMathOperator\kgv{kgV}
+\DeclareMathOperator\supri{sup}
+\DeclareMathOperator\infim{inf}
 \hypersetup{
     pdftitle = {Grundbegriffe und Schreibweisen},
     pdfauthor = {Yoan Tchorenev},
@@ -36,7 +42,7 @@
 \begin{description}
 	\item[Aussage:] Eine Aussage ist eine Formel oder ein sprachliches Gebilde dem genau ein Wahrheitswert zugeordnet werden kann.
 
-	\item[Warheitswerte] Genau der Eine oder der Andere i think \\
+	\item[Warheitswerte] Genau der Eine oder der Andere \\
 		\begin{tabular}{c|c}
 			\textbf{F}alsch & \textbf{W}ahr \\
 			0               & 1             \\
@@ -167,8 +173,8 @@
 			\item Die stärke der Zeichen ist konventionell: $\neg > \wedge > \vee$. D.h.:
 			      $$\neg A \vee B \wedge C \equiv (\neg A) \vee (B \wedge C)$$
 			\item $\wedge$ und $\vee$ sind distributiv zueinander:
-			      $$A \wedge (A \vee B) \equiv (A \wedge B) \vee (A \wedge C)$$
-			      $$A \vee (A \wedge B) \equiv (A \vee B) \wedge (A \vee C)$$
+			      $$A \wedge (A \vee C) \equiv (A \wedge B) \vee (A \wedge C)$$
+			      $$A \vee (A \wedge C) \equiv (A \vee B) \wedge (A \vee C)$$
 			\item $\wedge$ ist distributiv über $\dot{\vee}$:
 			      $$A \wedge (B \dot{\vee} C) \equiv (A \wedge B) \dot{\vee} (A \wedge C)$$
 		\end{itemize}
@@ -597,6 +603,7 @@ $\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
 			      $$|\mathbb{P}| \in \mathbb{N}$$
 			      $n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P} = \lbrace p_1;p_2;p_3;\dots ; p_n \rbrace$. Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$. Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$. Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden. Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
 			\item Der kleinste Teiler einer Zahl $b \in \mathbb{N}|b \geq 2$ ist eine Primzahl.
+			\item Der kleinste Primteiler $p$ einer Zahl $a \in \mathbb{Z};\ a \geq 2;\ a \not \in \mathbb{P}$ ist $p \leq \sqrt{a}$
 		\end{itemize}
 	\item[Fundamentalsatz der Arithmetik] Jede Zahl $b \geq 2$ lässt sich als Produktion von Primzahlen darstellen (Primfaktorisierung). Vorkommende Primzahlen und ihre Anzahl sind bis auf Reihenfolge eindeutig bestimmt.
 \end{description}
@@ -613,7 +620,160 @@ $a \in \mathbb{Z},\ a \geq 2,\ a=(z_{n-1}z_{n-2} \dots z_1z_0)$ \\
 	9  & $\Leftrightarrow$ & quersumme durch 9 teilbar            \\
 	10 & $\Leftrightarrow$ & durch 2 und 5 teilbar bzw. $z_0=0$
 \end{tabular}
+\subsection{ggt und kgv}
+Sein $a;b \in \mathbb{Z}$
 
+Ein gemeinsamer Teiler von $a$ und $b$ ist eine Zahl $t \in \mathbb{N}$ mit $t \mid a$ und $t \mid b$. Abkürung: $\textrm{ggt}(a;b)$. \\
+Ein gemeinsames vielfaches von $a$ und $b$ ist ein $s \in \mathbb{Z}$ mit $a \mid s$ und $b \mid s$. Abkürung: $\textrm{kgv}(a;b)$. \\
+\subsubsection{mit Primfaktorisierung}
+$a \dots p^m$ \\
+$a \dots p^n$ \\
+$\ggt(a;b)\quad p^{\min(m;n)}$ \\
+$\kgv(a;b)\quad p^{\max(m;n)}$ \\
+$m + n = \min(m;n) + \max(m;n) \Rightarrow a \cdot b = \textrm{ggt}(a;b) \cdot \textrm{kgv}(a;b)$\\
+$a = 5940 = 2^2 \cdot 3^3 \cdot 5 \cdot 11$ \\
+$b = 11760 = 2^4 \cdot 3 \cdot 5 \cdot 7$ \\
+$$\begin{array}{rcccccl}
+		a =         & 2^2 & \cdot 3^3 & \cdot 5^1 & \cdot 7^0 & \cdot 11^1             \\
+		b =         & 2^4 & \cdot 3^1 & \cdot 5^1 & \cdot 7^2 & \cdot 11^0             \\
+		\ggt(a;b) = & 2^2 & \cdot 3^1 & \cdot 5^1 & \cdot 7^0 & \cdot 11^0 & = 60      \\
+		\kgv(a;b) = & 2^4 & \cdot 3^3 & \cdot 5^1 & \cdot 7^2 & \cdot 11^1 & = 1164240
+	\end{array}$$
+\subsubsection{Eukildscher Algorithmus}
+Es sein $a_1;a_2 \in \mathbb{Z},\ a_1 > a_2 \geq 1$ \\
+Division mit Rest: $a_1 = q_2 a_2 + a_3$ mit $0 \leq a_3 < a_2$ \\
+Sei $g$ gem. Teiler von $a_1$ und $a_2$, $a_1 - q_2 \cdot a_2 = a_3 \Rightarrow g$ gem, Teiler von $a_2$ und $a_3$ \\
+Sei $g$ gem. Teiler von $a_2$ und $a_3$, $a_1 = q_2 \cdot a_2 + a_3 \Rightarrow g$ gem. Teiler von $a_1$ und $a_2$ \\
+$\Rightarrow \ggt(a_1;a_2) = \ggt(a_2;a_3)$ \\
+$a_{n}=q_{n+1}a_{n+1} + 0 \Rightarrow \ggt(a_n;a_{n+1}) = \ggt(a_1,a_2) = a_{n+1}$ \\
+$\ggt(851,2183);\ a=2183;\ a_2 = 851$ \\
+\begin{alignat*}{3}
+	2183 & = 2 &  & \cdot 851 &  & + 481 \\
+	851  & = 1 &  & \cdot 481 &  & + 370 \\
+	481  & = 1 &  & \cdot 370 &  & + 111 \\
+	370  & = 3 &  & \cdot 111 &  & + 37  \\
+	111  & = 3 &  & \cdot 37
+\end{alignat*}
+$\ggt(851;2183) = 37$ \\
+
+Es gibt die darstellung $\ggt(a_1;a_2) = s\cdot a_1 + t \cdot a_2$ mit $s;t \in \mathbb{Z}$ \\
+
+$a;c \in \mathbb{Z}$ heißen Teilerfremd wenn $\ggt(a;b) = 1$ \par
+Sei $t \mid a \cdot b$ und $a;t$ teilerfremd $\Rightarrow t \mid b$ \\
+
+Sei $p \in \mathbb{P}$ und $p \mid a \cdot b \Rightarrow p \mid a \vee p \mid b$ denn:
+\begin{itemize}
+	\item[Fall 1] $p \mid a$ Ausdruck wahr
+	\item[Fall 2] $p \nmid a \Rightarrow \ggt(p;a) = 1$
+\end{itemize}
+\subsection{Rationale Zahlen}
+\begin{description}
+	\item[Problem] $a \nmid a,\ a \cdot x = a$ nicht Lösbar in $\mathbb{Z}$
+	\item[Lösung] nehmen $\frac{a}{b}$ hinzu. $\mathbb{Q} \coloneqq \lbrace \frac{a}{b} | a;b \in \mathbb{Z} \wedge b \not = 0 \rbrace$ auserdem: $\frac{a}{b} = \frac{c}{d} \Leftrightarrow ad = bc$. Eine rationale Zahl entspricht also einer Menge von Brüchen, die als selbe Zahl, betrachtet werden.
+
+		Also $\frac{a}{b} = \frac{a \cdot t}{b \cdot t}$ denn $a \cdot b \cdot t = a \cdot t \cdot b$. Jede Rationale Zahl entspricht genau einem unkürzbaren Bruch $\frac{a}{b}$ mit $\ggt(a;b) = 1$ und $b \geq 1$.
+
+		Einbettung: $\mathbb{Z}\ni z \longmapsto \frac{z}{1} \in \mathbb{Q}$, dann gilt $\mathbb{Z} \subset \mathbb{Q}$
+
+		$\mathbb{Q}$ unendlich, $\mathbb{N} \sim \mathbb{Q}$, $\mathbb{Q}$ abzählbar: wir sortieren $a + b$ nach $\frac{a}{b}$
+		$$\begin{array}{lccc}
+				a + b = 1 &             &             & \frac{0}{1} \\
+				a + b = 2 &             & \frac{0}{2} & \frac{1}{1} \\
+				a + b = 3 & \frac{0}{3} & \frac{1}{2} & \frac{2}{1}
+			\end{array}$$
+	\item[Operationen]
+		$$\frac{a}{b} + \frac{c}{d} \coloneqq \frac{ad+bc}{bd}$$
+		$$\frac{a}{b} - \frac{c}{d} \coloneqq \frac{ad-bc}{bd}$$
+		$$q = \frac{a}{b};\ a \not =;\ b \not 0$$
+		$$q^{-1} = \frac{b}{a}$$
+		$$q \cdot q^{-1} = \frac{ab}{ab} = 1$$
+		$$\frac{c}{d}:\frac{a}{b}\coloneqq\frac{c}{d}  \left(\frac{a}{b}\right)^{-1}$$
+		Bruchstrich entspricht Division \\
+		Division ist nicht assoziativ
+		$$q:v:s \not = q:(v:s)$$
+	\item[Identitäten] Gleichungen der form $qx=r$ $(q;r \in \mathbb{Q});\ q \not = 1$ sind nach $x$ für $x\in \mathbb{B}$ lösbar: $x = r \cdot q^{-1}$ \\
+		\begin{tabular}[t]{cc}
+			$(x+y)+z = x+(x+1)$ & (xy)z=x(yz)                 \\
+			$x + y = y + x$     & $xy = yx$                   \\
+			$x + 0 = x$         & $x * 1 = x$                 \\
+			$x + (-x) = 0$      & $xx^{-1}$ wenn $x \not = 0$ \\
+			$x - y = x + (-y)$  & $x:y = xy^{-1}$
+		\end{tabular}
+		$$x(y+z) = xy + xz$$
+		$\mathbb{Q}$ ist ein Körper. Die ELemente in $\mathbb{Q}$ haben eine  lineare Ordnung. Die Zahlen liegen dicht auf dem Zahlenstrahl
+\end{description}
+\subsection{Reele Zahl}
+$\mathbb{R}$ ist nicht abzählbar unendlich.
+\begin{description}
+	\item[Problem] Es gibt keine reationale Zahl $q \in \mathbb{Q}$ mit $q^2 = 2$
+	\item[Annahme] Es gibt $q \in \mathbb{Q}$ mit $q^2 = 2$. Damit gibt es $a;b \in \mathbb{Z}$ mit $q = \frac{a}{b}$, $a;b \geq 1$, $\ggt(a;b) = 1$ und
+		\begin{alignat*}{2}
+			q^2 = \left( \frac{a}{b}\right)^2 & = 2                                                \\
+			\frac{a}{b}                       & = 2                                                \\
+			a^2                               & = 2b^2                                             \\
+			                                  & \Rightarrow 2 \mid a^2                             \\
+			                                  & \Rightarrow 2 \mid a                               \\
+			                                  & \Rightarrow (\exists a_0 \in \mathbb{Z})\ a = 2a_0 \\
+			                                  & \Rightarrow \left(2a_0\right)^2 = 2b^2             \\
+			                                  & \Rightarrow 4a_0^2 = 2b^2                          \\
+			                                  & \Rightarrow 2a_0^2 = b^2                           \\
+			                                  & \Rightarrow 2 \mid b^2                             \\
+			                                  & \Rightarrow 2 \mid b                               \\
+		\end{alignat*}
+		Aber $\ggt(a;b) = 1$
+	\item[unendlicher Dezimalbruch] $d$ beteht aus 3 Dingen (Tripel)
+		\begin{itemize}
+			\item Vorzeichen: + oder - (bzw. +1, -1)
+			\item natürlich Zahl $d_0 \in \mathbb{N}$
+			\item Folge von Dezimalziffern ($f : \mathbb{N}^+ \longrightarrow \lbrace 0; 1; 2; \dots ; 9 \rbrace$)
+		\end{itemize}
+		Schreibweise: $d = \pm d_0,d_1d_2d_3\dots$\\
+		$\mathbb{D} :$ Menge aller unendlichen Dezimalbrüche ist nicht $\mathbb{R}$. Lineare Ordnung $\leq$ auf $\mathbb{D}$, lexikographisch
+	\item[periodischer Dezimalbruch] $d$ periodisch
+		$\Leftrightarrow (\exists k \geq 0)(\exists l \geq 1) (\forall i > k) d_i= d_{i + l}$ $l$ = kleinstmögliche Periodenlänge z.B. $5{,}72\overline{13}$
+	\item[abbrechender Dezimalbruch] z.B. $102{,}53\overline{0} = 102{,}53$
+	\item[unmittelbarer nachfolger] 9er ende z.B. $2{,}1\overline{9} = 2,2$
+	\item[Definition] Menge der Reelen Zahlen $\mathbb{R} = \lbrace \pm d | \pm d $ ist unendlicher Dezimalbruch mit zusatzvereinbarungen: $ -0 = +0 \textrm{ und } 0{,}\overline{9} = 1$
+	\item[Rationale Zahlen in den Reelen] \
+		\begin{itemize}
+			\item[abbrechend] $d_0{,}d_1 d_2 \dots d_k \longmapsto d_0 + \frac{d_1}{10}+\frac{d_2}{100} + \dots + \frac{d_k}{10^k}$
+			\item[beliebig] $e_0{,}e_1 e_2 \dots e_{k + 1} \dots \longmapsto$ k-te Nährung $e_0{,}e_1 e_2 \dots e_k$
+		\end{itemize}
+		\begin{alignat*}{1}
+		\end{alignat*}
+		\begin{alignat*}{1}
+			x         & = 3{,}1\overline{72}                                          \\
+			10^2x     & = 317{,}2\overline{72}                                        \\
+			10^2x-x   & = 317{,}2\overline{72} - 3{,}1\overline{72} = 317{,}2 - 3{,}1 \\
+			(10^2-1)x & = 314                                                         \\
+			990x      & = 3141                                                        \\
+			x         & = \frac{3141}{990}                                            \\
+			x         & = \frac{349}{110}                                             \\
+		\end{alignat*}
+	\item[Supremum und Infimum] Sei $A \subseteq \mathbb{R}; A \not = \emptyset$. $s \in \mathbb{R}$ heißt obere Schranke wenn $(\forall a \in A) a \leq s$ und untere schranke wenn $(\forall a \in A)\ s \leq a$. Wenn für $A$ eine obere Schranke existiert, dann heißt $A$ nach oben beschrenkt. Wenn für $A$ eine untere Schranke existiert, dann heßt $A$ nach unten beschränkt. $A$ heißt beschränkt, wenn $A$ nach oben und unten beschränkt ist. $s$ heißt Supremum von $A$, $s = \sup(A)$,wenn $s$ obere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \leq s \Rightarrow s'$ ist keine obere Schranke. $s$ heißt Infimum von $A$, $s = \infim(A)$,wenn $s$ untere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \geq s \Rightarrow s'$ ist keine untere Schranke.
+
+		Satz: Wenn $A \subseteq \mathbb{R}; A \not = \emptyset,\ A$ nach oben beschränkt $\Rightarrow (\exists s \in \mathbb{R}) s = \supri(A)$ Analog dazu das Infimum. In $\mathbb{Q}$ gilt dass nicht.
+
+	\item[Operationen] Bezüglich + und $\cdot$ gelten die selben Identitäten wie in $\mathbb{Q}$. $\mathbb{R}$ bilden einen Körper.
+		\begin{description}
+			\item[Adiition] $d + e \coloneqq \supri \lbrace d^{[k]} + e^[k] | k \in \mathbb{N}^+ \rbrace$
+			\item[]
+		\end{description}
+	\item[normalized scientific notation] $6,674 \cdot 10^{-11}$
+	\item[Intervall] \
+		\begin{alignat*}{1}
+			\lbrack a; b \rbrack & = \lbrace x | a \leq x\leq b \rbrace \\
+			\rbrack a; b \lbrack & = \lbrace x | a < x < b \rbrace
+		\end{alignat*}
+	\item[erweiterte reele Zahlen] $+\infty$ und $-\infty$ (keine reelen Zahlen) $\mathbb{R}^+ = (0; \infty)$, $\mathbb{R}_0^+=\lbrack 0 ; \infty)$. In gewisser weise und ganz vosichtig kann man mit $\pm \infty$ rechnen.
+		\begin{alignat*}{1}
+			x + \infty     & = \infty | x \in \mathbb{R}; x > 0 \\
+			x \cdot \infty & = asd                              \\
+		\end{alignat*}
+	\item[irrational] $x \in \mathbb{R}; x \not \in \mathbb{Q}$ z.B.: $x = 0,10100100010000$
+	\item[algebraisch] genau dann wenn, eine Nullstelle eines Polynoms mit ganzzahligen Koeffizenten.
+	\item[transzendent] also nicht algebraisch $e; \pi$
+\end{description}
 \subsection{Additionssysteme}
 ''Strichliste (mit Abkürzungen)'' \\
 Z.B.: $5 = ||||| = \cancel{||||}$ oder römische Ziffern: \\
@@ -659,5 +819,216 @@ Z.B.: $5 = ||||| = \cancel{||||}$ oder römische Ziffern: \\
 			$B = 10$ & 8    & 7    & 1    & 15   \\ \hline
 			$B = 16$ & 8    & 7    & 1    & F    \\ \hline
 		\end{tabular}
+\end{description}
+
+\section{Rechnen}
+\subsection{Summe \& Produkt}
+Summe: stilisiertes großes Sigma
+$$\sum\limits_{i = n}^n f(i) = f(m) + f(m + 1) + \dots + f(n)$$
+Oder: 0, wenn $n < m$
+$$\sum\limits_{i \in I}$$
+Produkt: stilisiertes großes pi
+$$\prod\limits_{i=m}^{n}$$
+Oder 1, wenn $n < m$
+$$\prod\limits_{i \in I}$$
+\begin{itemize}
+	\item[$i$] Laufvaribale / Indexvaribale, kann umbenant werden, vorausgesetzt die neue Bezeichnung kommt noch nicht vor.
+	\item[] $$\sum\limits_{i = m}^n f(i) = \sum\limits_{j = m}^n f(j)$$
+		$$\prod\limits_{i = m}^n f(i) = \prod\limits_{j = m}^n f(j)$$
+	\item[$m$] Laufanfang
+	\item[$n$] Laufende
+	\item[$i;m;n$] $\in \mathbb{Z}$
+	\item Indexverschiebeung: Laufbeginn und ende können modifiziert werden.
+	      $$\sum\limits_{i=m}^n f(i) = \sum\limits_{i=m+k}^{n+k} f(i-k)$$
+	      $$\prod\limits_{i=m}^n f(i) = \prod\limits_{i=m+k}^{n+k} f(i-k)$$
+	      \begin{alignat*}{1}
+		      1+3+4+\dots+(2n-3)+(2n-1) & = \sum\limits_{i = 1}^n (2i-1)             \\
+		                                & = \sum\limits_{i = 3}^{n + 2} (2(i - 2)-1) \\
+		                                & = \sum\limits_{i = 0}^{n - 1} (2(i + 1)-1) \\
+	      \end{alignat*}
+	\item Auseinandernehmen:
+	      $$\sum\limits_{i=m}^n (f(i) + g(i)) = \sum\limits_{i=m}^n (f(i)) + \sum\limits_{i=m}^n (g(i))$$
+	\item Ausklammern
+	      $$\sum\limits_{i=m}^n (a \cdot f(i)) = a \sum\limits_{i=m}^n f(i)$$
+	      Beispiele:
+	      $$\sum\limits_{i=1}^n (2i-1) = \sum\limits_{i=1}^n (2i) - \sum\limits_{i=1}^n (1) = 2\sum\limits_{i=1}^n (i) - n$$
+	      $$\sum\limits_{i=1}^{100} (3i-4) = 3\sum\limits_{i=1}^{100} (i) - 400$$
+	\item Doppelsummen
+	      $$\sum\limits_{i=m}^n \sum\limits_{j=a}^b f(i; j) = \sum\limits_{j=a}^b \sum\limits_{i=m}^n f(i; j)$$
+\end{itemize}
+\subsection{Vereinigung \& Schnitt}
+$$\bigcup\limits_{i=m}^n A(i) = \left\lbrace \begin{array}{ll}
+		A(m) \cup A(m + 1) \cup + \dots + \cup A(n) & \textrm{falls } m \leq n \\
+		\emptyset                                   & \textrm{sonst}           \\
+	\end{array}  \right.$$
+$$\bigcap\limits_{i=m}^n A(i) = \left\lbrace \begin{array}{ll}
+		A(m) \cap A(m + 1) \cap + \dots + \cap A(n) & \textrm{falls } m \leq n \\
+		\mathbb{M}                                  & \textrm{sonst}           \\
+	\end{array}  \right.$$
+\subsection{Potenzgestze}
+\begin{itemize}
+	\item $x \in \mathbb{R};\ x^0 = 1$ auch $0^0=1$
+	\item $x \in \mathbb{R};\ n \in \mathbb{N}^+;\ x^n = x \cdot x \cdot x \cdot x \dots \cdot x$ n mal
+	\item $x \in \mathbb{R};\ x \not = 0;\ n = -1;\ x^{-1} \coloneqq \frac{1}{x}$ $0^{-1}$ nicht definiert
+	\item $x \in \mathbb{R};\ a \not = 0;\ n = -m;\ m \in \mathbb{N}^+;\ x^{-m} = \frac{1}{x^{m}} = (x^{-1})^m$
+	\item $x \in \mathbb{R};\ x \geq 0;\ m \in \mathbb{N}^+;\ x^{\frac{1}{m}} \coloneqq \sqrt[m]{x}$
+	\item $x \in\mathbb{R};\ x > 0;\ m \in \mathbb{N}^+;\ x^{-\frac{1}{m}} \coloneqq (x^{-1})^{\frac{1}{m}}= (\frac{1}{x})^{\frac{1}{m}}=\sqrt[m]{\frac{1}{x}} = \frac{1}{\sqrt[m]{x}}$
+	\item $x \in\mathbb{R};\ x \geq 0;\ m;n \in \mathbb{N}^+;\ x^{\frac{n}{m}} \coloneqq \left(\sqrt[m]{x}\right)^n = \sqrt[m]{x^n}$
+	\item $x \in \mathbb{R};\ x > 0;\ m;n \in \mathbb{N}^+;\ m^{-\frac{n}{m}} \coloneqq \frac{1}{x^{\frac{n}{m}}} = \sqrt[m]{\frac{1}{x^n}} = \left(\frac{1}{\sqrt[m]{x}}\right)^n$
+	\item $x \in \mathbb{R};\ x > 0;\ (x \geq 0 \textrm{ falls } \alpha > 0);\ \alpha \in \mathbb{R};\ x^\alpha$ als Grenzwert $x^{\alpha_k} = \lim\limits_{k \to \infty}\alpha_k = \alpha;\ \alpha \in \mathbb{Q}$
+	      $$\exp(z) = e^z = \sum\limits_{i = 0}^\infty \frac{z^i}{i!}$$
+\end{itemize}
+Voraussetzung : $x \in \mathbb{R};\ x > 0;\ a\alpha; \beta \in \mathbb{R}$
+\begin{alignat*}{1}
+	x^{\alpha + \beta}            & = x^\alpha \cdot x^\beta                                                                                                        \\
+	x^{\alpha \cdot \beta}        & = \left(x^\alpha\right)^\beta = \left(x^\beta\right)	\alpha                                                                     \\
+	x^{-\alpha}                   & = \frac{1}{x^{\alpha}}                                                                                                          \\
+	x^0                           & = 1;\ x^1 = x;\ x^{-1}    = \frac{1}{x}                                                                                         \\
+	\left(x \cdot y\right)^\alpha & = x^\alpha \cdot y^\beta                                                                                                        \\
+	x^{y^z}                       & = x^{\left(y^z\right)}                                                                                                          \\
+	\textrm{Wurzel}               & = \sqrt[m]{x}                                                                                                                   \\
+	\sqrt[m]{x}                   & = x^{\frac{1}{m}}                                                                                                               \\
+	\sqrt[m]{\sqrt[n]{x}}         & = \left(x^{\frac{1}{n}}\right)^\frac{1}{m} = x^{\frac{1}{m \cdot n}=\sqrt[m \cdot n]{x}}                                        \\
+	\sqrt[m]{x^n}                 & = \left(\sqrt[m]{x}\right)^n = x^{\frac{n}{m}}                                                                                  \\
+	\sqrt[1]{x}                   & = x                                                                                                                             \\
+	\sqrt[m]{x} \cdot \sqrt[n]{x} & = x^{\frac{1}{m}} \cdot x^{\frac{1}{n}} = x^{\frac{1}{n}+\frac{1}{m}} = x^{\frac{m+n}{m \cdot n}} = \sqrt[m \cdot n]{x^{m + n}}
+\end{alignat*}
+\subsection{Funktionen}
+\subsubsection{Potenzfunktion} $f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^n$
+\begin{description}
+	\item[quadratisch]  $$f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^2$$
+		\begin{tikzpicture}
+			\begin{axis}[
+					unit vector ratio = 1 1 1,
+					xmin = -2.5, xmax = 2.5,
+					ymin = -1.5, ymax = 4.5,
+					axis x line = center,
+					axis y line = center,
+					xtick={-2,-1,...,2},
+					ytick={-1,0,...,4},
+					xlabel={$x$},
+					ylabel={$y$},
+					xlabel style={below right},
+					ylabel style={above left}]
+				\addplot[
+					domain = -2:2,
+					samples = 200,
+					smooth,
+					thick,
+					blue,
+				] {x^2};
+			\end{axis}
+		\end{tikzpicture}
+	\item[kubisch]
+		$$f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^3$$
+		\begin{tabular}[t]{cc}
+			\begin{tikzpicture}
+				\begin{axis}[
+						unit vector ratio = 1 1 1,
+						xmin = -2.5, xmax = 2.5,
+						ymin = -4.5, ymax = 4.5,
+						axis x line = center,
+						axis y line = center,
+						xtick={-2,-1,...,2},
+						ytick={-4,-3,...,4},
+						xlabel={$x$},
+						ylabel={$y$},
+						xlabel style={below right},
+						ylabel style={above left}]
+					\addplot[
+						domain = -1.6:1.6,
+						samples = 200,
+						smooth,
+						thick,
+						blue,
+					] {x^3};
+				\end{axis}
+			\end{tikzpicture} &
+			\begin{tikzpicture}
+				\begin{axis}[
+						unit vector ratio = 1 1 1,
+						xmin = -4.5, xmax = 4.5,
+						ymin = -2.5, ymax = 2.5,
+						axis x line = center,
+						axis y line = center,
+						xtick={-4,-3,...,4},
+						ytick={-2,-1,...,2},
+						xlabel={$x$},
+						ylabel={$y$},
+						xlabel style={below right},
+						ylabel style={above left}]
+					\addplot[
+						domain = -4.0:4.0,
+						samples = 200,
+						smooth,
+						thick,
+						blue,
+					] {sign(x)*abs(x)^(1/3)};
+				\end{axis}
+			\end{tikzpicture}
+		\end{tabular}
+\end{description}
+\subsection{Fakultäten}
+\begin{itemize}
+	\item Fakultät $0! \coloneqq 1;\ (n+1)!=n!(n+1)$ wächst sehr schnell.
+	      $$(n \geq 1)\ n! = \prod\limits_{i=1}^n i$$
+	      Kombinatorische Bedeutung: Anzahl der Anordnungen von $n$ Gegenständen in einer Reihe.
+	      $$n! \approx \sqrt{s \pi n} \left(\frac{n}{e}\right)$$
+\end{itemize}
+\subsection{Binominialkoeffizient}
+$n \in \mathbb{N}; m \in \mathbb{N};\ \binom{n}{k}$  gelesen ''n über m'' $n < m \Rightarrow \binom{n}{m} = 0$ $n \geq m \Rightarrow \binom{n}{0} = 1,\ \binom{n}{1} = n,\ \binom{n}{n}$
+$$\binom{n}{m} = \frac{n(n-1) \dots \cdot (n-m-1)}{1\cdot 2\cdot3 \dots m} = \frac{n!}{m!(n-m)!}$$
+$$\binom{n}{m}=\binom{n}{n-m}$$ Jeweils $m$ viele Faktoren, da sich der rest wegkürzt.
+z.b: $\binom{2}{4} = \frac{3 \cdot 3}{1 \cdot 2} = 6,\ \binom{5}{3} = \binom{5}{2} = \frac{5 \cdot 4}{1 \cdot 2}$
+Kombinatorische Bedeutung: Anzahl der m-elementigen Teilmengen einer n-elementigen Menge
+$$\binom{n}{m}+\binom{n}{m+1}=\binom{n+1}{m+1}$$
+
+\begin{alignat*}{1}
+	\binom{n}{m}+\binom{n}{m+1} & =\frac{n!}{m!(n-m)!}+\frac{n!}{(m+1)!(n-m-1)!}=\frac{n!(m+1)+n!(n-m)}{(m+1)!(n-m)!} \\
+	                            & =\frac{(n+1)!}{(m+1)!((n+1)-(m+1))!}
+\end{alignat*}
+$$\sum\limits_{k=1}^n \binom{k}{m} = \binom{1}{m}+\binom{2}{m}+ \dots + \binom{m}{n}+\binom{m}{m}+\binom{m+1}{m}+\dots+\binom{n}{m}=\binom{n+1}{m+1}$$
+$$\sum\limits_{k=1}^n\binom{k}{1} = \frac{n(n+1)}{2}$$
+Binomialsatz
+$$(a+n)^n=\sum\limits_{m=0}^n\binom{n}{m}a^{n-m}b^m=a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\dots + \binom{n}{n-1}ab^{n-1}+b^n$$
+\subsection{Umformungen von Termen}
+Erklärung: Ein (Funktions)Term ist ein ''vernünftig'' aufgebauter Ausdruck zur Berechnung einer Funktion.
+
+Terme könne aus folgendem bestehen
+\begin{itemize}
+	\item Zeichen für Variablen und Parameter $x;\ y;\ z;\ a;\ b$
+	\item Zahlen, Konstanten
+	\item Operationen
+	\item Funktionszeichen $\exp;\ \sin;\ cos;\ $
+	\item technische Zeichen $(;);\lbrace;\rbrace,\lbrack,\rbrack$
+\end{itemize}
+Funktionsbezeichung: $f;\ f(x);\ f(x;y)$ Wir bezeichnunen Terme ähnlich wie Funktionen. Aber: Ein Term definiert eine Funktion aber nicht umgekehrt.\\
+
+\underline{Ziel:} Möglichst einfache Terme für eine Funktion finden. Zu einem Term $f(x)$ gehört ein maximaler Definitionsbereich (auch natürlicher Definitionsberiech). Das ist die größte Teilmenge $D \in \mathbb{R}$ für die alle Teilterme von $f$ definiert sind. Dieser DB kann eventuell weiter eingeschränkt werden. Bezeichnungen für den Definitionsberiech: $D_f;\ \textrm{DBb}(f), D$ \\
+
+Beispiel: $f(x) = \frac{x^2-x-6}{x+2}\quad D_f=\mathbb{R}\setminus\lbrace-2\rbrace$
+$$f(x)= \frac{(x-3)(x+2)}{x+2} = x-3\quad | x \not = -2$$
+
+\subsubsection{Faktorisieren}
+\begin{description}
+	\item[Binomische Formeln] \
+		\begin{itemize}
+			\item[1.] $(a+b)^2=a^2+2ab+b^2$
+			\item[2.] $(a-b)^2=a^2-2ab+b^2$
+			\item[3.] $(a-b)(a+b)=a^2-b^2$
+		\end{itemize}
+	\item[Summenformel] \
+		\begin{itemize}
+			\item $(1-x)(1+x+x^2+\dots +x^n)=1-x^{n+1}$
+			\item $(x-1)(1+x+x^2+\dots +x^n)=x^{n+1}-1$
+		\end{itemize}
+	\item[Distributivgesetze] \
+		\begin{itemize}
+			\item $a(a+b)=ab+ac$
+			\item $(a+b)(c+d) = ac +ad + bc +bd$
+		\end{itemize}
+	\item[Vieta] $(x-a)(x-b) = x^2 - (a+b)x+ab$
+	\item[Wurzel aus Nenner] $\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}$
+		$$\frac{2+\sqrt{3}}{2-\sqrt{3}}=\frac{2+\sqrt{3}}{2-\sqrt{3}} \cdot \frac{2+\sqrt{3}}{2+\sqrt{3}}=\frac{4+4\sqrt{3}+3}{4-3}=7+4\sqrt{3}$$
 \end{description}
 \end{document}

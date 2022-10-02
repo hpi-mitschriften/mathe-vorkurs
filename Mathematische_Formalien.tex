@@ -1,9 +1,12 @@
 \documentclass[12pt,a4paper]{article}
+\usepackage[left=1.8cm, right=1.8cm, top = 2cm, bottom=2cm]{geometry}
+\usepackage[german]{babel}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage[makeroom]{cancel}
+\usepackage{wasysym} %Primille Symbol%
+\usepackage{cancel} %durchgestrichen%
 \usepackage{tabularx}
 \usepackage{bookmark}
 \usepackage{adjustbox}
@@ -11,7 +14,6 @@
 \usepackage{pgfplots}
  \pgfplotsset{compat = newest}
 \usetikzlibrary{shapes}
-\usepackage[german]{babel}
 \usepackage[]{hyperref}
 \DeclareMathOperator\ggt{ggT}
 \DeclareMathOperator\kgv{kgV}
@@ -25,12 +27,12 @@
     bookmarksopenlevel = 3,
     colorlinks=false
 }
-\setlength{\parindent}{0pt}
 \title{Grundbegriffe und Schreibweisen}
-\usepackage[left=2cm, right=2cm, top = 2cm, bottom=2cm]{geometry}
 \author{Yoan Tchorenev}
-
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1 \relax}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt}
 \begin{document}
 \begin{titlepage}
 	\maketitle
@@ -49,9 +51,7 @@
 			$\bot$          & $\top$        \\
 			\textbf{L}ow    & \textbf{H}igh
 		\end{tabular}
-
 	\item[Aussagevariable] A,B,C etc. stehen für eine Aussage
-
 	\item[Junktoren] (Verknüpfer)
 		\begin{description}
 			\item[Negation] $\neg A$ \, ''nicht'', ''NOT'', auch: $A$, $\bar{A}$, $A'$ \\
@@ -63,7 +63,6 @@
 					\end{tabular} &
 					Mathematisch: $\neg A = (A + 1) \bmod 2$ \\ \hline
 				\end{tabularx}
-
 			\item[Konjunktion] $A\wedge B$ \, ''A und B'', ''AND'', auch $A\cdot B$, AB \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
@@ -81,7 +80,6 @@
 						$A \wedge \bot \equiv \bot$ & $A \wedge \top \equiv A$
 					\end{tabular} \\ \hline
 				\end{tabularx}
-
 			\item[Disjunktion] $A\vee B$ \, ''A oder B'' (inklusiv), ''OR'' \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
@@ -99,7 +97,6 @@
 						$A \vee \bot \equiv A $ & $A \vee \top \equiv \top$
 					\end{tabular} \\ \hline
 				\end{tabularx}
-
 			\item[Kontravalenz] $A\dot{\vee}B$ \, ''entweder A, oder B'' (exclusiv), ''XOR'', auch: $A\oplus B$ \\
 				\begin{tabularx}{\linewidth}{c|X}
 					\begin{tabular}[t]{c|c||c}
@@ -117,7 +114,6 @@
 						$A \dot{\vee} \bot \equiv A$ & $A \dot{\vee} \top \equiv \neg A$
 					\end{tabular} \\ \hline
 				\end{tabularx}
-
 			\item[Konditional] $A\Rightarrow B$ ''wenn A dann B'' auch ''Subjunktion'', ''Implikation'', ''IMPLY'' \\
 				\begin{tabularx}{\linewidth}{c|c|X}
 					\begin{tabular}[t]{c|c||c}
@@ -189,7 +185,6 @@
 			\item werden zu Aussagen, wenn die Variablen belegt werden. Für die Variablen ist ein eingrenzender Grundbereich vorzugeben. Z.B.: $x \in \mathbb{N}$
 			\item Wie Aussagen kann man Aussageformen miteinander Verknüpfen (mit Junktoren) und man erhält neue Aussageformen
 		\end{itemize}
-
 	\item[Quantoren] Außer der Belegung der Variablen mit Werten gibt es noch andere Möglichkeiten aus einer Aussageform eine Aussage zu machen. Ein Grundbereich $M$ muss vorgegeben sein.
 
 		''Für alle x aus $M$ gilt A(x)'' \newline
@@ -206,7 +201,6 @@
 		''Es existiert genau ein x aus $M$ mit A(x)''
 		$$(\exists ! x) A(x) \equiv ((\exists x) A(x)) \wedge ((\forall x)(\forall y)\ (A(x) \wedge A(y) \Rightarrow x = y))$$
 \end{description}
-
 \section{Mengenlehre}
 \subsection{Begriffe}
 Georg Cantor (1845-1918)
@@ -267,7 +261,6 @@ Georg Cantor (1845-1918)
 				\end{itemize}
 		\end{description}
 \end{description}
-
 \subsection{Operationen auf Mengen}
 \begin{description}
 	\item[Vereinigung] $A \cup B = \lbrace x | x \in A \vee x \in B \rbrace$ \\
@@ -349,14 +342,9 @@ Georg Cantor (1845-1918)
 			} &
 			$|A \Delta B| = |A \setminus B| + |B \setminus A|$
 		\end{tabular}
-
-
 	\item[Potenzmengen] $\mathcal{P}(A) \coloneqq \lbrace B|B \subseteq A \rbrace;\ |\mathcal{P}(A)| = 2^{|A|}$
-
 	\item[ungeordnets Paar] $\lbrace a,b \rbrace = \lbrace c,d \rbrace \Rightarrow (a=c \wedge b=d) \vee (a=d \wedge b=c)$
-
 	\item[geordnetes Paar] $\lbrace a,b \rbrace = \lbrace c,d \rbrace \Rightarrow a=c \wedge b=d$ (Das geht!)
-
 	\item[Mengenprodukt] $A \times B = \lbrace (a,b)|a \in A \wedge b \in B \rbrace$ (nicht Kommutativ, (strenggenommen) nicht assoziativ)
 		\begin{align*}
 			(A \times B) \times C & \not = A \times (B \times C) \\
@@ -369,10 +357,8 @@ Georg Cantor (1845-1918)
 		$$A \times B = \lbrace (1,a),(2,a)(1,b)(2,b),(1,c)(2,c) \rbrace$$ \\
 		$|A \times B| = |A| \cdot |B|$
 \end{description}
-
 \section{Funktionen}
 Funktionen sind im wesentlich Zuordnungen.
-
 \subsection{Begriffe}
 \begin{description}
 	\item[Definition] Zur Definition einer Funktion $f$ braucht man drei Dinge
@@ -469,7 +455,6 @@ Funktionen sind im wesentlich Zuordnungen.
 			                                    & f(a) &  & = f(id_A(a))   &  & = id_A(f(a))
 		\end{alignat*}
 \end{description}
-
 \subsection{Umkehrfunktion}
 \begin{description}
 	\item[Umkehrbarkeit] (im engeren sinne) $f : A \longrightarrow B$
@@ -481,37 +466,155 @@ Funktionen sind im wesentlich Zuordnungen.
 		Satz: Eine Funktion $f : A \longrightarrow B$ ist genau dann umkehrbar (i.e.s), wenn sie bijektiv ist.
 	\item[Umkehrbarkeit in der Analysis] Eine Funktion $f : A \longrightarrow B$ heißt Umkehrbar, wenn die zugehörige Funktion $f : A \longrightarrow \textrm{Bild}(f)$ umkehrbar ist.
 		Satz: Eine Funktion $f : A \longrightarrow B$ ist genau dann umkehrbar (i.w.s), wenn sie injektiv ist.
-	\item[Quadratische] $f : \mathbb{R} \longrightarrow \mathbb{R}, x \longmapsto x^2$ \\
-		\begin{tabularx}{\linewidth}{l X}
-			\adjustbox{valign = t}{
-				\begin{tikzpicture}
-					\draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
-					\draw[->] (0, -1) -- (0, 3) node[above] {$y$};
-					\draw[domain=-1.7:1.7, smooth, variable=\x, red] plot (\x, \x * \x);
-					\draw[domain=-1:3, smooth, variable=\x, gray, dotted] plot (\x, \x);
-					\draw[domain=0:3, smooth, variable=\x, blue]  plot(\x, {\x^(0.5)});
-				\end{tikzpicture}
-			} &
-			$f^* : \mathbb{R}^+_0\longrightarrow \mathbb{R}^+_0$ (bijektiv) \newline
-			$f^{*-1} : \mathbb{R}_0^+ \longrightarrow \mathbb{R}_0^+, x \longmapsto \sqrt{x}$
-		\end{tabularx}
-	\item[Exponentialfunktion] $\exp_B : \mathbb{R} \longrightarrow \mathbb{R}^+, x \longmapsto B^x$ mit Basis $B > 1$\\
-		\begin{tabularx}{\linewidth}{l X}
-			\adjustbox{valign = t}{
-				\begin{tikzpicture}[baseline]
-					\draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
-					\draw[->] (0, -3) -- (0, 3) node[above] {$y$};
-					\draw[domain=-3:1.1, smooth, variable=\x, red] plot ({\x}, {exp(\x)});
-					\draw[domain=-3:3, smooth, variable=\x, gray, dotted] plot ({\x}, {\x});
-					\draw[domain=0.05:3, smooth, variable=\x, blue]  plot(\x,{ln((\x))});
-				\end{tikzpicture}
-			} &
-			$\exp_B^{-1}:\mathbb{R}_0^+ \longrightarrow \mathbb{R}, x \longmapsto \log_B(x)$
-		\end{tabularx}
 \end{description}
-
+\subsubsection{Potenzfunktion} $$f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^n$$
+\begin{description}
+	\item[quadratisch] \
+		\begin{tabular}[t]{cc}
+			$f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^2$ & $f^{*-1} : \mathbb{R}_0^+ \longrightarrow \mathbb{R},\ x \longmapsto \sqrt{x}$ \\
+			\begin{tikzpicture}
+				\begin{axis}[
+						x = 1cm, y = 1cm,
+						xmin = -2, xmax = 2,
+						ymin = -1, ymax = 4,
+						axis lines = center,
+						xtick={-1,0,...,1},
+						ytick={0,1,...,3},
+						xlabel={$x$},
+						ylabel={$y$},
+						xlabel style={below right},
+						ylabel style={above left},
+						grid=both]
+					\addplot[
+						domain = -2:2,
+						samples = 200,
+						smooth,
+						thick,
+						blue,
+					] {x^2};
+				\end{axis}
+			\end{tikzpicture}                                      &
+			\begin{tikzpicture}
+				\begin{axis}[
+						x = 1cm, y = 1cm,
+						xmin = -2, xmax = 4,
+						ymin = -1, ymax = 4,
+						axis lines = center,
+						xtick={-1,0,...,3},
+						ytick={0,1,...,3},
+						xlabel={$x$},
+						ylabel={$y$},
+						xlabel style={below right},
+						ylabel style={above left},
+						grid=both]
+					\addplot[
+						domain = 0:4,
+						samples = 200,
+						smooth,
+						thick,
+						blue,
+					] {sqrt(x)};
+				\end{axis}
+			\end{tikzpicture}
+		\end{tabular}
+	\item[kubisch] \
+		\begin{tabular}[t]{cc}
+			$f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^3$ & $f^{-1} : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto \sqrt[3]{x}$ \\
+			\begin{tikzpicture}
+				\begin{axis}[
+						x = 1cm, y = 1cm,
+						xmin = -2, xmax = 2,
+						ymin = -3, ymax = 3,
+						axis lines = center,
+						xtick={-1,0,...,1},
+						ytick={-2,-1,...,2},
+						xlabel={$x$},
+						ylabel={$y$},
+						xlabel style={below right},
+						ylabel style={above left},
+						grid=both]
+					\addplot[
+						domain = -2:2,
+						samples = 200,
+						smooth,
+						thick,
+						blue,
+					] {x^3};
+				\end{axis}
+			\end{tikzpicture}                                      &
+			\begin{tikzpicture}
+				\begin{axis}[
+						x = 1cm, y = 1cm,
+						xmin = -4, xmax = 4,
+						ymin = -3, ymax = 3,
+						axis lines = center,
+						xtick={-3,-2,...,3},
+						ytick={-2,-1,...,2},
+						xlabel={$x$},
+						ylabel={$y$},
+						xlabel style={below right},
+						ylabel style={above left},
+						grid=both]
+					\addplot[
+						domain = -4:4,
+						samples = 200,
+						smooth,
+						thick,
+						blue,
+					] {sign(x) * abs(x)^(1/3)};
+				\end{axis}
+			\end{tikzpicture}
+		\end{tabular}
+\end{description}
+\subsubsection{Exponentialfunktionen} $$f : \mathbb{R} \longrightarrow \mathbb{R}^+,\ x \longmapsto b^x \ | b \in \mathbb{R}^+ \setminus \lbrace 1 \rbrace$$
+\begin{tabular}[t]{cc}
+	$f : \mathbb{R} \longrightarrow \mathbb{R}^+,\ x \longmapsto 2^x$ & $f*^{-1} : \mathbb{R}^+ \longrightarrow \mathbb{R},\ x \longmapsto \log_2(x)$ \\
+	\begin{tikzpicture}
+		\begin{axis}[
+				x = 1cm, y = 1cm,
+				xmin = -2, xmax = 2,
+				ymin = -3, ymax = 3,
+				axis lines = center,
+				xtick={-1,0,...,1},
+				ytick={-2,-1,...,2},
+				xlabel={$x$},
+				ylabel={$y$},
+				xlabel style={below right},
+				ylabel style={above left},
+				grid=both]
+			\addplot[
+				domain = -2:2,
+				samples = 200,
+				smooth,
+				thick,
+				blue,
+			] {2^x};
+		\end{axis}
+	\end{tikzpicture}                                        &
+	\begin{tikzpicture}
+		\begin{axis}[
+				x = 1cm, y = 1cm,
+				xmin = -2, xmax = 4,
+				ymin = -3, ymax = 3,
+				axis lines = center,
+				xtick={-1,0,...,3},
+				ytick={-2,-1,...,2},
+				xlabel={$x$},
+				ylabel={$y$},
+				xlabel style={below right},
+				ylabel style={above left},
+				grid=both]
+			\addplot[
+				domain = -0.01:4,
+				samples = 200,
+				smooth,
+				thick,
+				blue,
+			] {ln(x)/ln(2)};
+		\end{axis}
+	\end{tikzpicture}
+\end{tabular}
 \section{Zahlen}
-
 \subsection{Sprachunterschiede}
 \begin{tabular}{|l|l|l|} \hline
 	          & deutsch   & US-Englisch \\ \hline \hline
@@ -561,7 +664,6 @@ $\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
 		$$m \cdot 0\coloneqq 0$$
 		$$m \cdot s(n) \coloneqq m + s(m + n)$$
 \end{description}
-
 \subsection{Ganze Zahlen}
 \begin{description}
 	\item[Motivation] $\mathbb{Z} \coloneqq \lbrace 0, 1, -1, 2, -2 \dots \rbrace$ (abzählbar)\\
@@ -585,7 +687,6 @@ $\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
 	\item[Betrag] $|a| = \left\lbrace \begin{array}{rc} a & a \geq 0 \\ -a & a < 0\end{array} \right.$
 	\item[Division] Es sein $a;m \in \mathbb{Z}|m \geq 1$ dann gibt es $q \in \mathbb{Z}$ mit $a=q \cdot m + r$ und $0 \leq r < m$. $q;r$ sind eindeutig bestimmt
 \end{description}
-
 \subsection{Primzahlen}
 \begin{description}
 	\item[Teiler] $a;b \in \mathbb{Z}$\\
@@ -601,7 +702,7 @@ $\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
 			\item Jede ganze Zahl $b \geq 2$ hat mindesten einen Primitiver.
 			\item Es gibt unendlich viele Primzahlen. Beweis durch Widerspruch
 			      $$|\mathbb{P}| \in \mathbb{N}$$
-			      $n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P} = \lbrace p_1;p_2;p_3;\dots ; p_n \rbrace$. Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$. Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$. Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden. Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
+			      $n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P}$. Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$. Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$. Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden. Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
 			\item Der kleinste Teiler einer Zahl $b \in \mathbb{N}|b \geq 2$ ist eine Primzahl.
 			\item Der kleinste Primteiler $p$ einer Zahl $a \in \mathbb{Z};\ a \geq 2;\ a \not \in \mathbb{P}$ ist $p \leq \sqrt{a}$
 		\end{itemize}
@@ -620,19 +721,24 @@ $a \in \mathbb{Z},\ a \geq 2,\ a=(z_{n-1}z_{n-2} \dots z_1z_0)$ \\
 	9  & $\Leftrightarrow$ & quersumme durch 9 teilbar            \\
 	10 & $\Leftrightarrow$ & durch 2 und 5 teilbar bzw. $z_0=0$
 \end{tabular}
-\subsection{ggt und kgv}
+\subsection{ggT und kgV}
 Sein $a;b \in \mathbb{Z}$
 
-Ein gemeinsamer Teiler von $a$ und $b$ ist eine Zahl $t \in \mathbb{N}$ mit $t \mid a$ und $t \mid b$. Abkürung: $\textrm{ggt}(a;b)$. \\
-Ein gemeinsames vielfaches von $a$ und $b$ ist ein $s \in \mathbb{Z}$ mit $a \mid s$ und $b \mid s$. Abkürung: $\textrm{kgv}(a;b)$. \\
+Ein gemeinsamer Teiler von $a$ und $b$ ist eine Zahl $t \in \mathbb{N}$ mit $t \mid a$ und $t \mid b$. Abkürung: $\textrm{ggt}(a;b)$.
+
+Ein gemeinsames vielfaches von $a$ und $b$ ist ein $s \in \mathbb{Z}$ mit $a \mid s$ und $b \mid s$. Abkürung: $\textrm{kgv}(a;b)$.
+
 \subsubsection{mit Primfaktorisierung}
-$a \dots p^m$ \\
-$a \dots p^n$ \\
-$\ggt(a;b)\quad p^{\min(m;n)}$ \\
-$\kgv(a;b)\quad p^{\max(m;n)}$ \\
-$m + n = \min(m;n) + \max(m;n) \Rightarrow a \cdot b = \textrm{ggt}(a;b) \cdot \textrm{kgv}(a;b)$\\
-$a = 5940 = 2^2 \cdot 3^3 \cdot 5 \cdot 11$ \\
-$b = 11760 = 2^4 \cdot 3 \cdot 5 \cdot 7$ \\
+$a \dots p^m;\ a \dots p^n$
+
+$\ggt(a;b)\quad p^{\min(m;n)};\ \kgv(a;b)\quad p^{\max(m;n)}$
+
+$m + n = \min(m;n) + \max(m;n) \Rightarrow a \cdot b = \textrm{ggt}(a;b) \cdot \textrm{kgv}(a;b)$
+
+$a = 5940 = 2^2 \cdot 3^3 \cdot 5 \cdot 11$
+
+$b = 11760 = 2^4 \cdot 3 \cdot 5 \cdot 7$
+
 $$\begin{array}{rcccccl}
 		a =         & 2^2 & \cdot 3^3 & \cdot 5^1 & \cdot 7^0 & \cdot 11^1             \\
 		b =         & 2^4 & \cdot 3^1 & \cdot 5^1 & \cdot 7^2 & \cdot 11^0             \\
@@ -640,13 +746,15 @@ $$\begin{array}{rcccccl}
 		\kgv(a;b) = & 2^4 & \cdot 3^3 & \cdot 5^1 & \cdot 7^2 & \cdot 11^1 & = 1164240
 	\end{array}$$
 \subsubsection{Eukildscher Algorithmus}
-Es sein $a_1;a_2 \in \mathbb{Z},\ a_1 > a_2 \geq 1$ \\
-Division mit Rest: $a_1 = q_2 a_2 + a_3$ mit $0 \leq a_3 < a_2$ \\
-Sei $g$ gem. Teiler von $a_1$ und $a_2$, $a_1 - q_2 \cdot a_2 = a_3 \Rightarrow g$ gem, Teiler von $a_2$ und $a_3$ \\
-Sei $g$ gem. Teiler von $a_2$ und $a_3$, $a_1 = q_2 \cdot a_2 + a_3 \Rightarrow g$ gem. Teiler von $a_1$ und $a_2$ \\
-$\Rightarrow \ggt(a_1;a_2) = \ggt(a_2;a_3)$ \\
-$a_{n}=q_{n+1}a_{n+1} + 0 \Rightarrow \ggt(a_n;a_{n+1}) = \ggt(a_1,a_2) = a_{n+1}$ \\
-$\ggt(851,2183);\ a=2183;\ a_2 = 851$ \\
+\begin{itemize}
+	\item Es sein $a_1;a_2 \in \mathbb{Z},\ a_1 > a_2 \geq 1$
+	\item Division mit Rest: $a_1 = q_2 a_2 + a_3$ mit $0 \leq a_3 < a_2$
+	\item Sei $g$ gem. Teiler von $a_1$ und $a_2$, $a_1 - q_2 \cdot a_2 = a_3 \Rightarrow g$ gem. Teiler von $a_2$ und $a_3$
+	\item Sei $g$ gem. Teiler von $a_2$ und $a_3$, $a_1 = q_2 \cdot a_2 + a_3 \Rightarrow g$ gem. Teiler von $a_1$ und $a_2$
+	\item $\Rightarrow \ggt(a_1;a_2) = \ggt(a_2;a_3)$
+	\item $a_{n}=q_{n+1}a_{n+1} + 0 \Rightarrow \ggt(a_n;a_{n+1}) = \ggt(a_1,a_2) = a_{n+1}$
+\end{itemize}
+Beispiel: $\ggt(851,2183);\ a=2183;\ a_2 = 851$
 \begin{alignat*}{3}
 	2183 & = 2 &  & \cdot 851 &  & + 481 \\
 	851  & = 1 &  & \cdot 481 &  & + 370 \\
@@ -654,17 +762,16 @@ $\ggt(851,2183);\ a=2183;\ a_2 = 851$ \\
 	370  & = 3 &  & \cdot 111 &  & + 37  \\
 	111  & = 3 &  & \cdot 37
 \end{alignat*}
-$\ggt(851;2183) = 37$ \\
-
-Es gibt die darstellung $\ggt(a_1;a_2) = s\cdot a_1 + t \cdot a_2$ mit $s;t \in \mathbb{Z}$ \\
-
-$a;c \in \mathbb{Z}$ heißen Teilerfremd wenn $\ggt(a;b) = 1$ \par
-Sei $t \mid a \cdot b$ und $a;t$ teilerfremd $\Rightarrow t \mid b$ \\
-
-Sei $p \in \mathbb{P}$ und $p \mid a \cdot b \Rightarrow p \mid a \vee p \mid b$ denn:
+$\ggt(851;2183) = 37$
 \begin{itemize}
-	\item[Fall 1] $p \mid a$ Ausdruck wahr
-	\item[Fall 2] $p \nmid a \Rightarrow \ggt(p;a) = 1$
+	\item Es gibt die darstellung $\ggt(a_1;a_2) = s\cdot a_1 + t \cdot a_2$ mit $s;t \in \mathbb{Z}$
+	\item $a;c \in \mathbb{Z}$ heißen Teilerfremd wenn $\ggt(a;b) = 1$
+	\item Sei $t \mid a \cdot b$ und $a;t$ teilerfremd $\Rightarrow t \mid b$
+	\item Sei $p \in \mathbb{P}$ und $p \mid a \cdot b \Rightarrow p \mid a \vee p \mid b$ denn:
+	      \begin{itemize}
+		      \item[Fall 1] $p \mid a$ Ausdruck wahr
+		      \item[Fall 2] $p \nmid a \Rightarrow \ggt(p;a) = 1$
+	      \end{itemize}
 \end{itemize}
 \subsection{Rationale Zahlen}
 \begin{description}
@@ -691,7 +798,7 @@ Sei $p \in \mathbb{P}$ und $p \mid a \cdot b \Rightarrow p \mid a \vee p \mid b$
 		Bruchstrich entspricht Division \\
 		Division ist nicht assoziativ
 		$$q:v:s \not = q:(v:s)$$
-	\item[Identitäten] Gleichungen der form $qx=r$ $(q;r \in \mathbb{Q});\ q \not = 1$ sind nach $x$ für $x\in \mathbb{B}$ lösbar: $x = r \cdot q^{-1}$ \\
+	\item[Identitäten] Gleichungen der form $qx=r$ $(q;r \in \mathbb{Q});\ q \not = 1$ sind nach $x$ für $x\in \mathbb{Q}$ lösbar: $x = r \cdot q^{-1}$ \\
 		\begin{tabular}[t]{cc}
 			$(x+y)+z = x+(x+1)$ & (xy)z=x(yz)                 \\
 			$x + y = y + x$     & $xy = yx$                   \\
@@ -700,7 +807,7 @@ Sei $p \in \mathbb{P}$ und $p \mid a \cdot b \Rightarrow p \mid a \vee p \mid b$
 			$x - y = x + (-y)$  & $x:y = xy^{-1}$
 		\end{tabular}
 		$$x(y+z) = xy + xz$$
-		$\mathbb{Q}$ ist ein Körper. Die ELemente in $\mathbb{Q}$ haben eine  lineare Ordnung. Die Zahlen liegen dicht auf dem Zahlenstrahl
+		$\mathbb{Q}$ ist ein Körper. Die Elemente in $\mathbb{Q}$ haben eine  lineare Ordnung. Die Zahlen liegen dicht auf dem Zahlenstrahl
 \end{description}
 \subsection{Reele Zahl}
 $\mathbb{R}$ ist nicht abzählbar unendlich.
@@ -730,27 +837,26 @@ $\mathbb{R}$ ist nicht abzählbar unendlich.
 		Schreibweise: $d = \pm d_0,d_1d_2d_3\dots$\\
 		$\mathbb{D} :$ Menge aller unendlichen Dezimalbrüche ist nicht $\mathbb{R}$. Lineare Ordnung $\leq$ auf $\mathbb{D}$, lexikographisch
 	\item[periodischer Dezimalbruch] $d$ periodisch
-		$\Leftrightarrow (\exists k \geq 0)(\exists l \geq 1) (\forall i > k) d_i= d_{i + l}$ $l$ = kleinstmögliche Periodenlänge z.B. $5{,}72\overline{13}$
+		$\Leftrightarrow (\exists k \geq 0)(\exists l \geq 1) (\forall i > k)\ d_i= d_{i + l}$ $l$, also mit kleinstmöglicher Periodenlänge z.B. $5{,}72\overline{13}$
 	\item[abbrechender Dezimalbruch] z.B. $102{,}53\overline{0} = 102{,}53$
-	\item[unmittelbarer nachfolger] 9er ende z.B. $2{,}1\overline{9} = 2,2$
-	\item[Definition] Menge der Reelen Zahlen $\mathbb{R} = \lbrace \pm d | \pm d $ ist unendlicher Dezimalbruch mit zusatzvereinbarungen: $ -0 = +0 \textrm{ und } 0{,}\overline{9} = 1$
+	\item[unmittelbarer Nachfolger] 9er ende z.B. $2{,}1\overline{9} = 2{,}2$
+	\item[Definition] Menge der Reelen Zahlen $\mathbb{R} = \lbrace \pm d | \pm d $ ist unendlicher Dezimalbruch mit zusatzvereinbarungen: $ -0 = +0 \textrm{ und } 0{,}\overline{9} = 1 \rbrace$
 	\item[Rationale Zahlen in den Reelen] \
 		\begin{itemize}
 			\item[abbrechend] $d_0{,}d_1 d_2 \dots d_k \longmapsto d_0 + \frac{d_1}{10}+\frac{d_2}{100} + \dots + \frac{d_k}{10^k}$
 			\item[beliebig] $e_0{,}e_1 e_2 \dots e_{k + 1} \dots \longmapsto$ k-te Nährung $e_0{,}e_1 e_2 \dots e_k$
 		\end{itemize}
-		\begin{alignat*}{1}
-		\end{alignat*}
+	\item[Umrechung $\mathbb{D}$ nach $\mathbb{Q}$]
 		\begin{alignat*}{1}
 			x         & = 3{,}1\overline{72}                                          \\
 			10^2x     & = 317{,}2\overline{72}                                        \\
 			10^2x-x   & = 317{,}2\overline{72} - 3{,}1\overline{72} = 317{,}2 - 3{,}1 \\
-			(10^2-1)x & = 314                                                         \\
+			(10^2-1)x & = 314{,}1                                                     \\
 			990x      & = 3141                                                        \\
 			x         & = \frac{3141}{990}                                            \\
 			x         & = \frac{349}{110}                                             \\
 		\end{alignat*}
-	\item[Supremum und Infimum] Sei $A \subseteq \mathbb{R}; A \not = \emptyset$. $s \in \mathbb{R}$ heißt obere Schranke wenn $(\forall a \in A) a \leq s$ und untere schranke wenn $(\forall a \in A)\ s \leq a$. Wenn für $A$ eine obere Schranke existiert, dann heißt $A$ nach oben beschrenkt. Wenn für $A$ eine untere Schranke existiert, dann heßt $A$ nach unten beschränkt. $A$ heißt beschränkt, wenn $A$ nach oben und unten beschränkt ist. $s$ heißt Supremum von $A$, $s = \sup(A)$,wenn $s$ obere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \leq s \Rightarrow s'$ ist keine obere Schranke. $s$ heißt Infimum von $A$, $s = \infim(A)$,wenn $s$ untere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \geq s \Rightarrow s'$ ist keine untere Schranke.
+	\item[Supremum und Infimum] Sei $A \subseteq \mathbb{R}; A \not = \emptyset$. $s \in \mathbb{R}$ heißt obere Schranke wenn $(\forall a \in A)\ a \leq s$ und untere schranke wenn $(\forall a \in A)\ s \leq a$. Wenn für $A$ eine obere Schranke existiert, dann heißt $A$ nach oben beschrenkt. Wenn für $A$ eine untere Schranke existiert, dann heßt $A$ nach unten beschränkt. $A$ heißt beschränkt, wenn $A$ nach oben und unten beschränkt ist. $s$ heißt Supremum von $A$, $s = \sup(A)$,wenn $s$ obere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \leq s \Rightarrow s'$ ist keine obere Schranke. $s$ heißt Infimum von $A$, $s = \infim(A)$,wenn $s$ untere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \geq s \Rightarrow s'$ ist keine untere Schranke.
 
 		Satz: Wenn $A \subseteq \mathbb{R}; A \not = \emptyset,\ A$ nach oben beschränkt $\Rightarrow (\exists s \in \mathbb{R}) s = \supri(A)$ Analog dazu das Infimum. In $\mathbb{Q}$ gilt dass nicht.
 
@@ -766,10 +872,6 @@ $\mathbb{R}$ ist nicht abzählbar unendlich.
 			\rbrack a; b \lbrack & = \lbrace x | a < x < b \rbrace
 		\end{alignat*}
 	\item[erweiterte reele Zahlen] $+\infty$ und $-\infty$ (keine reelen Zahlen) $\mathbb{R}^+ = (0; \infty)$, $\mathbb{R}_0^+=\lbrack 0 ; \infty)$. In gewisser weise und ganz vosichtig kann man mit $\pm \infty$ rechnen.
-		\begin{alignat*}{1}
-			x + \infty     & = \infty | x \in \mathbb{R}; x > 0 \\
-			x \cdot \infty & = asd                              \\
-		\end{alignat*}
 	\item[irrational] $x \in \mathbb{R}; x \not \in \mathbb{Q}$ z.B.: $x = 0,10100100010000$
 	\item[algebraisch] genau dann wenn, eine Nullstelle eines Polynoms mit ganzzahligen Koeffizenten.
 	\item[transzendent] also nicht algebraisch $e; \pi$
@@ -781,14 +883,12 @@ Z.B.: $5 = ||||| = \cancel{||||}$ oder römische Ziffern: \\
 	Großbuchstaben & \rom{1} & \rom{5} & \rom{10} & \rom{50} & \rom{100} & \rom{500} & \rom{1000} \\ \hline
 	Wert           & 1       & 5       & 10       & 50       & 100       & 500       & 1000       \\ \hline
 \end{tabular}
-
 \subsection{Positionssysteme}
 \begin{itemize}
 	\item Basis $B$, $B \in \mathbb{N}$, $B>=2$
 	\item Ziffern für $0$ bis $B-1$. Jede Ziffer ein Zeichen.
 	\item Zahl $= \dots z_2B^2+z_1B^1+z_0B^0+z_{-1}B^{-1} \dots$
 \end{itemize}
-
 \subsubsection{Umrechnung}
 \begin{description}
 	\item[Polynom] $(z_{n-1}B^{n-1}z_{n-2}B^{n-2} \dots z_1B^{1}z_0B^{0})_{(B)}$
@@ -824,20 +924,26 @@ Z.B.: $5 = ||||| = \cancel{||||}$ oder römische Ziffern: \\
 \section{Rechnen}
 \subsection{Summe \& Produkt}
 Summe: stilisiertes großes Sigma
-$$\sum\limits_{i = n}^n f(i) = f(m) + f(m + 1) + \dots + f(n)$$
-Oder: 0, wenn $n < m$
+$$\sum\limits_{i = n}^n f(i) = \left \lbrace \begin{array}{ll}
+		f(m) + f(m + 1) + \dots + f(n) & \textrm{falls } n \geq m \\
+		0                              & \textrm{sonst}           \\
+	\end{array} \right.$$
+Summe aller Elemente $i$ in einer Menge $I$
 $$\sum\limits_{i \in I}$$
 Produkt: stilisiertes großes pi
-$$\prod\limits_{i=m}^{n}$$
-Oder 1, wenn $n < m$
+$$\prod\limits_{i=m}^{n} f(i) = \left \lbrace \begin{array}{ll}
+		f(m) \cdot f(m + 1) \cdot \dots \cdot f(n) & \textrm{falls } n \geq m \\
+		1                                          & \textrm{sonst}           \\
+	\end{array} \right.$$
+Produkt aller Elemente $i$ in einer Menge $I$
 $$\prod\limits_{i \in I}$$
 \begin{itemize}
-	\item[$i$] Laufvaribale / Indexvaribale, kann umbenant werden, vorausgesetzt die neue Bezeichnung kommt noch nicht vor.
+	\item[$i$] Laufvaribale / Indexvaribale, kann umbenannt werden, vorausgesetzt die neue Bezeichnung kommt noch nicht vor.
 	\item[] $$\sum\limits_{i = m}^n f(i) = \sum\limits_{j = m}^n f(j)$$
 		$$\prod\limits_{i = m}^n f(i) = \prod\limits_{j = m}^n f(j)$$
 	\item[$m$] Laufanfang
 	\item[$n$] Laufende
-	\item[$i;m;n$] $\in \mathbb{Z}$
+	\item $i;m;n \in \mathbb{Z}$
 	\item Indexverschiebeung: Laufbeginn und ende können modifiziert werden.
 	      $$\sum\limits_{i=m}^n f(i) = \sum\limits_{i=m+k}^{n+k} f(i-k)$$
 	      $$\prod\limits_{i=m}^n f(i) = \prod\limits_{i=m+k}^{n+k} f(i-k)$$
@@ -878,7 +984,7 @@ $$\bigcap\limits_{i=m}^n A(i) = \left\lbrace \begin{array}{ll}
 	\item $x \in \mathbb{R};\ x > 0;\ (x \geq 0 \textrm{ falls } \alpha > 0);\ \alpha \in \mathbb{R};\ x^\alpha$ als Grenzwert $x^{\alpha_k} = \lim\limits_{k \to \infty}\alpha_k = \alpha;\ \alpha \in \mathbb{Q}$
 	      $$\exp(z) = e^z = \sum\limits_{i = 0}^\infty \frac{z^i}{i!}$$
 \end{itemize}
-Voraussetzung : $x \in \mathbb{R};\ x > 0;\ a\alpha; \beta \in \mathbb{R}$
+Voraussetzung : $x \in \mathbb{R};\ x > 0;\ \alpha; \beta \in \mathbb{R}$
 \begin{alignat*}{1}
 	x^{\alpha + \beta}            & = x^\alpha \cdot x^\beta                                                                                                        \\
 	x^{\alpha \cdot \beta}        & = \left(x^\alpha\right)^\beta = \left(x^\beta\right)	\alpha                                                                     \\
@@ -893,100 +999,77 @@ Voraussetzung : $x \in \mathbb{R};\ x > 0;\ a\alpha; \beta \in \mathbb{R}$
 	\sqrt[1]{x}                   & = x                                                                                                                             \\
 	\sqrt[m]{x} \cdot \sqrt[n]{x} & = x^{\frac{1}{m}} \cdot x^{\frac{1}{n}} = x^{\frac{1}{n}+\frac{1}{m}} = x^{\frac{m+n}{m \cdot n}} = \sqrt[m \cdot n]{x^{m + n}}
 \end{alignat*}
-\subsection{Funktionen}
-\subsubsection{Potenzfunktion} $f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^n$
-\begin{description}
-	\item[quadratisch]  $$f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^2$$
-		\begin{tikzpicture}
-			\begin{axis}[
-					unit vector ratio = 1 1 1,
-					xmin = -2.5, xmax = 2.5,
-					ymin = -1.5, ymax = 4.5,
-					axis x line = center,
-					axis y line = center,
-					xtick={-2,-1,...,2},
-					ytick={-1,0,...,4},
-					xlabel={$x$},
-					ylabel={$y$},
-					xlabel style={below right},
-					ylabel style={above left}]
-				\addplot[
-					domain = -2:2,
-					samples = 200,
-					smooth,
-					thick,
-					blue,
-				] {x^2};
-			\end{axis}
-		\end{tikzpicture}
-	\item[kubisch]
-		$$f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto x^3$$
-		\begin{tabular}[t]{cc}
-			\begin{tikzpicture}
-				\begin{axis}[
-						unit vector ratio = 1 1 1,
-						xmin = -2.5, xmax = 2.5,
-						ymin = -4.5, ymax = 4.5,
-						axis x line = center,
-						axis y line = center,
-						xtick={-2,-1,...,2},
-						ytick={-4,-3,...,4},
-						xlabel={$x$},
-						ylabel={$y$},
-						xlabel style={below right},
-						ylabel style={above left}]
-					\addplot[
-						domain = -1.6:1.6,
-						samples = 200,
-						smooth,
-						thick,
-						blue,
-					] {x^3};
-				\end{axis}
-			\end{tikzpicture} &
-			\begin{tikzpicture}
-				\begin{axis}[
-						unit vector ratio = 1 1 1,
-						xmin = -4.5, xmax = 4.5,
-						ymin = -2.5, ymax = 2.5,
-						axis x line = center,
-						axis y line = center,
-						xtick={-4,-3,...,4},
-						ytick={-2,-1,...,2},
-						xlabel={$x$},
-						ylabel={$y$},
-						xlabel style={below right},
-						ylabel style={above left}]
-					\addplot[
-						domain = -4.0:4.0,
-						samples = 200,
-						smooth,
-						thick,
-						blue,
-					] {sign(x)*abs(x)^(1/3)};
-				\end{axis}
-			\end{tikzpicture}
-		\end{tabular}
-\end{description}
 \subsection{Fakultäten}
 \begin{itemize}
 	\item Fakultät $0! \coloneqq 1;\ (n+1)!=n!(n+1)$ wächst sehr schnell.
 	      $$(n \geq 1)\ n! = \prod\limits_{i=1}^n i$$
-	      Kombinatorische Bedeutung: Anzahl der Anordnungen von $n$ Gegenständen in einer Reihe.
-	      $$n! \approx \sqrt{s \pi n} \left(\frac{n}{e}\right)$$
+	\item Kombinatorische Bedeutung: Anzahl der Anordnungen von $n$ Gegenständen in einer Reihe.
+	\item Näherung durch Stirling-Formel:
+	      $$n! \approx \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n$$
+	\item Nährung durch Bill Gosper
+	      $$n! \approx \sqrt{2 \pi n + \frac{\pi}{3}}\left(\frac{n}{e}\right)^n$$
 \end{itemize}
 \subsection{Binominialkoeffizient}
 $n \in \mathbb{N}; m \in \mathbb{N};\ \binom{n}{k}$  gelesen ''n über m'' $n < m \Rightarrow \binom{n}{m} = 0$ $n \geq m \Rightarrow \binom{n}{0} = 1,\ \binom{n}{1} = n,\ \binom{n}{n}$
 $$\binom{n}{m} = \frac{n(n-1) \dots \cdot (n-m-1)}{1\cdot 2\cdot3 \dots m} = \frac{n!}{m!(n-m)!}$$
-$$\binom{n}{m}=\binom{n}{n-m}$$ Jeweils $m$ viele Faktoren, da sich der rest wegkürzt.
-z.b: $\binom{2}{4} = \frac{3 \cdot 3}{1 \cdot 2} = 6,\ \binom{5}{3} = \binom{5}{2} = \frac{5 \cdot 4}{1 \cdot 2}$
+$$\binom{n}{m}=\binom{n}{n-m}$$ Jeweils $m$ viele Faktoren, da sich der Rest wegkürzt.
+z.b:
+$$\binom{4}{2} = \frac{4 \cdot 3 \cdot \cancel{2 \cdot 1}}{2 \cdot 1 \cdot \cancel{2 \cdot 1}} = \frac{12}{2} = 6;\ \binom{5}{3} = \binom{5}{2} = \frac{5 \cdot 4 \cdot  \cancel{3 \cdot 2 \cdot 1}}{2 \cdot 1 \cdot \cancel{3 \cdot 2 \cdot 1}} = 10$$
 Kombinatorische Bedeutung: Anzahl der m-elementigen Teilmengen einer n-elementigen Menge
 $$\binom{n}{m}+\binom{n}{m+1}=\binom{n+1}{m+1}$$
-
 \begin{alignat*}{1}
 	\binom{n}{m}+\binom{n}{m+1} & =\frac{n!}{m!(n-m)!}+\frac{n!}{(m+1)!(n-m-1)!}=\frac{n!(m+1)+n!(n-m)}{(m+1)!(n-m)!} \\
 	                            & =\frac{(n+1)!}{(m+1)!((n+1)-(m+1))!}
 \end{alignat*}
+Pascalsches Dreieck: \\
+\begin{tabularx}{\linewidth}{@{}*2{>{\centering\arraybackslash}X}}
+	\begin{tikzpicture}
+		\node (11) at (0, 0) {1};
+		\node (21) at (-0.5, -0.5) {1};
+		\node (22) at (0.5, -0.5) {1};
+		\node (31) at (-1, -1) {1};
+		\node (32) at (0, -1) {2};
+		\node (33) at (1, -1) {1};
+		\node (41) at (-1.5, -1.5) {1};
+		\node (42) at (-0.5, -1.5) {3};
+		\node (43) at (0.5, -1.5) {3};
+		\node (44) at (1.5, -1.5) {1};
+		\node (51) at (-2, -2) {1};
+		\node (52) at (-1, -2) {4};
+		\node (53) at (0, -2) {6};
+		\node (54) at (1, -2) {4};
+		\node (55) at (2, -2) {1};
+		\node (61) at (-2.5, -2.5) {1};
+		\node (62) at (-1.5, -2.5) {5};
+		\node (63) at (-0.5, -2.5) {10};
+		\node (64) at (0.5, -2.5) {10};
+		\node (65) at (1.5, -2.5) {5};
+		\node (66) at (2.5, -2.5) {1};
+	\end{tikzpicture} &
+	\begin{tikzpicture}
+		\node (11) at (0, 0) {$\binom{0}{0}$};
+		\node (21) at (-0.5, -0.5) {$\binom{1}{0}$};
+		\node (22) at (0.5, -0.5) {$\binom{1}{1}$};
+		\node (31) at (-1, -1) {$\binom{2}{0}$};
+		\node (32) at (0, -1) {$\binom{2}{1}$};
+		\node (33) at (1, -1) {$\binom{2}{2}$};
+		\node (41) at (-1.5, -1.5) {$\binom{3}{0}$};
+		\node (42) at (-0.5, -1.5) {$\binom{3}{1}$};
+		\node (43) at (0.5, -1.5) {$\binom{3}{2}$};
+		\node (44) at (1.5, -1.5) {$\binom{3}{3}$};
+		\node (51) at (-2, -2) {$\binom{4}{0}$};
+		\node (52) at (-1, -2) {$\binom{4}{1}$};
+		\node (53) at (0, -2) {$\binom{4}{2}$};
+		\node (54) at (1, -2) {$\binom{4}{3}$};
+		\node (55) at (2, -2) {$\binom{4}{5}$};
+		\node (61) at (-2.5, -2.5) {$\binom{5}{0}$};
+		\node (62) at (-1.5, -2.5) {$\binom{5}{1}$};
+		\node (63) at (-0.5, -2.5) {$\binom{5}{2}$};
+		\node (64) at (0.5, -2.5) {$\binom{5}{3}$};
+		\node (65) at (1.5, -2.5) {$\binom{5}{4}$};
+		\node (66) at (2.5, -2.5) {$\binom{5}{5}$};
+	\end{tikzpicture}
+\end{tabularx}
 $$\sum\limits_{k=1}^n \binom{k}{m} = \binom{1}{m}+\binom{2}{m}+ \dots + \binom{m}{n}+\binom{m}{m}+\binom{m+1}{m}+\dots+\binom{n}{m}=\binom{n+1}{m+1}$$
 $$\sum\limits_{k=1}^n\binom{k}{1} = \frac{n(n+1)}{2}$$
 Binomialsatz
@@ -1002,9 +1085,11 @@ Terme könne aus folgendem bestehen
 	\item Funktionszeichen $\exp;\ \sin;\ cos;\ $
 	\item technische Zeichen $(;);\lbrace;\rbrace,\lbrack,\rbrack$
 \end{itemize}
-Funktionsbezeichung: $f;\ f(x);\ f(x;y)$ Wir bezeichnunen Terme ähnlich wie Funktionen. Aber: Ein Term definiert eine Funktion aber nicht umgekehrt.\\
+Funktionsbezeichung: $f;\ f(x);\ f(x;y)$ Wir bezeichnunen Terme ähnlich wie Funktionen. Aber: Ein Term definiert eine Funktion aber nicht umgekehrt.
 
-\underline{Ziel:} Möglichst einfache Terme für eine Funktion finden. Zu einem Term $f(x)$ gehört ein maximaler Definitionsbereich (auch natürlicher Definitionsberiech). Das ist die größte Teilmenge $D \in \mathbb{R}$ für die alle Teilterme von $f$ definiert sind. Dieser DB kann eventuell weiter eingeschränkt werden. Bezeichnungen für den Definitionsberiech: $D_f;\ \textrm{DBb}(f), D$ \\
+
+\underline{Ziel:} Möglichst einfache Terme für eine Funktion finden. Zu einem Term $f(x)$ gehört ein maximaler Definitionsbereich (auch natürlicher Definitionsberiech). Das ist die größte Teilmenge $D \in \mathbb{R}$ für die alle Teilterme von $f$ definiert sind. Dieser DB kann eventuell weiter eingeschränkt werden. Bezeichnungen für den Definitionsberiech: $D_f;\ \textrm{DBb}(f), D$
+
 
 Beispiel: $f(x) = \frac{x^2-x-6}{x+2}\quad D_f=\mathbb{R}\setminus\lbrace-2\rbrace$
 $$f(x)= \frac{(x-3)(x+2)}{x+2} = x-3\quad | x \not = -2$$
@@ -1030,5 +1115,115 @@ $$f(x)= \frac{(x-3)(x+2)}{x+2} = x-3\quad | x \not = -2$$
 	\item[Vieta] $(x-a)(x-b) = x^2 - (a+b)x+ab$
 	\item[Wurzel aus Nenner] $\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}$
 		$$\frac{2+\sqrt{3}}{2-\sqrt{3}}=\frac{2+\sqrt{3}}{2-\sqrt{3}} \cdot \frac{2+\sqrt{3}}{2+\sqrt{3}}=\frac{4+4\sqrt{3}+3}{4-3}=7+4\sqrt{3}$$
+\end{description}
+\subsection{Proportionalität}
+Größe
+\begin{itemize}
+	\item Bezeichnung $X$, z.B. Fahrstrecke
+	\item zugehörige Wertemenge, hier stehts $X\in \mathbb{R}$ (notfalls runden mit Verstand)
+	\item eventuell mit Einheit, schreibweise $x \in X$
+	\item Zwei Größen $x;\ Y$ i.a. nicht unabhänig.
+	\item $E \subseteq X \times Y$
+	\item $X$ und $Y$ heißen proportional, $X \sim Y$, wenn $(\exists c)\ (x;y) \in E \Leftrightarrow \frac{x}{y}=c$ z.B. Farstrecke $\sim$ Benzinverbrauch
+	\item $X$ und $Y$ heißen umgekehrt proportional, $x \sim \frac{1}{Y}$, wenn $(\exists c)\ (x;y) \in E \Leftrightarrow x \cdot y = c$. Z.B.: Arbeiteranzahl $\sim \frac{1}{\textrm{Arbeitszeit}}$
+	\item $X \sim Y;\ (x_1;y_1);\ (x_2;y_2) \in E \Rightarrow \frac{x_1}{y_1} = c = \frac{x_2}{y_2}$
+	\item $X \sim \frac{1}{Y};\ (x_1;y_1);\ (x_2;y_2) \in E \Rightarrow x_1 \cdot y_1 = c = x_2 \cdot y_2$
+	\item mehr als zwei Größen: Für die Zerlegung von 7,2t brauchen 14 Arbeiter 8h. Wie viele Arbeiter braucht man, um 6t in 8 h zu zerlgen. \\
+	      Propotionalitätsbeziehung zwichen $$E \subseteq X \times  Y \times Z\ : (x; y; z) \in E$$ $$(\exists i_x; i_y; i_z \in \lbrace -1; 1 \rbrace) (\exists c)\ (x;y;z) \in E \Leftrightarrow x^{i_x}y^{i_y}z^{i_z} = c$$
+	      $$A \sim S;\ A \sim \frac{1}{T}$$
+	      $$\frac{14z \cdot 8h}{7{,}2t}=c=\frac{a \cdot 8h}{6t} \Rightarrow a = \frac{6t}{7{,}2t}\cdot \frac{8h}{8h} \cdot 14z \approx 12z$$
+\end{itemize}
+\subsubsection{Prozentrechnung}
+\begin{itemize}
+	\item Spezialfall der Proportionalität
+	\item Zwei größen:\
+	      \begin{itemize}
+		      \item Prozente
+		      \item andere Größe
+	      \end{itemize}
+	\item $1\% = \frac{1}{100}$
+	\item $1\permil = \frac{1}{1000}$
+	\item Grundwert $G \hat{=} 100\%$, Prozentwert $W \hat{=} p\%$
+	      $$\frac{G}{100\%} = \frac{W}{p\%}$$
+\end{itemize}
+\subsection{Gleichungen}
+$$f(x)=g(x)$$
+\begin{description}
+	\item[Lösungsmenge] $\mathbb{L} = \lbrace x \in D_f \cap D_g | f(x) = g(x) \rbrace$ explizit angeben.
+	\item[Äquivalenete Umformung] ändert $\mathbb{L}$ nicht. Zwei gleichungen heißen äquivalent wenn ihre Lö-sungsmengen gleich sind.
+		$$f(x)= g(x) \Leftrightarrow \widetilde{f}(x) = \widetilde{g}(x)$$
+	\item[nichtäquivalente Umformungen]
+		Folgerungen $f(x) = g(x) \Rightarrow \widetilde{f}(x) = \widetilde{g}(x)$, d.h. $\mathbb{L} \subseteq \widetilde{\mathbb{L}}$ Probe!
+		\begin{alignat*}{2}
+			x-2     & = 3 \quad    &  & \mathbb{L} = \lbrace 5 \rbrace     \\
+			(x-2)^2 & = 3^2  \quad &  & \mathbb{L} = \lbrace -1; 5 \rbrace \\
+		\end{alignat*}
+	\item[spezielle Umformungen] $t(x)$ sei ein weiterer Term mit $D_f \cap D_g \subseteq D_f$
+		\begin{alignat*}{2}
+			f(x) = g(x) & \Leftrightarrow f(x) + t(x)       &  & = g(x) + t(x)                                     \\
+			f(x) = g(x) & \Leftrightarrow f(x) \cdot t(x)   &  & = g(x) \cdot t(x)\textrm{ falls } t(x) \not = 0   \\
+			f(x) = g(x) & \Leftrightarrow \frac{f(x)}{t(x)} &  & = \frac{g(x)}{t(x)}\textrm{ falls } t(x) \not = 0 \\
+		\end{alignat*}
+		$h : D_h \longrightarrow \mathbb{R}$ Funktion, , $f\lbrack D_f \cap D_g \rbrack \cup g\lbrack D_f \cap D_g \rbrack \subseteq D_h$
+		$$f(x) = g(x) \Rightarrow h(f(x)) = h(g(x))$$
+		Ist $h$ insbesondere umkehrbar (injektiv), dann gilt
+		$$f(x) = g(x) \Leftrightarrow h(f(x)) = h(g(x))$$
+	\item[Lineare Gleichungen] $ax + b = 0 \quad a \not = 0$
+		\begin{alignat*}{2}
+			 & \Leftrightarrow ax &  & = -b           \\
+			 & \Leftrightarrow x  &  & = \frac{-b}{a} \\
+		\end{alignat*}
+		\begin{alignat*}{3}
+			 & \quad \frac{7x+91}{17x+221} &  & = 11                 &  & | \cdot (17x + 221) \\
+			 & \Leftrightarrow 7x + 91     &  & = 11 \cdot (17x+221)                          \\
+			 & \Leftrightarrow 7x + 91     &  & = 187x + 2431                                 \\
+			 & \Leftrightarrow 0           &  & = 180x +2340         &  & |-2340              \\
+			 & \Leftrightarrow 180x        &  & = -2340              &  & | :180              \\
+			 & \Leftrightarrow x           &  & = -13                                         \\
+		\end{alignat*}
+		$$\mathbb{D} = 17x+221 \not = 0$$
+		$$x \not \in \mathbb{D}$$
+	\item[Gleichung mit Beträgen] $|a| = \sqrt{a^2}$
+		$$\begin{array}{ll}
+				|a| \geq 0                  & |a| = 0 \Leftrightarrow a = 0              \\
+				|a \cdot b| = |a| \cdot |b| & \frac{|a|}{|b|} = \left|\frac{a}{b}\right| \\
+				|a+b| \leq  |a| + |b|       & ||a|-|b|| \leq |a-b|                       \\
+			\end{array}$$
+		\begin{itemize}
+			\item $|f(x)| = c$ \
+			      \begin{itemize}
+				      \item falls $c<0$, so $\mathbb{L}= \emptyset$
+				      \item falls $c\geq0$: $|f(x)| = c \Leftrightarrow f(x) = c \vee f(x) = -c;\ \mathbb{L} = \mathbb{L}_1 \cup \mathbb{L}_2$
+			      \end{itemize}
+			\item $|f(x)| = |g(x)| \Leftrightarrow f(x)^2 = g(x)^2$
+			\item $|f(x)| = |g(x)| \Leftrightarrow \left|\frac{f(x)}{g(x)}\right| = 1 \Leftrightarrow \frac{f(x)}{g(x)} = 1 \vee \frac{f(x)}{g(x)} = -1$
+			\item[Allgemein:] Vollständige Fallunterschiedung
+				$$|x-1|+|x+1|=10$$
+				\begin{itemize}
+					\item[Fall 1] $x-1 \geq 0;\ x+1 \geq 0 \ \Leftrightarrow x \geq 1;\ x\geq -1 \Leftrightarrow x>1$
+						\begin{alignat*} {1}
+							(x-1) + (x+1) & = 10                \\
+							2x            & = 10                \\
+							x             & = 5                 \\
+							\mathbb{L}_1  & = \lbrace 5 \rbrace \\
+						\end{alignat*}
+					\item[Fall 2] $x-1 \geq 0;\ x+1 < 0 \ \Leftrightarrow x \geq 1;\ x < -1 \quad \mathbb{L}_2 = \emptyset$
+					\item[Fall 3] $x-1 < 0;\ x+1 \geq 0 \ \Leftrightarrow x < 1;\ x\geq -1 \Leftrightarrow -1 \leq x < 1$
+						\begin{alignat*} {1}
+							-(x-1) + (x+1) & = 10        \\
+							2              & = 10        \\
+							\mathbb{L}_3   & = \emptyset \\
+						\end{alignat*}
+					\item[Fall 4] $x-1 < 0;\ x+1 < 0 \ \Leftrightarrow x < 1;\ x < -1 \Leftrightarrow x<-1$
+						\begin{alignat*} {1}
+							-(x-1) +(-(x+1)) & = 10                 \\
+							-2x              & = 10                 \\
+							x                & = -5                 \\
+							\mathbb{L}_1     & = \lbrace -5 \rbrace \\
+						\end{alignat*}
+					\item[$\mathbb{L}$] = $\mathbb{L}_1 \cup \mathbb{L}_2 \cup \mathbb{L}_3 \cup \mathbb{L}_4 = \lbrace -5; 5\rbrace$
+				\end{itemize}
+		\end{itemize}
+	\item[Quadratische Funktionen]
 \end{description}
 \end{document}

@@ -15,3 +15,8 @@ jobs:
         with:
           name: Mathematische_Formalien.pdf
           path: Mathematische_Formalien.pdf
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: Mathematische_Formalien.pdf

@@ -1,7 +1,8 @@
 $\mathbb{R}$ ist nicht abzählbar unendlich.
 \begin{description}
     \item[Problem] Es gibt keine reationale Zahl $q \in \mathbb{Q}$ mit $q^2 = 2$
-    \item[Annahme] Es gibt $q \in \mathbb{Q}$ mit $q^2 = 2$. Damit gibt es $a;b \in \mathbb{Z}$ mit $q = \frac{a}{b}$, $a;b \geq 1$, $\ggt(a;b) = 1$ und
+    \item[Annahme] Es gibt $q \in \mathbb{Q}$ mit $q^2 = 2$.
+    Damit gibt es $a;b \in \mathbb{Z}$ mit $q = \frac{a}{b}$, $a;b \geq 1$, $\ggt(a;b) = 1$ und
     \begin{alignat*}{2}
         q^2 = \left( \frac{a}{b}\right)^2 & = 2                                                \\
         \frac{a}{b}                       & = 2                                                \\
@@ -18,12 +19,13 @@ $\mathbb{R}$ ist nicht abzählbar unendlich.
     Aber $\ggt(a;b) = 1$
     \item[unendlicher Dezimalbruch] $d$ beteht aus 3 Dingen (Tripel)
     \begin{itemize}
-        \item Vorzeichen: + oder - (bzw. +1, -1)
+        \item Vorzeichen: + oder - (bzw.\ +1, -1)
         \item natürlich Zahl $d_0 \in \mathbb{N}$
         \item Folge von Dezimalziffern ($f : \mathbb{N}^+ \longrightarrow \lbrace 0; 1; 2; \dots ; 9 \rbrace$)
     \end{itemize}
     Schreibweise: $d = \pm d_0,d_1 d_2 d_3\dots$\\
-    $\mathbb{D} :$ Menge aller unendlichen Dezimalbrüche ist nicht $\mathbb{R}$. Lineare Ordnung $\leq$ auf $\mathbb{D}$, lexikographisch
+    $\mathbb{D} :$ Menge aller unendlichen Dezimalbrüche ist nicht $\mathbb{R}$.
+    Lineare Ordnung $\leq$ auf $\mathbb{D}$, lexikographisch
     \item[periodischer Dezimalbruch] $d$ periodisch
     $\Leftrightarrow (\exists k \geq 0)(\exists l \geq 1) (\forall i > k)\ d_i= d_{i + l}$ $l$, also mit kleinstmöglicher Periodenlänge z.B. $5{,}72\overline{13}$
     \item[abbrechender Dezimalbruch] z.B. $102{,}53\overline{0} = 102{,}53$
@@ -44,9 +46,12 @@ $\mathbb{R}$ ist nicht abzählbar unendlich.
         x         & = \frac{3141}{990}                                            \\
         x         & = \frac{349}{110}                                             \\
     \end{alignat*}
-    \item[Supremum und Infimum] Sei $A \subseteq \mathbb{R}; A \not = \emptyset$. $s \in \mathbb{R}$ heißt obere Schranke wenn $(\forall a \in A)\ a \leq s$ und untere schranke wenn $(\forall a \in A)\ s \leq a$. Wenn für $A$ eine obere Schranke existiert, dann heißt $A$ nach oben beschrenkt. Wenn für $A$ eine untere Schranke existiert, dann heßt $A$ nach unten beschränkt. $A$ heißt beschränkt, wenn $A$ nach oben und unten beschränkt ist. $s$ heißt Supremum von $A$, $s = \sup(A)$,wenn $s$ obere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \leq s \Rightarrow s'$ ist keine obere Schranke. $s$ heißt Infimum von $A$, $s = \infim(A)$,wenn $s$ untere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \geq s \Rightarrow s'$ ist keine untere Schranke.
+    \item[Supremum und Infimum] Sei $A \subseteq \mathbb{R}; A \not = \emptyset$. $s \in \mathbb{R}$ heißt obere Schranke wenn $(\forall a \in A)\ a \leq s$ und untere schranke wenn $(\forall a \in A)\ s \leq a$.
+    Wenn für $A$ eine obere Schranke existiert, dann heißt $A$ nach oben beschrenkt.
+    Wenn für $A$ eine untere Schranke existiert, dann heßt $A$ nach unten beschränkt. $A$ heißt beschränkt, wenn $A$ nach oben und unten beschränkt ist. $s$ heißt Supremum von $A$, $s = \sup(A)$,wenn $s$ obere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \leq s \Rightarrow s'$ ist keine obere Schranke. $s$ heißt Infimum von $A$, $s = \infim(A)$,wenn $s$ untere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \geq s \Rightarrow s'$ ist keine untere Schranke.
 
-    Satz: Wenn $A \subseteq \mathbb{R}; A \not = \emptyset,\ A$ nach oben beschränkt $\Rightarrow (\exists s \in \mathbb{R}) s = \supri(A)$ Analog dazu das Infimum. In $\mathbb{Q}$ gilt dass nicht.
+    Satz: Wenn $A \subseteq \mathbb{R}; A \not = \emptyset,\ A$ nach oben beschränkt $\Rightarrow (\exists s \in \mathbb{R}) s = \supri(A)$ Analog dazu das Infimum.
+    In $\mathbb{Q}$ gilt dass nicht.
 
     \item[Operationen] Bezüglich + und $\cdot$ gelten die selben Identitäten wie in $\mathbb{Q}$. $\mathbb{R}$ bilden einen Körper.
     \begin{description}
@@ -59,7 +64,8 @@ $\mathbb{R}$ ist nicht abzählbar unendlich.
         \lbrack a; b \rbrack & = \lbrace x | a \leq x\leq b \rbrace \\
         \rbrack a; b \lbrack & = \lbrace x | a < x < b \rbrace
     \end{alignat*}
-    \item[erweiterte reele Zahlen] $+\infty$ und $-\infty$ (keine reelen Zahlen) $\mathbb{R}^+ = (0; \infty)$, $\mathbb{R}_0^+=\lbrack 0 ; \infty)$. In gewisser weise und ganz vosichtig kann man mit $\pm \infty$ rechnen.
+    \item[erweiterte reele Zahlen] $+\infty$ und $-\infty$ (keine reelen Zahlen) $\mathbb{R}^+ = (0; \infty)$, $\mathbb{R}_0^+=\lbrack 0 ; \infty)$.
+    In gewisser weise und ganz vosichtig kann man mit $\pm \infty$ rechnen.
     \item[irrational] $x \in \mathbb{R}; x \not \in \mathbb{Q}$ z.B.: $x = 0,10100100010000$
     \item[algebraisch] genau dann wenn, eine Nullstelle eines Polynoms mit ganzzahligen Koeffizenten.
     \item[transzendent] also nicht algebraisch $e; \pi$

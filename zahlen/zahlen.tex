@@ -1,0 +1,305 @@
+\subsection{Sprachunterschiede}
+\begin{tabular}{|l|l|l|} \hline
+& deutsch   & US-Englisch \\ \hline \hline
+$10^6$    & Million   & million     \\ \hline
+$10^9$    & Milliarde & billion     \\ \hline
+$10^{12}$ & Billion   & trillion    \\ \hline
+$10^{15}$ & Billiarde & quadrillion \\ \hline
+$10^{18}$ & Trillion  & quintillion \\ \hline
+\end{tabular}
+\subsection{natürliche Zahlen}
+$\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
+\begin{description}
+    \item[unendlichkeits Axiom] Es gibt unendliche Mengen
+    \item[Peano-Axiome] 5 Stück:
+    \begin{itemize}
+        \item $0 \in \mathbb{N}$, null ist eine natürliche Zahl
+        \item es gibt eine Nachfolgerfunktion $s : \mathbb{N} \longrightarrow \mathbb{N}$
+        \item $s$ ist injektiv
+        \item $0 \not \in \textrm{Bild}(s)$, Null ist nicht Nachfolger einer natürlichen Zahl
+        \item Für jede Menge $M \subseteq \mathbb{N}$ gilt:
+        $$(0 \in \mathbb{N} \wedge (\forall n \in \mathbb{N})(n \in M \Rightarrow s(n) \in M)) \Rightarrow M = \mathbb{N}$$
+        Modifikation: steht $M \subseteq \mathbb{N}$ kann man das auch als Eigenschaft $E_M(n)$ ausdrücken.
+        $$E_M(n) \Leftrightarrow n \in M$$
+    \end{itemize}
+    \item[Vollständige Induktion] am Beispiel für einen Beweis der Gaußschen Summenformel
+    \begin{description}
+        \item[Induktionsvoraussetzung] Die Annahme: $A(n) \Leftrightarrow 1 + 2 + \dots + n = \frac{n(n+1)}{2}$
+        \item[Induktionsanfang] Der Beweis, dass der Anfang gültig ist: $A(1) = 1$
+        \item[Induktionsbehauptung] Das Einsetzen von $(n + 1)$ für $n$:
+        $$A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1)= \frac{(n + 1)((n + 1)+1)}{2}$$
+        \item[Induktionsschritt] Zeigen, dass aus der Induktionsvoraussetzung
+        $$A(n) \Leftrightarrow 1 + \dots + n = \frac{n(n+1)}{2}$$
+        die Induktionsbehauptung
+        $$A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) = \frac{(n + 1)((n + 1)+1)}{2}$$
+        folgt. In diesem speziellen Fall:
+        \begin{align*}
+            A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) & = \frac{n(n + 1)}{2} + (n + 1)  \\
+            & = \frac{n(n + 1) + 2(n + 1)}{2} \\
+            & = \frac{(n + 1)(n + 2)}{2}      \\
+            & = \frac{(n + 1)((n + 1)+1)}{2}
+        \end{align*}
+    \end{description}
+    \item[Addition] $m \in \mathbb{N}; m$ fest
+    $$m+0\coloneqq m$$
+    $$m + s(n) \coloneqq s(m + n)$$
+    (rekursive (induktive) Definition für $m + n$)
+    $$m \cdot 0\coloneqq 0$$
+    $$m \cdot s(n) \coloneqq m + s(m + n)$$
+\end{description}
+\subsection{Ganze Zahlen}
+\begin{description}
+    \item[Motivation] $\mathbb{Z} \coloneqq \lbrace 0, 1, -1, 2, -2 \dots \rbrace$ (abzählbar)\\
+    \begin{tabular}[t]{ll}
+        $x+1=0$ & ist nicht lösbar in $\mathbb{N}$                               \\
+        $x+a=0$ & man nimmt zu jeder Zahl $a \in \mathbb{N}$ eine Gegenzahl $-a$
+    \end{tabular} \\
+    Lösung für $x+a=0$ (Ausnahme: $a=0$, denn $-0=0$)
+    \item[Operationen] $+; \ -; \ \cdot$
+    \item[spezielle Elemente] $0,\ 1$
+    \item[lineare Ordnung] $<;\ \leq;\ >;\ \geq$
+    \item[Gesetze] $(\forall a \in \mathbb{Z})$ gilt: \\
+    \begin{tabular}{l|c|c}
+        & Addition            & Multiplikation                              \\ \hline
+        & $a+0 = a$           & $a \cdot 1 = a$                             \\ \hline
+        Kommutativ & $a+b = b+a$         & $a \cdot b = b \cdot a $                    \\ \hline
+        Assoziativ & $(a+b)+c = a+(b+c)$ & $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ \\ \hline
+        & $a+(-a) = 0$
+    \end{tabular} \\
+    Ring-Identitäten: $a \cdot (b + c) = a \cdot b + a \cdot c$
+    \item[Betrag] $|a| = \left\lbrace \begin{array}{rc} a & a \geq 0 \\ -a & a < 0\end{array} \right.$
+    \item[Division] Es sein $a;m \in \mathbb{Z}|m \geq 1$ dann gibt es $q \in \mathbb{Z}$ mit $a=q \cdot m + r$ und $0 \leq r < m$. $q;r$ sind eindeutig bestimmt
+\end{description}
+\subsection{Primzahlen}
+\begin{description}
+    \item[Teiler] $a;b \in \mathbb{Z}$\\
+    $a$ ist ein Teiler von $b$, geschrieben $a \mid c$, falls $(\exists c \in \mathbb{Z})\quad a \cdot c = b$\\
+    Jede ganze Zahl $b$ ist teilbar durch: 1, -1, b , -b. Diese heißen die trivialen Teiler von $b$. Eigenschaften: \\
+    $a \mid 0;\, a \mid 0$ \\
+    $a \mid b \wedge b \mid c \Rightarrow a \mid b$ \\
+    $a \mid b \Rightarrow a \mid (-b), (-a) \mid b, (-a) \mid (-b)$ \\
+    $a;b \geq 1 \wedge a \mid b \Rightarrow a \leq b$
+    \item[Primzahl] Eigenschaften:
+    \begin{itemize}
+        \item Eine ganze Zahl $p \in \mathbb{Z}$ heißt Primzahl, wenn $p \geq 2$ und $p$ nur triviale Teiler hat.
+        \item Jede ganze Zahl $b \geq 2$ hat mindesten einen Primitiver.
+        \item Es gibt unendlich viele Primzahlen. Beweis durch Widerspruch
+        $$|\mathbb{P}| \in \mathbb{N}$$
+        $n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P}$. Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$. Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$. Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden. Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
+        \item Der kleinste Teiler einer Zahl $b \in \mathbb{N}|b \geq 2$ ist eine Primzahl.
+        \item Der kleinste Primteiler $p$ einer Zahl $a \in \mathbb{Z};\ a \geq 2;\ a \not \in \mathbb{P}$ ist $p \leq \sqrt{a}$
+    \end{itemize}
+    \item[Fundamentalsatz der Arithmetik] Jede Zahl $b \geq 2$ lässt sich als Produktion von Primzahlen darstellen (Primfaktorisierung). Vorkommende Primzahlen und ihre Anzahl sind bis auf Reihenfolge eindeutig bestimmt.
+\end{description}
+\subsection{Teilbarkeit}
+$a \in \mathbb{Z},\ a \geq 2,\ a=(z_{n-1}z_{n-2} \dots z_1z_0)$ \\
+\begin{tabular}{rcl}
+    2  & $\Leftrightarrow$ & $z_0$ gerade                         \\
+    3  & $\Leftrightarrow$ & Quersumme durch 3 teilbar            \\
+    4  & $\Leftrightarrow$ & $(z_1z_0)_{10}$ durch 4 teilbar      \\
+    5  & $\Leftrightarrow$ & $z_0 \in \lbrace 0; 1 \rbrace$       \\
+    6  & $\Leftrightarrow$ & durch 2 und 3 teilbar                \\
+    7  & $\Leftrightarrow$ & ...                                  \\
+    8  & $\Leftrightarrow$ & $(z_2z_1z_0)_{(10)}$ durch 8 teilbar \\
+    9  & $\Leftrightarrow$ & quersumme durch 9 teilbar            \\
+    10 & $\Leftrightarrow$ & durch 2 und 5 teilbar bzw. $z_0=0$
+\end{tabular}
+\subsection{ggT und kgV}
+Sein $a;b \in \mathbb{Z}$
+
+Ein gemeinsamer Teiler von $a$ und $b$ ist eine Zahl $t \in \mathbb{N}$ mit $t \mid a$ und $t \mid b$. Abkürung: $\textrm{ggt}(a;b)$.
+
+Ein gemeinsames vielfaches von $a$ und $b$ ist ein $s \in \mathbb{Z}$ mit $a \mid s$ und $b \mid s$. Abkürung: $\textrm{kgv}(a;b)$.
+
+\subsubsection{mit Primfaktorisierung}
+$a \dots p^m;\ a \dots p^n$
+
+$\ggt(a;b)\quad p^{\min(m;n)};\ \kgv(a;b)\quad p^{\max(m;n)}$
+
+$m + n = \min(m;n) + \max(m;n) \Rightarrow a \cdot b = \textrm{ggt}(a;b) \cdot \textrm{kgv}(a;b)$
+
+$a = 5940 = 2^2 \cdot 3^3 \cdot 5 \cdot 11$
+
+$b = 11760 = 2^4 \cdot 3 \cdot 5 \cdot 7$
+
+$$\begin{array}{rcccccl}
+      a =         & 2^2 & \cdot 3^3 & \cdot 5^1 & \cdot 7^0 & \cdot 11^1             \\
+      b =         & 2^4 & \cdot 3^1 & \cdot 5^1 & \cdot 7^2 & \cdot 11^0             \\
+      \ggt(a;b) = & 2^2 & \cdot 3^1 & \cdot 5^1 & \cdot 7^0 & \cdot 11^0 & = 60      \\
+      \kgv(a;b) = & 2^4 & \cdot 3^3 & \cdot 5^1 & \cdot 7^2 & \cdot 11^1 & = 1164240
+\end{array}$$
+\subsubsection{Eukildscher Algorithmus}
+\begin{itemize}
+    \item Es sein $a_1;a_2 \in \mathbb{Z},\ a_1 > a_2 \geq 1$
+    \item Division mit Rest: $a_1 = q_2 a_2 + a_3$ mit $0 \leq a_3 < a_2$
+    \item Sei $g$ gem. Teiler von $a_1$ und $a_2$, $a_1 - q_2 \cdot a_2 = a_3 \Rightarrow g$ gem. Teiler von $a_2$ und $a_3$
+    \item Sei $g$ gem. Teiler von $a_2$ und $a_3$, $a_1 = q_2 \cdot a_2 + a_3 \Rightarrow g$ gem. Teiler von $a_1$ und $a_2$
+    \item $\Rightarrow \ggt(a_1;a_2) = \ggt(a_2;a_3)$
+    \item $a_{n}=q_{n+1}a_{n+1} + 0 \Rightarrow \ggt(a_n;a_{n+1}) = \ggt(a_1,a_2) = a_{n+1}$
+\end{itemize}
+Beispiel: $\ggt(851,2183);\ a=2183;\ a_2 = 851$
+\begin{alignat*}{3}
+    2183 & = 2 &  & \cdot 851 &  & + 481 \\
+    851  & = 1 &  & \cdot 481 &  & + 370 \\
+    481  & = 1 &  & \cdot 370 &  & + 111 \\
+    370  & = 3 &  & \cdot 111 &  & + 37  \\
+    111  & = 3 &  & \cdot 37
+\end{alignat*}
+$\ggt(851;2183) = 37$
+\begin{itemize}
+    \item Es gibt die darstellung $\ggt(a_1;a_2) = s\cdot a_1 + t \cdot a_2$ mit $s;t \in \mathbb{Z}$
+    \item $a;c \in \mathbb{Z}$ heißen Teilerfremd wenn $\ggt(a;b) = 1$
+    \item Sei $t \mid a \cdot b$ und $a;t$ teilerfremd $\Rightarrow t \mid b$
+    \item Sei $p \in \mathbb{P}$ und $p \mid a \cdot b \Rightarrow p \mid a \vee p \mid b$ denn:
+    \begin{itemize}
+        \item[Fall 1] $p \mid a$ Ausdruck wahr
+        \item[Fall 2] $p \nmid a \Rightarrow \ggt(p;a) = 1$
+    \end{itemize}
+\end{itemize}
+\subsection{Rationale Zahlen}
+\begin{description}
+    \item[Problem] $a \nmid a,\ a \cdot x = a$ nicht Lösbar in $\mathbb{Z}$
+    \item[Lösung] nehmen $\frac{a}{b}$ hinzu. $\mathbb{Q} \coloneqq \lbrace \frac{a}{b} | a;b \in \mathbb{Z} \wedge b \not = 0 \rbrace$ auserdem: $\frac{a}{b} = \frac{c}{d} \Leftrightarrow ad = bc$. Eine rationale Zahl entspricht also einer Menge von Brüchen, die als selbe Zahl, betrachtet werden.
+
+    Also $\frac{a}{b} = \frac{a \cdot t}{b \cdot t}$ denn $a \cdot b \cdot t = a \cdot t \cdot b$. Jede Rationale Zahl entspricht genau einem unkürzbaren Bruch $\frac{a}{b}$ mit $\ggt(a;b) = 1$ und $b \geq 1$.
+
+    Einbettung: $\mathbb{Z}\ni z \longmapsto \frac{z}{1} \in \mathbb{Q}$, dann gilt $\mathbb{Z} \subset \mathbb{Q}$
+
+    $\mathbb{Q}$ unendlich, $\mathbb{N} \sim \mathbb{Q}$, $\mathbb{Q}$ abzählbar: wir sortieren $a + b$ nach $\frac{a}{b}$
+    $$\begin{array}{lccc}
+          a + b = 1 &             &             & \frac{0}{1} \\
+          a + b = 2 &             & \frac{0}{2} & \frac{1}{1} \\
+          a + b = 3 & \frac{0}{3} & \frac{1}{2} & \frac{2}{1}
+    \end{array}$$
+    \item[Operationen]
+    $$\frac{a}{b} + \frac{c}{d} \coloneqq \frac{ad+bc}{bd}$$
+    $$\frac{a}{b} - \frac{c}{d} \coloneqq \frac{ad-bc}{bd}$$
+    $$q = \frac{a}{b};\ a \not =;\ b \not 0$$
+    $$q^{-1} = \frac{b}{a}$$
+    $$q \cdot q^{-1} = \frac{ab}{ab} = 1$$
+    $$\frac{c}{d}:\frac{a}{b}\coloneqq\frac{c}{d}  \left(\frac{a}{b}\right)^{-1}$$
+    Bruchstrich entspricht Division \\
+    Division ist nicht assoziativ
+    $$q:v:s \not = q:(v:s)$$
+    \item[Identitäten] Gleichungen der form $qx=r$ $(q;r \in \mathbb{Q});\ q \not = 1$ sind nach $x$ für $x\in \mathbb{Q}$ lösbar: $x = r \cdot q^{-1}$ \\
+    \begin{tabular}[t]{cc}
+        $(x+y)+z = x+(x+1)$ & (xy)z=x(yz)                 \\
+        $x + y = y + x$     & $xy = yx$                   \\
+        $x + 0 = x$         & $x * 1 = x$                 \\
+        $x + (-x) = 0$      & $xx^{-1}$ wenn $x \not = 0$ \\
+        $x - y = x + (-y)$  & $x:y = xy^{-1}$
+    \end{tabular}
+    $$x(y+z) = xy + xz$$
+    $\mathbb{Q}$ ist ein Körper. Die Elemente in $\mathbb{Q}$ haben eine  lineare Ordnung. Die Zahlen liegen dicht auf dem Zahlenstrahl
+\end{description}
+\subsection{Reele Zahl}
+$\mathbb{R}$ ist nicht abzählbar unendlich.
+\begin{description}
+    \item[Problem] Es gibt keine reationale Zahl $q \in \mathbb{Q}$ mit $q^2 = 2$
+    \item[Annahme] Es gibt $q \in \mathbb{Q}$ mit $q^2 = 2$. Damit gibt es $a;b \in \mathbb{Z}$ mit $q = \frac{a}{b}$, $a;b \geq 1$, $\ggt(a;b) = 1$ und
+    \begin{alignat*}{2}
+        q^2 = \left( \frac{a}{b}\right)^2 & = 2                                                \\
+        \frac{a}{b}                       & = 2                                                \\
+        a^2                               & = 2b^2                                             \\
+        & \Rightarrow 2 \mid a^2                             \\
+        & \Rightarrow 2 \mid a                               \\
+        & \Rightarrow (\exists a_0 \in \mathbb{Z})\ a = 2a_0 \\
+        & \Rightarrow \left(2a_0\right)^2 = 2b^2             \\
+        & \Rightarrow 4a_0^2 = 2b^2                          \\
+        & \Rightarrow 2a_0^2 = b^2                           \\
+        & \Rightarrow 2 \mid b^2                             \\
+        & \Rightarrow 2 \mid b                               \\
+    \end{alignat*}
+    Aber $\ggt(a;b) = 1$
+    \item[unendlicher Dezimalbruch] $d$ beteht aus 3 Dingen (Tripel)
+    \begin{itemize}
+        \item Vorzeichen: + oder - (bzw. +1, -1)
+        \item natürlich Zahl $d_0 \in \mathbb{N}$
+        \item Folge von Dezimalziffern ($f : \mathbb{N}^+ \longrightarrow \lbrace 0; 1; 2; \dots ; 9 \rbrace$)
+    \end{itemize}
+    Schreibweise: $d = \pm d_0,d_1d_2d_3\dots$\\
+    $\mathbb{D} :$ Menge aller unendlichen Dezimalbrüche ist nicht $\mathbb{R}$. Lineare Ordnung $\leq$ auf $\mathbb{D}$, lexikographisch
+    \item[periodischer Dezimalbruch] $d$ periodisch
+    $\Leftrightarrow (\exists k \geq 0)(\exists l \geq 1) (\forall i > k)\ d_i= d_{i + l}$ $l$, also mit kleinstmöglicher Periodenlänge z.B. $5{,}72\overline{13}$
+    \item[abbrechender Dezimalbruch] z.B. $102{,}53\overline{0} = 102{,}53$
+    \item[unmittelbarer Nachfolger] 9er ende z.B. $2{,}1\overline{9} = 2{,}2$
+    \item[Definition] Menge der Reelen Zahlen $\mathbb{R} = \lbrace \pm d | \pm d $ ist unendlicher Dezimalbruch mit zusatzvereinbarungen: $ -0 = +0 \textrm{ und } 0{,}\overline{9} = 1 \rbrace$
+    \item[Rationale Zahlen in den Reelen] \
+    \begin{itemize}
+        \item[abbrechend] $d_0{,}d_1 d_2 \dots d_k \longmapsto d_0 + \frac{d_1}{10}+\frac{d_2}{100} + \dots + \frac{d_k}{10^k}$
+        \item[beliebig] $e_0{,}e_1 e_2 \dots e_{k + 1} \dots \longmapsto$ k-te Nährung $e_0{,}e_1 e_2 \dots e_k$
+    \end{itemize}
+    \item[Umrechung $\mathbb{D}$ nach $\mathbb{Q}$]
+    \begin{alignat*}{1}
+        x         & = 3{,}1\overline{72}                                          \\
+        10^2x     & = 317{,}2\overline{72}                                        \\
+        10^2x-x   & = 317{,}2\overline{72} - 3{,}1\overline{72} = 317{,}2 - 3{,}1 \\
+        (10^2-1)x & = 314{,}1                                                     \\
+        990x      & = 3141                                                        \\
+        x         & = \frac{3141}{990}                                            \\
+        x         & = \frac{349}{110}                                             \\
+    \end{alignat*}
+    \item[Supremum und Infimum] Sei $A \subseteq \mathbb{R}; A \not = \emptyset$. $s \in \mathbb{R}$ heißt obere Schranke wenn $(\forall a \in A)\ a \leq s$ und untere schranke wenn $(\forall a \in A)\ s \leq a$. Wenn für $A$ eine obere Schranke existiert, dann heißt $A$ nach oben beschrenkt. Wenn für $A$ eine untere Schranke existiert, dann heßt $A$ nach unten beschränkt. $A$ heißt beschränkt, wenn $A$ nach oben und unten beschränkt ist. $s$ heißt Supremum von $A$, $s = \sup(A)$,wenn $s$ obere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \leq s \Rightarrow s'$ ist keine obere Schranke. $s$ heißt Infimum von $A$, $s = \infim(A)$,wenn $s$ untere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \geq s \Rightarrow s'$ ist keine untere Schranke.
+
+    Satz: Wenn $A \subseteq \mathbb{R}; A \not = \emptyset,\ A$ nach oben beschränkt $\Rightarrow (\exists s \in \mathbb{R}) s = \supri(A)$ Analog dazu das Infimum. In $\mathbb{Q}$ gilt dass nicht.
+
+    \item[Operationen] Bezüglich + und $\cdot$ gelten die selben Identitäten wie in $\mathbb{Q}$. $\mathbb{R}$ bilden einen Körper.
+    \begin{description}
+        \item[Adiition] $d + e \coloneqq \supri \lbrace d^{[k]} + e^[k] | k \in \mathbb{N}^+ \rbrace$
+        \item[]
+    \end{description}
+    \item[normalized scientific notation] $6,674 \cdot 10^{-11}$
+    \item[Intervall] \
+    \begin{alignat*}{1}
+        \lbrack a; b \rbrack & = \lbrace x | a \leq x\leq b \rbrace \\
+        \rbrack a; b \lbrack & = \lbrace x | a < x < b \rbrace
+    \end{alignat*}
+    \item[erweiterte reele Zahlen] $+\infty$ und $-\infty$ (keine reelen Zahlen) $\mathbb{R}^+ = (0; \infty)$, $\mathbb{R}_0^+=\lbrack 0 ; \infty)$. In gewisser weise und ganz vosichtig kann man mit $\pm \infty$ rechnen.
+    \item[irrational] $x \in \mathbb{R}; x \not \in \mathbb{Q}$ z.B.: $x = 0,10100100010000$
+    \item[algebraisch] genau dann wenn, eine Nullstelle eines Polynoms mit ganzzahligen Koeffizenten.
+    \item[transzendent] also nicht algebraisch $e; \pi$
+\end{description}
+\subsection{Additionssysteme}
+''Strichliste (mit Abkürzungen)'' \\
+Z.B.: $5 = ||||| = \cancel{||||}$ oder römische Ziffern: \\
+\begin{tabular}[t]{|c|c|c|c|c|c|c|c|} \hline
+Großbuchstaben & \rom{1} & \rom{5} & \rom{10} & \rom{50} & \rom{100} & \rom{500} & \rom{1000} \\ \hline
+Wert           & 1       & 5       & 10       & 50       & 100       & 500       & 1000       \\ \hline
+\end{tabular}
+\subsection{Positionssysteme}
+\begin{itemize}
+    \item Basis $B$, $B \in \mathbb{N}$, $B>=2$
+    \item Ziffern für $0$ bis $B-1$. Jede Ziffer ein Zeichen.
+    \item Zahl $= \dots z_2B^2+z_1B^1+z_0B^0+z_{-1}B^{-1} \dots$
+\end{itemize}
+\subsubsection{Umrechnung}
+\begin{description}
+    \item[Polynom] $(z_{n-1}B^{n-1}z_{n-2}B^{n-2} \dots z_1B^{1}z_0B^{0})_{(B)}$
+    \item[zu kleinere Basis] Fortgesetzte ganzzahlige Division mit Rest
+    $217_{(10)}$ zur Basis 3 \\
+    \begin{tabular}{r c}
+        217 & 1 \\
+        72  & 0 \\
+        24  & 0 \\
+        8   & 2 \\
+        2   & 2 \\
+        0   & 0
+    \end{tabular} $217_{(10)} = 22001_{(3)}$
+    \item[zu größerer Basis] mit Horner-Schema zum Dezimalsystem:
+
+    \begin{tabular}{|c||c|c|c|c|c|} \hline
+    Ziffern & 2 & 2 & 0  & 0  & 1   \\ \hline \hline
+    $B=3$   & 0 & 6 & 24 & 72 & 216 \\ \hline
+    & 2 & 8 & 24 & 72 & 217 \\ \hline
+    \end{tabular} Addition $\downarrow$ dann Multiplikation $\nearrow$ mit $B$
+
+    Wenn die Zielbasis eine Potenz der Ursprungsbasis ist, können $\log_{B_U}(B_Z)$ Stellen direkt zusammengefasst werden:
+    $$(1000\ 0111\ 0001\ 1111)_{(2)}=(?)_{(16)}$$
+    Hier können jeweils $\log_2(16)=4$ Stellen zusammengefasst werden:
+
+    \begin{tabular}[t]{|l||c|c|c|c|} \hline
+    $B = 2$  & 1000 & 0111 & 0001 & 1111 \\ \hline
+    $B = 10$ & 8    & 7    & 1    & 15   \\ \hline
+    $B = 16$ & 8    & 7    & 1    & F    \\ \hline
+    \end{tabular}
+\end{description}

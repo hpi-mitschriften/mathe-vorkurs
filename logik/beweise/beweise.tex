@@ -1,6 +1,6 @@
 \begin{description}
     \item[Aussageform] Haben die Form einer Aussage, enthalte aber Variablen.
-    $$3 + x = 5;\ A(x);\ B(x;y)$$
+    \[3 + x = 5;\ A(x);\ B(x;y)\]
     \begin{itemize}
         \item werden zu Aussagen, wenn die Variablen belegt werden. Für die Variablen ist ein eingrenzender Grundbereich vorzugeben. Z.B.: $x \in \mathbb{N}$
         \item Wie Aussagen kann man Aussageformen miteinander Verknüpfen (mit Junktoren) und man erhält neue Aussageformen
@@ -9,15 +9,15 @@
 
     ''Für alle x aus $M$ gilt A(x)'' \newline
     Für alle $x \in \mathbb{N}$ gilt $3 + x = 5$ (falsche Aussage) kurz mit Allquantor $\forall$ :
-    $$(\forall x \in \mathbb{N})\ 3 + x = 5$$
+    \[(\forall x \in \mathbb{N})\ 3 + x = 5\]
 
     ''Es existiert ein x aus $M$ mit A(x)'' \newline
     Es existiert (mindestens) ein $x \in \mathbb{N}$ mit $3 + x = 5$ (wahre Aussage) kurz mit Existenzquantor $\exists$ :
-    $$(\exists x \in M)\ 3 + x = 5$$
+    \[(\exists x \in M)\ 3 + x = 5\]
 
     ''Es existiert höchsten ein x aus $M$ mit A(x)''
-    $$(\forall x)(\forall y)\ (A(x) \wedge A(y) \Rightarrow x = y)$$
+    \[(\forall x)(\forall y)\ (A(x) \wedge A(y) \Rightarrow x = y)\]
 
     ''Es existiert genau ein x aus $M$ mit A(x)''
-    $$(\exists ! x) A(x) \equiv ((\exists x) A(x)) \wedge ((\forall x)(\forall y)\ (A(x) \wedge A(y) \Rightarrow x = y))$$
+    \[(\exists ! x) A(x) \equiv ((\exists x) A(x)) \wedge ((\forall x)(\forall y)\ (A(x) \wedge A(y) \Rightarrow x = y))\]
 \end{description}

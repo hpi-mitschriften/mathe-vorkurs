@@ -1,0 +1,17 @@
+name: Build LaTeX -> PDF
+on: [ push ]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: Mathematische_Formalien.tex
+      - name: Upload built PDF file
+        uses: actions/upload-artifact@v2
+        with:
+          name: Mathematische_Formalien.pdf
+          path: Mathematische_Formalien.pdf

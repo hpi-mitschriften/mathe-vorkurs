@@ -1,0 +1,58 @@
+Georg Cantor (1845-1918)
+\begin{description}
+    \item[Cantors naive Mengendefinition] Unter einer Menge verstehen wir eine Zusammenfassung von wohldefinierten Objekten $m$ unserer Anschauung oder unseres Denkens welche die Elemente von $M$ genannt werden, zu einem einheitlichen Ganzen.
+    \item[Schreibweise]\
+    \begin{itemize}
+        \item $m \in M$ ($m$ ist Element von $M$)
+        \item $m \not\in M$ ($m$ ist nicht Element von $M$, $\neg\ m \in M$)
+    \end{itemize}
+    \item[Mengendarstellung] verschiedene Möglichkeiten:
+    \begin{itemize}
+        \item allgemein mitels Eigenschaft $E(m)$ (Aussageform) $A=\lbrace m|E(m) \rbrace$ bzw.
+        $$A = \lbrace m \in M | E(m) \rbrace = \lbrace m | m \in M \wedge E(m) \rbrace$$
+        \item explizit für Menge mit wenigen endlich vielen Elementen:
+        $$A=\lbrace a, b, c\rbrace$$
+    \end{itemize}
+    \item[Problem] Man darf nicht alle möglichen Zusammenfassungen bilden. Z.B.: die Menge aller Mengen die sich nicht selbst enthalten:
+    $$R=\lbrace M | M \not \in M \rbrace$$
+    $$R \in R \Leftrightarrow R \not \in R \equiv \bot$$
+    \item[Lösung] Axiomatischer Aufbau der Mengenlehre
+    \begin{description}
+        \item[Extensionalitätsaxiom] Zwei Mengen A und B sind genau dann gleich, wenn sie die selben Elemente haben:
+        $$A = B \Leftrightarrow (\forall x)(x \in A \Leftrightarrow x \in B)$$
+        \item[Leere Menge] $\emptyset = \lbrace x | x \not = x\rbrace = \lbrace\rbrace$
+        \item[Einermenge] $A=\lbrace a \rbrace$, $A = \lbrace x | x = a \rbrace$, $A \not = a$
+        \item[Zweiermenge] $A=\lbrace a; b \rbrace$, $A = \lbrace x|(x=a \vee x=b) \wedge a \not = b \rbrace$
+        \item[andere Mengen] \
+        \begin{itemize}
+            \item $\mathbb{N} = \lbrace 0;1;2;3;\dots \rbrace$ natürliche Zahlen
+            \item $\mathbb{Z} = \lbrace \dots; (-1);0;1;\dots \rbrace$ ganze Zahlen
+            \item $\mathbb{Q}$ rationale Zahlen
+            \item $\mathbb{R}$ reelle Zahlen
+            \item $\mathbb{C}$ komplexe Zahlen
+        \end{itemize}
+    \end{description}
+    \item[Betrag] Anzahl der Elemente in der Menge (bei endlichen Mengen)
+    \item[Teilmenge] $A \subseteq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B)$
+    $$A \subseteq B \wedge B \subseteq C \Rightarrow A \subseteq C$$
+    $$A \subseteq B \wedge B \subseteq A \Rightarrow A = B$$
+    \item[Echte Teilmenge] $A \subset B$ oder $A \subsetneqq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B) \wedge A \not = B $
+    \item[disjunkt] Die Mengen $A$ und $B$ heißen disjunkt (elementfremd) wenn: $A \cap B = \emptyset$
+    \item[Kardinalität] Mächtigkeit
+    \begin{description}
+        \item[gleichmächtig] Zwei Mengen $A;B$ heißen gleich mächtig, wenn es eine bijektive Funktion $f : A \longrightarrow B$ gibt.
+        $$A \sim B \Leftrightarrow (\exists f : A \longrightarrow B)$$
+        $$A \sim B \wedge B \sim C \Rightarrow A \sim C$$
+        \item[endlich] Menge $A$ heißt endlich, wenn $|A| \in \mathbb{N}$
+        \item[abzählbar unendlich ] Eine Menge $A$ heißt abzählbar unendlich, wenn $$\mathbb{N} \sim A \wedge \exists f : \mathbb{N} \longrightarrow A\ \textrm{(bijektiv)}$$
+        \item[nicht abzählbar unendlich] Meine Menge heißt nicht abzählbar unendlich, wenn sie weder endlich noch abzählbar unendlich ist.
+        \item[Potenzmengen]$M \not \sim \mathcal{P}(M)$\\ Beweis:
+        Angenommen es gäbe eine bijektive Funktion $f : A \longrightarrow \mathcal{P}(M)$ und
+        $$A = \lbrace x \in M | x \not \in f(x) \rbrace \subset M$$
+        Wir nehmen an dass $(\exists x \in M)\ f(x) = A$
+        \begin{itemize}
+            \item wenn $x \in f(x) $ dann $x \not \in A$ wegen $x \not \in f(x)$. Widerspruch da: $x \not \in A = x \not \in f(x)$
+            \item wenn $x \not \in f(x)$ dann $x \in A$ wegen $x \in M$. Widerspruch da: $x \not \in A = x \not \in f(x)$
+        \end{itemize}
+    \end{description}
+\end{description}

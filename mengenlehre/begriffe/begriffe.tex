@@ -14,8 +14,10 @@ Georg Cantor (1845-1918)
         \[A=\lbrace a, b, c\rbrace\]
     \end{itemize}
     \item[Problem] Man darf nicht alle möglichen Zusammenfassungen bilden. Z.B.: die Menge aller Mengen die sich nicht selbst enthalten:
-    \[R=\lbrace M | M \not \in M \rbrace\]
-    \[R \in R \Leftrightarrow R \not \in R \equiv \bot\]
+    \begin{gather*}
+        R=\lbrace M | M \not \in M \rbrace\\
+        R \in R \Leftrightarrow R \not \in R \equiv \bot\\
+    \end{gather*}
     \item[Lösung] Axiomatischer Aufbau der Mengenlehre
     \begin{description}
         \item[Extensionalitätsaxiom] Zwei Mengen A und B sind genau dann gleich, wenn sie die selben Elemente haben:
@@ -34,15 +36,19 @@ Georg Cantor (1845-1918)
     \end{description}
     \item[Betrag] Anzahl der Elemente in der Menge (bei endlichen Mengen)
     \item[Teilmenge] $A \subseteq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B)$
-    \[A \subseteq B \wedge B \subseteq C \Rightarrow A \subseteq C\]
-    \[A \subseteq B \wedge B \subseteq A \Rightarrow A = B\]
+    \begin{gather*}
+        A \subseteq B \wedge B \subseteq C \Rightarrow A \subseteq C\\
+        A \subseteq B \wedge B \subseteq A \Rightarrow A = B\\
+    \end{gather*}
     \item[Echte Teilmenge] $A \subset B$ oder $A \subsetneqq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B) \wedge A \not = B $
     \item[disjunkt] Die Mengen $A$ und $B$ heißen disjunkt (elementfremd) wenn: $A \cap B = \emptyset$
     \item[Kardinalität] Mächtigkeit
     \begin{description}
         \item[gleichmächtig] Zwei Mengen $A;B$ heißen gleich mächtig, wenn es eine bijektive Funktion $f : A \longrightarrow B$ gibt.
-        \[A \sim B \Leftrightarrow (\exists f : A \longrightarrow B)\]
-        \[A \sim B \wedge B \sim C \Rightarrow A \sim C\]
+        \begin{gather*}
+            A \sim B \Leftrightarrow (\exists f : A \longrightarrow B)\\
+            A \sim B \wedge B \sim C \Rightarrow A \sim C\\
+        \end{gather*}
         \item[endlich] Menge $A$ heißt endlich, wenn $|A| \in \mathbb{N}$
         \item[abzählbar unendlich ] Eine Menge $A$ heißt abzählbar unendlich, wenn \[\mathbb{N} \sim A \wedge \exists f : \mathbb{N} \longrightarrow A\ \textrm{(bijektiv)}\]
         \item[nicht abzählbar unendlich] Meine Menge heißt nicht abzählbar unendlich, wenn sie weder endlich noch abzählbar unendlich ist.

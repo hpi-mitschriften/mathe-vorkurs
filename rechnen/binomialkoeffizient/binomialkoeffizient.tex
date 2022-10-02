@@ -1,6 +1,8 @@
 $n \in \mathbb{N}; m \in \mathbb{N};\ \binom{n}{k}$  gelesen ''n über m'' $n < m \Rightarrow \binom{n}{m} = 0$ $n \geq m \Rightarrow \binom{n}{0} = 1,\ \binom{n}{1} = n,\ \binom{n}{n}$
-\[\binom{n}{m} = \frac{n(n-1) \dots \cdot (n-m-1)}{1\cdot 2\cdot3 \dots m} = \frac{n!}{m!(n-m)!}\]
-\[\binom{n}{m}=\binom{n}{n-m}\] Jeweils $m$ viele Faktoren, da sich der Rest wegkürzt.
+\begin{gather*}
+    \binom{n}{m} = \frac{n(n-1) \dots \cdot (n-m-1)}{1\cdot 2\cdot3 \dots m} = \frac{n!}{m!(n-m)!}\\
+    \binom{n}{m}=\binom{n}{n-m}\\
+\end{gather*} Jeweils $m$ viele Faktoren, da sich der Rest wegkürzt.
 z.b:
 \[\binom{4}{2} = \frac{4 \cdot 3 \cdot \cancel{2 \cdot 1}}{2 \cdot 1 \cdot \cancel{2 \cdot 1}} = \frac{12}{2} = 6;\ \binom{5}{3} = \binom{5}{2} = \frac{5 \cdot 4 \cdot  \cancel{3 \cdot 2 \cdot 1}}{2 \cdot 1 \cdot \cancel{3 \cdot 2 \cdot 1}} = 10\]
 Kombinatorische Bedeutung: Anzahl der m-elementigen Teilmengen einer n-elementigen Menge
@@ -58,7 +60,9 @@ Pascalsches Dreieck: \\
         \node (66) at (2.5, -2.5) {$\binom{5}{5}$};
     \end{tikzpicture}
 \end{tabularx}
-\[\sum\limits_{k=1}^n \binom{k}{m} = \binom{1}{m}+\binom{2}{m}+ \dots + \binom{m}{n}+\binom{m}{m}+\binom{m+1}{m}+\dots+\binom{n}{m}=\binom{n+1}{m+1}\]
-\[\sum\limits_{k=1}^n\binom{k}{1} = \frac{n(n+1)}{2}\]
+\begin{gather*}
+    \sum\limits_{k=1}^n \binom{k}{m} = \binom{1}{m}+\binom{2}{m}+ \dots + \binom{m}{n}+\binom{m}{m}+\binom{m+1}{m}+\dots+\binom{n}{m}=\binom{n+1}{m+1}\\
+    \sum\limits_{k=1}^n\binom{k}{1} = \frac{n(n+1)}{2}\\
+\end{gather*}
 Binomialsatz
 \[(a+n)^n=\sum\limits_{m=0}^n\binom{n}{m}a^{n-m}b^m=a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\dots + \binom{n}{n-1}ab^{n-1}+b^n\]

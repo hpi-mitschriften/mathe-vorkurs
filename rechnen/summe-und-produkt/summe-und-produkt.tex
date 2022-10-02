@@ -14,14 +14,18 @@ Produkt aller Elemente $i$ in einer Menge $I$
 \[\prod\limits_{i \in I}\]
 \begin{itemize}
     \item[$i$] Laufvaribale / Indexvaribale, kann umbenannt werden, vorausgesetzt die neue Bezeichnung kommt noch nicht vor.
-    \item[] \[\sum\limits_{i = m}^n f(i) = \sum\limits_{j = m}^n f(j)\]
-    \[\prod\limits_{i = m}^n f(i) = \prod\limits_{j = m}^n f(j)\]
+    \item[] \begin{gather*}
+                \sum\limits_{i = m}^n f(i) = \sum\limits_{j = m}^n f(j)\\
+                \prod\limits_{i = m}^n f(i) = \prod\limits_{j = m}^n f(j)\\
+    \end{gather*}
     \item[$m$] Laufanfang
     \item[$n$] Laufende
     \item $i;m;n \in \mathbb{Z}$
     \item Indexverschiebeung: Laufbeginn und ende können modifiziert werden.
-    \[\sum\limits_{i=m}^n f(i) = \sum\limits_{i=m+k}^{n+k} f(i-k)\]
-    \[\prod\limits_{i=m}^n f(i) = \prod\limits_{i=m+k}^{n+k} f(i-k)\]
+    \begin{gather*}
+        \sum\limits_{i=m}^n f(i) = \sum\limits_{i=m+k}^{n+k} f(i-k)\\
+        \prod\limits_{i=m}^n f(i) = \prod\limits_{i=m+k}^{n+k} f(i-k)\\
+    \end{gather*}
     \begin{alignat*}{1}
         1+3+4+\dots+(2n-3)+(2n-1) & = \sum\limits_{i = 1}^n (2i-1)             \\
         & = \sum\limits_{i = 3}^{n + 2} (2(i - 2)-1) \\
@@ -32,8 +36,10 @@ Produkt aller Elemente $i$ in einer Menge $I$
     \item Ausklammern
     \[\sum\limits_{i=m}^n (a \cdot f(i)) = a \sum\limits_{i=m}^n f(i)\]
     Beispiele:
-    \[\sum\limits_{i=1}^n (2i-1) = \sum\limits_{i=1}^n (2i) - \sum\limits_{i=1}^n (1) = 2\sum\limits_{i=1}^n (i) - n\]
-    \[\sum\limits_{i=1}^{100} (3i-4) = 3\sum\limits_{i=1}^{100} (i) - 400\]
+    \begin{gather*}
+        \sum\limits_{i=1}^n (2i-1) = \sum\limits_{i=1}^n (2i) - \sum\limits_{i=1}^n (1) = 2\sum\limits_{i=1}^n (i) - n\\
+        \sum\limits_{i=1}^{100} (3i-4) = 3\sum\limits_{i=1}^{100} (i) - 400\\
+    \end{gather*}
     \item Doppelsummen
     \[\sum\limits_{i=m}^n \sum\limits_{j=a}^b f(i; j) = \sum\limits_{j=a}^b \sum\limits_{i=m}^n f(i; j)\]
 \end{itemize}

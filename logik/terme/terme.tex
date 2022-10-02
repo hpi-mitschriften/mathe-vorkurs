@@ -7,10 +7,15 @@
         \item Die stärke der Zeichen ist konventionell: $\neg > \wedge > \vee$. D.h.:
         \[\neg A \vee B \wedge C \equiv (\neg A) \vee (B \wedge C)\]
         \item $\wedge$ und $\vee$ sind distributiv zueinander:
-        \[A \wedge (A \vee C) \equiv (A \wedge B) \vee (A \wedge C)\]
-        \[A \vee (A \wedge C) \equiv (A \vee B) \wedge (A \vee C)\]
+        \begin{gather*}
+            A \wedge (A \vee C) \equiv (A \wedge B) \vee (A \wedge C)\\
+            A \vee (A \wedge C) \equiv (A \vee B) \wedge (A \vee C)\\
+        \end{gather*}
         \item $\wedge$ ist distributiv über $\dot{\vee}$:
         \[A \wedge (B \dot{\vee} C) \equiv (A \wedge B) \dot{\vee} (A \wedge C)\]
     \end{itemize}
-    \item[De-Morganische Gesetze] \[\overline{A \wedge B} \equiv \overline{A} \vee \overline{B}\] \[\overline{A \vee B} \equiv \overline{A} \wedge \overline{B}\]
+    \item[De-Morganische Gesetze] \begin{gather*}
+                                      \overline{A \wedge B} \equiv \overline{A} \vee \overline{B}\\
+                                      \overline{A \vee B} \equiv \overline{A} \wedge \overline{B}\\
+    \end{gather*}
 \end{description}

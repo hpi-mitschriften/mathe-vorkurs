@@ -1,0 +1,51 @@
+Sein $a;b \in \mathbb{Z}$
+
+Ein gemeinsamer Teiler von $a$ und $b$ ist eine Zahl $t \in \mathbb{N}$ mit $t \mid a$ und $t \mid b$. Abkürung: $\textrm{ggt}(a;b)$.
+
+Ein gemeinsames vielfaches von $a$ und $b$ ist ein $s \in \mathbb{Z}$ mit $a \mid s$ und $b \mid s$. Abkürung: $\textrm{kgv}(a;b)$.
+
+\subsubsection{mit Primfaktorisierung}
+$a \dots p^m;\ a \dots p^n$
+
+$\ggt(a;b)\quad p^{\min(m;n)};\ \kgv(a;b)\quad p^{\max(m;n)}$
+
+$m + n = \min(m;n) + \max(m;n) \Rightarrow a \cdot b = \textrm{ggt}(a;b) \cdot \textrm{kgv}(a;b)$
+
+$a = 5940 = 2^2 \cdot 3^3 \cdot 5 \cdot 11$
+
+$b = 11760 = 2^4 \cdot 3 \cdot 5 \cdot 7$
+
+$$\begin{array}{rcccccl}
+      a =         & 2^2 & \cdot 3^3 & \cdot 5^1 & \cdot 7^0 & \cdot 11^1             \\
+      b =         & 2^4 & \cdot 3^1 & \cdot 5^1 & \cdot 7^2 & \cdot 11^0             \\
+      \ggt(a;b) = & 2^2 & \cdot 3^1 & \cdot 5^1 & \cdot 7^0 & \cdot 11^0 & = 60      \\
+      \kgv(a;b) = & 2^4 & \cdot 3^3 & \cdot 5^1 & \cdot 7^2 & \cdot 11^1 & = 1164240
+\end{array}$$
+\subsubsection{Eukildscher Algorithmus}
+\begin{itemize}
+    \item Es sein $a_1;a_2 \in \mathbb{Z},\ a_1 > a_2 \geq 1$
+    \item Division mit Rest: $a_1 = q_2 a_2 + a_3$ mit $0 \leq a_3 < a_2$
+    \item Sei $g$ gem. Teiler von $a_1$ und $a_2$, $a_1 - q_2 \cdot a_2 = a_3 \Rightarrow g$ gem. Teiler von $a_2$ und $a_3$
+    \item Sei $g$ gem. Teiler von $a_2$ und $a_3$, $a_1 = q_2 \cdot a_2 + a_3 \Rightarrow g$ gem. Teiler von $a_1$ und $a_2$
+    \item $\Rightarrow \ggt(a_1;a_2) = \ggt(a_2;a_3)$
+    \item $a_{n}=q_{n+1}a_{n+1} + 0 \Rightarrow \ggt(a_n;a_{n+1}) = \ggt(a_1,a_2) = a_{n+1}$
+\end{itemize}
+Beispiel: $\ggt(851,2183);\ a=2183;\ a_2 = 851$
+\begin{alignat*}{3}
+    2183 & = 2 &  & \cdot 851 &  & + 481 \\
+    851  & = 1 &  & \cdot 481 &  & + 370 \\
+    481  & = 1 &  & \cdot 370 &  & + 111 \\
+    370  & = 3 &  & \cdot 111 &  & + 37  \\
+    111  & = 3 &  & \cdot 37
+\end{alignat*}
+$\ggt(851;2183) = 37$
+\begin{itemize}
+    \item Es gibt die darstellung $\ggt(a_1;a_2) = s\cdot a_1 + t \cdot a_2$ mit $s;t \in \mathbb{Z}$
+    \item $a;c \in \mathbb{Z}$ heißen Teilerfremd wenn $\ggt(a;b) = 1$
+    \item Sei $t \mid a \cdot b$ und $a;t$ teilerfremd $\Rightarrow t \mid b$
+    \item Sei $p \in \mathbb{P}$ und $p \mid a \cdot b \Rightarrow p \mid a \vee p \mid b$ denn:
+    \begin{itemize}
+        \item[Fall 1] $p \mid a$ Ausdruck wahr
+        \item[Fall 2] $p \nmid a \Rightarrow \ggt(p;a) = 1$
+    \end{itemize}
+\end{itemize}

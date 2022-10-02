@@ -1,0 +1,79 @@
+$$f(x)=g(x)$$
+\begin{description}
+    \item[Lösungsmenge] $\mathbb{L} = \lbrace x \in D_f \cap D_g | f(x) = g(x) \rbrace$ explizit angeben.
+    \item[Äquivalenete Umformung] ändert $\mathbb{L}$ nicht. Zwei gleichungen heißen äquivalent wenn ihre Lö-sungsmengen gleich sind.
+    $$f(x)= g(x) \Leftrightarrow \widetilde{f}(x) = \widetilde{g}(x)$$
+    \item[nichtäquivalente Umformungen]
+    Folgerungen $f(x) = g(x) \Rightarrow \widetilde{f}(x) = \widetilde{g}(x)$, d.h. $\mathbb{L} \subseteq \widetilde{\mathbb{L}}$ Probe!
+    \begin{alignat*}{2}
+        x-2     & = 3 \quad    &  & \mathbb{L} = \lbrace 5 \rbrace     \\
+        (x-2)^2 & = 3^2  \quad &  & \mathbb{L} = \lbrace -1; 5 \rbrace \\
+    \end{alignat*}
+    \item[spezielle Umformungen] $t(x)$ sei ein weiterer Term mit $D_f \cap D_g \subseteq D_f$
+    \begin{alignat*}{2}
+        f(x) = g(x) & \Leftrightarrow f(x) + t(x)       &  & = g(x) + t(x)                                     \\
+        f(x) = g(x) & \Leftrightarrow f(x) \cdot t(x)   &  & = g(x) \cdot t(x)\textrm{ falls } t(x) \not = 0   \\
+        f(x) = g(x) & \Leftrightarrow \frac{f(x)}{t(x)} &  & = \frac{g(x)}{t(x)}\textrm{ falls } t(x) \not = 0 \\
+    \end{alignat*}
+    $h : D_h \longrightarrow \mathbb{R}$ Funktion, , $f\lbrack D_f \cap D_g \rbrack \cup g\lbrack D_f \cap D_g \rbrack \subseteq D_h$
+    $$f(x) = g(x) \Rightarrow h(f(x)) = h(g(x))$$
+    Ist $h$ insbesondere umkehrbar (injektiv), dann gilt
+    $$f(x) = g(x) \Leftrightarrow h(f(x)) = h(g(x))$$
+    \item[Lineare Gleichungen] $ax + b = 0 \quad a \not = 0$
+    \begin{alignat*}{2}
+        & \Leftrightarrow ax &  & = -b           \\
+        & \Leftrightarrow x  &  & = \frac{-b}{a} \\
+    \end{alignat*}
+    \begin{alignat*}{3}
+        & \quad \frac{7x+91}{17x+221} &  & = 11                 &  & | \cdot (17x + 221) \\
+        & \Leftrightarrow 7x + 91     &  & = 11 \cdot (17x+221)                          \\
+        & \Leftrightarrow 7x + 91     &  & = 187x + 2431                                 \\
+        & \Leftrightarrow 0           &  & = 180x +2340         &  & |-2340              \\
+        & \Leftrightarrow 180x        &  & = -2340              &  & | :180              \\
+        & \Leftrightarrow x           &  & = -13                                         \\
+    \end{alignat*}
+    $$\mathbb{D} = 17x+221 \not = 0$$
+    $$x \not \in \mathbb{D}$$
+    \item[Gleichung mit Beträgen] $|a| = \sqrt{a^2}$
+    $$\begin{array}{ll}
+          |a| \geq 0                  & |a| = 0 \Leftrightarrow a = 0              \\
+          |a \cdot b| = |a| \cdot |b| & \frac{|a|}{|b|} = \left|\frac{a}{b}\right| \\
+          |a+b| \leq  |a| + |b|       & ||a|-|b|| \leq |a-b|                       \\
+    \end{array}$$
+    \begin{itemize}
+        \item $|f(x)| = c$ \
+        \begin{itemize}
+            \item falls $c<0$, so $\mathbb{L}= \emptyset$
+            \item falls $c\geq0$: $|f(x)| = c \Leftrightarrow f(x) = c \vee f(x) = -c;\ \mathbb{L} = \mathbb{L}_1 \cup \mathbb{L}_2$
+        \end{itemize}
+        \item $|f(x)| = |g(x)| \Leftrightarrow f(x)^2 = g(x)^2$
+        \item $|f(x)| = |g(x)| \Leftrightarrow \left|\frac{f(x)}{g(x)}\right| = 1 \Leftrightarrow \frac{f(x)}{g(x)} = 1 \vee \frac{f(x)}{g(x)} = -1$
+        \item[Allgemein:] Vollständige Fallunterschiedung
+        $$|x-1|+|x+1|=10$$
+        \begin{itemize}
+            \item[Fall 1] $x-1 \geq 0;\ x+1 \geq 0 \ \Leftrightarrow x \geq 1;\ x\geq -1 \Leftrightarrow x>1$
+            \begin{alignat*} {1}
+            (x-1) + (x+1) & = 10                \\
+            2x            & = 10                \\
+            x             & = 5                 \\
+            \mathbb{L}_1  & = \lbrace 5 \rbrace \\
+            \end{alignat*}
+            \item[Fall 2] $x-1 \geq 0;\ x+1 < 0 \ \Leftrightarrow x \geq 1;\ x < -1 \quad \mathbb{L}_2 = \emptyset$
+            \item[Fall 3] $x-1 < 0;\ x+1 \geq 0 \ \Leftrightarrow x < 1;\ x\geq -1 \Leftrightarrow -1 \leq x < 1$
+            \begin{alignat*} {1}
+                -(x-1) + (x+1) & = 10        \\
+                2              & = 10        \\
+                \mathbb{L}_3   & = \emptyset \\
+            \end{alignat*}
+            \item[Fall 4] $x-1 < 0;\ x+1 < 0 \ \Leftrightarrow x < 1;\ x < -1 \Leftrightarrow x<-1$
+            \begin{alignat*} {1}
+                -(x-1) +(-(x+1)) & = 10                 \\
+                -2x              & = 10                 \\
+                x                & = -5                 \\
+                \mathbb{L}_1     & = \lbrace -5 \rbrace \\
+            \end{alignat*}
+            \item[$\mathbb{L}$] = $\mathbb{L}_1 \cup \mathbb{L}_2 \cup \mathbb{L}_3 \cup \mathbb{L}_4 = \lbrace -5; 5\rbrace$
+        \end{itemize}
+    \end{itemize}
+    \item[Quadratische Funktionen]
+\end{description}

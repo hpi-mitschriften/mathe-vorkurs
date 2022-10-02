@@ -1,7 +1,9 @@
 \begin{description}
     \item[Teiler] $a;b \in \mathbb{Z}$\\
     $a$ ist ein Teiler von $b$, geschrieben $a \mid c$, falls $(\exists c \in \mathbb{Z})\quad a \cdot c = b$\\
-    Jede ganze Zahl $b$ ist teilbar durch: 1, -1, b , -b. Diese heißen die trivialen Teiler von $b$. Eigenschaften: \\
+    Jede ganze Zahl $b$ ist teilbar durch: 1, -1, b , -b.
+    Diese heißen die trivialen Teiler von $b$.
+    Eigenschaften: \\
     $a \mid 0;\, a \mid 0$ \\
     $a \mid b \wedge b \mid c \Rightarrow a \mid b$ \\
     $a \mid b \Rightarrow a \mid (-b), (-a) \mid b, (-a) \mid (-b)$ \\
@@ -10,11 +12,17 @@
     \begin{itemize}
         \item Eine ganze Zahl $p \in \mathbb{Z}$ heißt Primzahl, wenn $p \geq 2$ und $p$ nur triviale Teiler hat.
         \item Jede ganze Zahl $b \geq 2$ hat mindesten einen Primitiver.
-        \item Es gibt unendlich viele Primzahlen. Beweis durch Widerspruch
-        $$|\mathbb{P}| \in \mathbb{N}$$
-        $n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P}$. Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$. Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$. Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden. Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
+        \item Es gibt unendlich viele Primzahlen.
+        Beweis durch Widerspruch
+        \[|\mathbb{P}| \in \mathbb{N}\]
+        $n$ sei die Anzahl aller Primzahl, und alle Primzahlen seien in der Menge $\mathbb{P}$.
+        Man bilde $b = \prod\limits_{p \in \mathbb{ P}} + 1$.
+        Dann ist $b \geq 2$ und laut Hilfssatz hat $b$ einen Primteiler, dieser sei $q$.
+        Damit hat man eine Primzahl $q \not \in \mathbb{P}$ gefunden.
+        Daraus folgt, dass die Konstruktion $\mathbb{P} = \lbrace p_1; \dots; p_n \rbrace | n \in \mathbb{N}$ nicht alle Primzahlen enthalten kann.
         \item Der kleinste Teiler einer Zahl $b \in \mathbb{N}|b \geq 2$ ist eine Primzahl.
         \item Der kleinste Primteiler $p$ einer Zahl $a \in \mathbb{Z};\ a \geq 2;\ a \not \in \mathbb{P}$ ist $p \leq \sqrt{a}$
     \end{itemize}
-    \item[Fundamentalsatz der Arithmetik] Jede Zahl $b \geq 2$ lässt sich als Produktion von Primzahlen darstellen (Primfaktorisierung). Vorkommende Primzahlen und ihre Anzahl sind bis auf Reihenfolge eindeutig bestimmt.
+    \item[Fundamentalsatz der Arithmetik] Jede Zahl $b \geq 2$ lässt sich als Produktion von Primzahlen darstellen (Primfaktorisierung).
+    Vorkommende Primzahlen und ihre Anzahl sind bis auf Reihenfolge eindeutig bestimmt.
 \end{description}

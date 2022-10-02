@@ -1,0 +1,117 @@
+\begin{description}
+    \item[Aussage:] Eine Aussage ist eine Formel oder ein sprachliches Gebilde dem genau ein Wahrheitswert zugeordnet werden kann.
+
+    \item[Warheitswerte] Genau der Eine oder der Andere \\
+    \begin{tabular}{c|c}
+        \textbf{F}alsch & \textbf{W}ahr \\
+        0               & 1             \\
+        $\bot$          & $\top$        \\
+        \textbf{L}ow    & \textbf{H}igh
+    \end{tabular}
+    \item[Aussagevariable] A,B,C etc.\ stehen für eine Aussage
+    \item[Junktoren] (Verknüpfer)
+    \begin{description}
+        \item[Negation] $\neg A$ \, ``nicht'', ``NOT'', auch: $A$, $\bar{A}$, $A'$ \\
+        \begin{tabularx}{\linewidth}{c|X}
+            \begin{tabular}[t]{c|c}
+                A & $\neg A$ \\ \hline
+                0 & 1        \\
+                1 & 0
+            \end{tabular} &
+            Mathematisch: $\neg A = (A + 1) \bmod 2$ \\ \hline
+        \end{tabularx}
+        \item[Konjunktion] $A\wedge B$ \, ``A und B'', ``AND'', auch $A\cdot B$, AB \\
+        \begin{tabularx}{\linewidth}{c|X}
+            \begin{tabular}[t]{c|c||c}
+                A & B & $A \wedge B$ \\ \hline\hline
+                0 & 0 & 0            \\ \hline
+                0 & 1 & 0            \\ \hline
+                1 & 0 & 0            \\ \hline
+                1 & 1 & 1
+            \end{tabular} &
+            \begin{tabular}[t]{ll}
+                Mathematisch:               & $A \wedge B = A \cdot B$                             \\
+                Kommutativ:                 & $A \wedge B \equiv B \wedge A$                       \\
+                Assoziativ:                 & $A \wedge (B \wedge C) \equiv (A \wedge B) \wedge C$ \\
+                Idempotent:                 & $A \wedge A \equiv A$                                \\
+                $A \wedge \bot \equiv \bot$ & $A \wedge \top \equiv A$
+            \end{tabular} \\ \hline
+        \end{tabularx}
+        \item[Disjunktion] $A\vee B$ \, ``A oder B'' (inklusiv), ``OR'' \\
+        \begin{tabularx}{\linewidth}{c|X}
+            \begin{tabular}[t]{c|c||c}
+                A & B & $A \vee B$ \\ \hline\hline
+                0 & 0 & 0          \\ \hline
+                0 & 1 & 1          \\ \hline
+                1 & 0 & 1          \\ \hline
+                1 & 1 & 1
+            \end{tabular} &
+            \begin{tabular}[t]{ll}
+                Mathematisch:           & $A \vee B = \min(A+B;1)$                     \\
+                Kommutativ:             & $A \vee B \equiv B \vee A$                   \\
+                Assoziativ:             & $A \vee (B \vee C) \equiv (A \vee B) \vee C$ \\
+                Idempotent:             & $A \vee A \equiv A$                          \\
+                $A \vee \bot \equiv A $ & $A \vee \top \equiv \top$
+            \end{tabular} \\ \hline
+        \end{tabularx}
+        \item[Kontravalenz] $A\dot{\vee}B$ \, ``entweder A, oder B'' (exklusiv), ``XOR'', auch: $A\oplus B$ \\
+        \begin{tabularx}{\linewidth}{c|X}
+            \begin{tabular}[t]{c|c||c}
+                A & B & $A \dot{\vee} B$ \\ \hline\hline
+                0 & 0 & 0                \\ \hline
+                0 & 1 & 1                \\ \hline
+                1 & 0 & 1                \\ \hline
+                1 & 1 & 0
+            \end{tabular} &
+            \begin{tabular}[t]{ll}
+                Mathematisch:                & $A \dot{\vee} B = (A + B)\bmod 2$                                    \\
+                Kommutativ:                  & $A \dot{\vee} B \equiv B \dot{\vee} A$                               \\
+                Assoziativ:                  & $A \dot{\vee} (B \dot{\vee} C) \equiv (A \dot{\vee} B) \dot{\vee} C$ \\
+                $\neg$ Idempotent:           & $A \dot{\vee} A \equiv \bot$                                         \\
+                $A \dot{\vee} \bot \equiv A$ & $A \dot{\vee} \top \equiv \neg A$
+            \end{tabular} \\ \hline
+        \end{tabularx}
+        \item[Konditional] $A\Rightarrow B$ ``wenn A dann B'' auch ``Subjunktion'', ``Implikation'', ``IMPLY'' \\
+        \begin{tabularx}{\linewidth}{c|c|X}
+            \begin{tabular}[t]{c|c||c}
+                A & B & $A \Rightarrow B$ \\ \hline\hline
+                0 & 0 & 1                 \\ \hline
+                0 & 1 & 1                 \\ \hline
+                1 & 0 & 0                 \\ \hline
+                1 & 1 & 1
+            \end{tabular} &
+            \begin{tabular}[t]{c|c}
+                A             & B          \\ \hline
+                Prämisse      & Konklusion \\
+                Voraussetzung & Konsequenz \\
+                hinreichende  & notwendige
+            \end{tabular}      &
+            $A \Rightarrow B \equiv \neg A \vee B$ \newline
+            Mathematisch: $A \Rightarrow B = \newline \min((A + 1) \bmod 2 + B; 1)$ \\ \hline
+        \end{tabularx} \\
+        \begin{tabular}[t]{rl}
+            Eigenschaften    & $A \Rightarrow \bot \equiv \neg A; \quad A \Rightarrow \top \equiv \top; \quad \bot \Rightarrow A \equiv \top; \quad \top \Rightarrow A \equiv A$ \\
+            Kontraposition   & $A \Rightarrow B \equiv \neg B \Rightarrow \neg A$                                                                                                \\
+            Abtrennungsregel & $(A \wedge (A \Rightarrow B)) \Rightarrow B$                                                                                                      \\
+            Kettenschluss    & $((A \Rightarrow B) \wedge (B \Rightarrow C)) \Rightarrow (A \Rightarrow C)$
+        \end{tabular}
+
+        \item[Bikonditional] $A \Leftrightarrow B$ ``A genau dann, wenn B'', ``XNOR'', auch ``Äquivalenz'' $\equiv$ \\
+        \begin{tabularx}{\linewidth}{c|X}
+            \begin{tabular}[t]{c | c || c}
+                A & B & $A \Leftrightarrow B$ \\ \hline\hline
+                0 & 0 & 1                     \\ \hline
+                0 & 1 & 0                     \\ \hline
+                1 & 0 & 0                     \\ \hline
+                1 & 1 & 1
+            \end{tabular} &
+            \begin{tabular}[t]{ll}
+                Mathematisch:                          & $A \Leftrightarrow B = (A + B + 1)\bmod 2$                                               \\
+                Kommutativ:                            & $A \Leftrightarrow B \equiv B \Leftrightarrow A$                                         \\
+                Assoziativ:                            & $A \Leftrightarrow (B \Leftrightarrow C) \equiv (A \Leftrightarrow B) \Leftrightarrow C$ \\
+                $\neg$ Idempotent:                     & $A \Leftrightarrow A \equiv \top$                                                        \\
+                $A \Leftrightarrow \bot \equiv \neg A$ & $A \Leftrightarrow \top \equiv A$
+            \end{tabular} \\ \hline
+        \end{tabularx}
+    \end{description}
+\end{description}

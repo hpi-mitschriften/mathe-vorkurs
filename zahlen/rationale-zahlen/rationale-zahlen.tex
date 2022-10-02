@@ -1,0 +1,41 @@
+\begin{description}
+    \item[Problem] $a \nmid a,\ a \cdot x = a$ nicht lösbar in $\mathbb{Z}$
+    \item[Lösung] nehmen $\frac{a}{b}$ hinzu. $\mathbb{Q} \coloneqq \lbrace \frac{a}{b} | a;b \in \mathbb{Z} \wedge b \not = 0 \rbrace$ außerdem: $\frac{a}{b} = \frac{c}{d} \Leftrightarrow ad = bc$.
+    Eine rationale Zahl entspricht also einer Menge von Brüchen, die als selbe Zahl, betrachtet werden.
+
+    Also $\frac{a}{b} = \frac{a \cdot t}{b \cdot t}$ denn $a \cdot b \cdot t = a \cdot t \cdot b$.
+    Jede rationale Zahl entspricht genau einem unkürzbaren Bruch $\frac{a}{b}$ mit $\ggt(a;b) = 1$ und $b \geq 1$.
+
+    Einbettung: $\mathbb{Z}\ni z \longmapsto \frac{z}{1} \in \mathbb{Q}$, dann gilt $\mathbb{Z} \subset \mathbb{Q}$
+
+    $\mathbb{Q}$ unendlich, $\mathbb{N} \sim \mathbb{Q}$, $\mathbb{Q}$ abzählbar: wir sortieren $a + b$ nach $\frac{a}{b}$
+    \[\begin{array}{lccc}
+          a + b = 1 &             &             & \frac{0}{1} \\
+          a + b = 2 &             & \frac{0}{2} & \frac{1}{1} \\
+          a + b = 3 & \frac{0}{3} & \frac{1}{2} & \frac{2}{1}
+    \end{array}\]
+    \item[Operationen]
+    \begin{gather*}
+        \frac{a}{b} + \frac{c}{d} \coloneqq \frac{ad+bc}{bd}\\
+        \frac{a}{b} - \frac{c}{d} \coloneqq \frac{ad-bc}{bd}\\
+        q = \frac{a}{b};\ a \not =;\ b \not 0\\
+        q^{-1} = \frac{b}{a}\\
+        q \cdot q^{-1} = \frac{ab}{ab} = 1\\
+        \frac{c}{d}:\frac{a}{b}\coloneqq\frac{c}{d}  \left(\frac{a}{b}\right)^{-1}\\
+    \end{gather*}
+    Bruchstrich entspricht Division \\
+    Division ist nicht assoziativ
+    \[q:v:s \not = q:(v:s)\]
+    \item[Identitäten] Gleichungen der form $qx=r$ $(q;r \in \mathbb{Q});\ q \not = 1$ sind nach $x$ für $x\in \mathbb{Q}$ lösbar: $x = r \cdot q^{-1}$ \\
+    \begin{tabular}[t]{cc}
+        $(x+y)+z = x+(x+1)$ & (xy)z=x(yz)                 \\
+        $x + y = y + x$     & $xy = yx$                   \\
+        $x + 0 = x$         & $x * 1 = x$                 \\
+        $x + (-x) = 0$      & $xx^{-1}$ wenn $x \not = 0$ \\
+        $x - y = x + (-y)$  & $x:y = xy^{-1}$
+    \end{tabular}
+    \[x(y+z) = xy + xz\]
+    $\mathbb{Q}$ ist ein Körper.
+    Die Elemente in $\mathbb{Q}$ haben eine lineare Ordnung.
+    Die Zahlen liegen dicht auf dem Zahlenstrahl
+\end{description}

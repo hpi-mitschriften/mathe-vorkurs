@@ -1,0 +1,23 @@
+\begin{description}
+    \item[Tautologie] Ein Term W heißt Tautologie, wenn er nur den Wahrheitswert 1 hat.
+    \item[Äquivalenz] Zwei aussagenlogische Terme W und V heißen logisch äquivalent \[W \equiv V\] wenn sie gleichen Wahrheitswert haben.
+    Zwei Terme W und V sind genau dann logisch äquivalent, wenn der Term $W\Leftrightarrow V$ Tautologie ist.
+    \item[Klammern] Regeln:
+    \begin{itemize}
+        \item Außenklammern können weggelassen werden
+        \item Die stärke der Zeichen ist konventionell: $\neg > \wedge > \vee$.
+        D.h.:
+        \[\neg A \vee B \wedge C \equiv (\neg A) \vee (B \wedge C)\]
+        \item $\wedge$ und $\vee$ sind distributiv zueinander:
+        \begin{gather*}
+            A \wedge (A \vee C) \equiv (A \wedge B) \vee (A \wedge C)\\
+            A \vee (A \wedge C) \equiv (A \vee B) \wedge (A \vee C)\\
+        \end{gather*}
+        \item $\wedge$ ist distributiv über $\dot{\vee}$:
+        \[A \wedge (B \dot{\vee} C) \equiv (A \wedge B) \dot{\vee} (A \wedge C)\]
+    \end{itemize}
+    \item[De-Morganische Gesetze] \begin{gather*}
+                                      \overline{A \wedge B} \equiv \overline{A} \vee \overline{B}\\
+                                      \overline{A \vee B} \equiv \overline{A} \wedge \overline{B}\\
+    \end{gather*}
+\end{description}

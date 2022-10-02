@@ -1,0 +1,32 @@
+\begin{description}
+    \item[Polynom] $(z_{n-1}B^{n-1}z_{n-2}B^{n-2} \dots z_1 B^{1} z_0 B^{0})_{(B)}$
+    \item[zu kleinere Basis] Fortgesetzte ganzzahlige Division mit Rest
+    $217_{(10)}$ zur Basis 3 \\
+    \begin{tabular}{r c}
+        217 & 1 \\
+        72  & 0 \\
+        24  & 0 \\
+        8   & 2 \\
+        2   & 2 \\
+        0   & 0
+    \end{tabular} $217_{(10)} = 22001_{(3)}$
+    \item[zu größerer Basis] mit Horner-Schema zum Dezimalsystem:
+
+    \begin{tabular}{|c||c|c|c|c|c|}
+        \hline
+        Ziffern & 2 & 2 & 0  & 0  & 1   \\ \hline \hline
+        $B=3$   & 0 & 6 & 24 & 72 & 216 \\ \hline
+        & 2 & 8 & 24 & 72 & 217 \\ \hline
+    \end{tabular} Addition $\downarrow$ dann Multiplikation $\nearrow$ mit $B$
+
+    Wenn die Zielbasis eine Potenz der Ursprungsbasis ist, können $\log_{B_U}(B_Z)$ Stellen direkt zusammengefasst werden:
+    \[(1000\ 0111\ 0001\ 1111)_{(2)}=(?)_{(16)}\]
+    Hier können jeweils $\log_2(16)=4$ Stellen zusammengefasst werden:
+
+    \begin{tabular}[t]{|l||c|c|c|c|}
+        \hline
+        $B = 2$  & 1000 & 0111 & 0001 & 1111 \\ \hline
+        $B = 10$ & 8    & 7    & 1    & 15   \\ \hline
+        $B = 16$ & 8    & 7    & 1    & F    \\ \hline
+    \end{tabular}
+\end{description}

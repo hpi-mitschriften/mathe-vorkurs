@@ -1,0 +1,44 @@
+$\mathbb{N} = \lbrace 0, 1, 2, 3, \dots \rbrace$
+\begin{description}
+    \item[unendlichkeits Axiom] Es gibt unendliche Mengen
+    \item[Peano-Axiome] 5 Stück:
+    \begin{itemize}
+        \item $0 \in \mathbb{N}$, null ist eine natürliche Zahl
+        \item es gibt eine Nachfolgerfunktion $s : \mathbb{N} \longrightarrow \mathbb{N}$
+        \item $s$ ist injektiv
+        \item $0 \not \in \textrm{Bild}(s)$, Null ist nicht Nachfolger einer natürlichen Zahl
+        \item Für jede Menge $M \subseteq \mathbb{N}$ gilt:
+        \[(0 \in \mathbb{N} \wedge (\forall n \in \mathbb{N})(n \in M \Rightarrow s(n) \in M)) \Rightarrow M = \mathbb{N}\]
+        Modifikation: steht $M \subseteq \mathbb{N}$ kann man das auch als Eigenschaft $E_M(n)$ ausdrücken.
+        \[E_M(n) \Leftrightarrow n \in M\]
+    \end{itemize}
+    \item[Vollständige Induktion] am Beispiel für einen Beweis der Gaußschen Summenformel
+    \begin{description}
+        \item[Induktionsvoraussetzung] Die Annahme: $A(n) \Leftrightarrow 1 + 2 + \dots + n = \frac{n(n+1)}{2}$
+        \item[Induktionsanfang] Der Beweis, dass der Anfang gültig ist: $A(1) = 1$
+        \item[Induktionsbehauptung] Das Einsetzen von $(n + 1)$ für $n$:
+        \[A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1)= \frac{(n + 1)((n + 1)+1)}{2}\]
+        \item[Induktionsschritt] Zeigen, dass aus der Induktionsvoraussetzung
+        \[A(n) \Leftrightarrow 1 + \dots + n = \frac{n(n+1)}{2}\]
+        die Induktionsbehauptung
+        \[A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) = \frac{(n + 1)((n + 1)+1)}{2}\]
+        folgt.
+        In diesem speziellen Fall:
+        \begin{align*}
+            A(n + 1) \Leftrightarrow 1 + \dots + n + (n + 1) & = \frac{n(n + 1)}{2} + (n + 1)  \\
+            & = \frac{n(n + 1) + 2(n + 1)}{2} \\
+            & = \frac{(n + 1)(n + 2)}{2}      \\
+            & = \frac{(n + 1)((n + 1)+1)}{2}
+        \end{align*}
+    \end{description}
+    \item[Addition] $m \in \mathbb{N}; m$ fest
+    \begin{gather*}
+        m+0\coloneqq m\\
+        m + s(n) \coloneqq s(m + n)\\
+    \end{gather*}
+    (rekursive (induktive) Definition für $m + n$)
+    \begin{gather*}
+        m \cdot 0\coloneqq 0\\
+        m \cdot s(n) \coloneqq m + s(m + n)\\
+    \end{gather*}
+\end{description}

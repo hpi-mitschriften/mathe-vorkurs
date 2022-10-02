@@ -1,0 +1,72 @@
+$\mathbb{R}$ ist nicht abzählbar unendlich.
+\begin{description}
+    \item[Problem] Es gibt keine rationale Zahl $q \in \mathbb{Q}$ mit $q^2 = 2$
+    \item[Annahme] Es gibt $q \in \mathbb{Q}$ mit $q^2 = 2$.
+    Damit gibt es $a;b \in \mathbb{Z}$ mit $q = \frac{a}{b}$, $a;b \geq 1$, $\ggt(a;b) = 1$ und
+    \begin{alignat*}{2}
+        q^2 = \left( \frac{a}{b}\right)^2 & = 2                                                \\
+        \frac{a}{b}                       & = 2                                                \\
+        a^2                               & = 2b^2                                             \\
+        & \Rightarrow 2 \mid a^2                             \\
+        & \Rightarrow 2 \mid a                               \\
+        & \Rightarrow (\exists a_0 \in \mathbb{Z})\ a = 2a_0 \\
+        & \Rightarrow \left(2a_0\right)^2 = 2b^2             \\
+        & \Rightarrow 4a_0^2 = 2b^2                          \\
+        & \Rightarrow 2a_0^2 = b^2                           \\
+        & \Rightarrow 2 \mid b^2                             \\
+        & \Rightarrow 2 \mid b                               \\
+    \end{alignat*}
+    Aber $\ggt(a;b) = 1$
+    \item[unendlicher Dezimalbruch] $d$ besteht aus 3 Dingen (Tripel)
+    \begin{itemize}
+        \item Vorzeichen: + oder - (bzw.\ +1, -1)
+        \item natürlich Zahl $d_0 \in \mathbb{N}$
+        \item Folge von Dezimalziffern ($f : \mathbb{N}^+ \longrightarrow \lbrace 0; 1; 2; \dots ; 9 \rbrace$)
+    \end{itemize}
+    Schreibweise: $d = \pm d_0,d_1 d_2 d_3\dots$\\
+    $\mathbb{D} :$ Menge aller unendlichen Dezimalbrüche ist nicht $\mathbb{R}$.
+    Lineare Ordnung $\leq$ auf $\mathbb{D}$, lexikographisch
+    \item[periodischer Dezimalbruch] $d$ periodisch
+    $\Leftrightarrow (\exists k \geq 0)(\exists l \geq 1) (\forall i > k)\ d_i= d_{i + l}$ $l$, also mit kleinstmöglicher Periodenlänge z.B. $5{,}72\overline{13}$
+    \item[abbrechender Dezimalbruch] z.~B. $102{,}53\overline{0} = 102{,}53$
+    \item[unmittelbarer Nachfolger] 9-er ende z.B. $2{,}1\overline{9} = 2{,}2$
+    \item[Definition] Menge der reellen Zahlen $\mathbb{R} = \lbrace \pm d | \pm d $ ist unendlicher Dezimalbruch mit zusatzvereinbarungen: $ -0 = +0 \textrm{ und } 0{,}\overline{9} = 1 \rbrace$
+    \item[Rationale Zahlen in den Reelen] \
+    \begin{itemize}
+        \item[abbrechend] $d_0{,}d_1 d_2 \dots d_k \longmapsto d_0 + \frac{d_1}{10}+\frac{d_2}{100} + \dots + \frac{d_k}{10^k}$
+        \item[beliebig] $e_0{,}e_1 e_2 \dots e_{k + 1} \dots \longmapsto$ k-te Näherung $e_0{,}e_1 e_2 \dots e_k$
+    \end{itemize}
+    \item[Umrechnung $\mathbb{D}$ nach $\mathbb{Q}$]
+    \begin{alignat*}{1}
+        x         & = 3{,}1\overline{72}                                          \\
+        10^{2}x     & = 317{,}2\overline{72}                                        \\
+        10^{2}x-x   & = 317{,}2\overline{72} - 3{,}1\overline{72} = 317{,}2 - 3{,}1 \\
+        (10^2-1)x & = 314{,}1                                                     \\
+        990x      & = 3141                                                        \\
+        x         & = \frac{3141}{990}                                            \\
+        x         & = \frac{349}{110}                                             \\
+    \end{alignat*}
+    \item[Supremum und Infimum] Sei $A \subseteq \mathbb{R}; A \not = \emptyset$. $s \in \mathbb{R}$ heißt obere Schranke wenn $(\forall a \in A)\ a \leq s$ und untere schranke wenn $(\forall a \in A)\ s \leq a$.
+    Wenn für $A$ eine obere Schranke existiert, dann heißt $A$ nach oben beschränkt.
+    Wenn für $A$ eine untere Schranke existiert, dann heißt $A$ nach unten beschränkt. $A$ heißt beschränkt, wenn $A$ nach oben und unten beschränkt ist. $s$ heißt Supremum von $A$, $s = \sup(A)$, wenn $s$ obere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \leq s \Rightarrow s'$ ist keine obere Schranke. $s$ heißt Infimum von $A$, $s = \infim(A)$, wenn $s$ untere Schranke für $A$ ist und $(\forall s' \in \mathbb{R})\ s' \geq s \Rightarrow s'$ ist keine untere Schranke.
+
+    Satz: Wenn $A \subseteq \mathbb{R}; A \not = \emptyset,\ A$ nach oben beschränkt $\Rightarrow (\exists s \in \mathbb{R}) s = \supri(A)$ Analog dazu das Infimum.
+    In $\mathbb{Q}$ gilt das nicht.
+
+    \item[Operationen] Bezüglich + und $\cdot$ gelten dieselben Identitäten wie in $\mathbb{Q}$. $\mathbb{R}$ bilden einen Körper.
+    \begin{description}
+        \item[Adiition] $d + e \coloneqq \supri \lbrace d^{[k]} + e^[k] | k \in \mathbb{N}^+ \rbrace$
+        \item[]
+    \end{description}
+    \item[normalized scientific notation] $6,674 \cdot 10^{-11}$
+    \item[Intervall] \
+    \begin{alignat*}{1}
+        \lbrack a; b \rbrack & = \lbrace x | a \leq x\leq b \rbrace \\
+        \rbrack a; b \lbrack & = \lbrace x | a < x < b \rbrace
+    \end{alignat*}
+    \item[erweiterte reele Zahlen] $+\infty$ und $-\infty$ (keine reellen Zahlen) $\mathbb{R}^+ = (0; \infty)$, $\mathbb{R}_0^+=\lbrack 0 ; \infty)$.
+    In gewisser Weise und ganz vorsichtig kann man mit $\pm \infty$ rechnen.
+    \item[irrational] $x \in \mathbb{R}; x \not \in \mathbb{Q}$ z.~B.: $x = 0,10100100010000$
+    \item[algebraisch] genau dann wenn, eine Nullstelle eines Polynoms mit ganzzahligen Koeffizienten.
+    \item[transzendent] also nicht algebraisch $e; \pi$
+\end{description}

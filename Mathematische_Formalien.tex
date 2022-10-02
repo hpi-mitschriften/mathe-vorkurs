@@ -1,0 +1,63 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=1.8cm, right=1.8cm, top = 2cm, bottom=2cm]{geometry}
+\usepackage[german]{babel}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wasysym} %Primille Symbol%
+\usepackage{cancel} %durchgestrichen%
+\usepackage{tabularx}
+\usepackage{bookmark}
+\usepackage{adjustbox}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{shapes}
+\usepackage[]{hyperref}
+\DeclareMathOperator\ggt{ggT}
+\DeclareMathOperator\kgv{kgV}
+\DeclareMathOperator\supri{sup}
+\DeclareMathOperator\infim{inf}
+\hypersetup{
+    pdftitle = {Grundbegriffe und Schreibweisen},
+    pdfauthor = {Yoan Tchorenev, Julian Hackenberg},
+    bookmarksnumbered = true,
+    bookmarksopen = true,
+    bookmarksopenlevel = 3,
+    colorlinks=false
+}
+\title{Grundbegriffe und Schreibweisen}
+\author{Yoan Tchorenev, Julian Hackenberg}
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1 \relax}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt}
+\begin{document}
+    \begin{titlepage}
+        \maketitle
+        \tableofcontents
+    \end{titlepage}
+
+
+    \section{Logik}\label{sec:logik}
+    \input{logik/logik.tex}
+
+
+    \section{Mengenlehre}\label{sec:mengenlehre}
+    \input{mengenlehre/mengenlehre.tex}
+
+
+    \section{Funktionen}\label{sec:funktionen}
+    \input{funktionen/funktionen.tex}
+
+
+    \section{Zahlen}\label{sec:zahlen}
+    \input{zahlen/zahlen.tex}
+
+
+    \section{Rechnen}\label{sec:rechnen}
+    \input{rechnen/rechnen.tex}
+
+\end{document}

@@ -1,0 +1,27 @@
+\begin{itemize}
+    \item $x \in \mathbb{R};\ x^0 = 1$ auch $0^0=1$
+    \item $x \in \mathbb{R};\ n \in \mathbb{N}^+;\ x^n = x \cdot x \cdot x \cdot x \dots \cdot x$ n mal
+    \item $x \in \mathbb{R};\ x \not = 0;\ n = -1;\ x^{-1} \coloneqq \frac{1}{x}$ $0^{-1}$ nicht definiert
+    \item $x \in \mathbb{R};\ a \not = 0;\ n = -m;\ m \in \mathbb{N}^+;\ x^{-m} = \frac{1}{x^{m}} = (x^{-1})^m$
+    \item $x \in \mathbb{R};\ x \geq 0;\ m \in \mathbb{N}^+;\ x^{\frac{1}{m}} \coloneqq \sqrt[m]{x}$
+    \item $x \in\mathbb{R};\ x > 0;\ m \in \mathbb{N}^+;\ x^{-\frac{1}{m}} \coloneqq (x^{-1})^{\frac{1}{m}}= \left(\frac{1}{x}\right)^{\frac{1}{m}}=\sqrt[m]{\frac{1}{x}} = \frac{1}{\sqrt[m]{x}}$
+    \item $x \in\mathbb{R};\ x \geq 0;\ m;n \in \mathbb{N}^+;\ x^{\frac{n}{m}} \coloneqq \left(\sqrt[m]{x}\right)^n = \sqrt[m]{x^n}$
+    \item $x \in \mathbb{R};\ x > 0;\ m;n \in \mathbb{N}^+;\ m^{-\frac{n}{m}} \coloneqq \frac{1}{x^{\frac{n}{m}}} = \sqrt[m]{\frac{1}{x^n}} = \left(\frac{1}{\sqrt[m]{x}}\right)^n$
+    \item $x \in \mathbb{R};\ x > 0;\ (x \geq 0 \textrm{ falls } \alpha > 0);\ \alpha \in \mathbb{R};\ x^\alpha$ als Grenzwert $x^{\alpha_k} = \lim\limits_{k \to \infty}\alpha_k = \alpha;\ \alpha \in \mathbb{Q}$
+    \[\exp(z) = e^z = \sum\limits_{i = 0}^\infty \frac{z^i}{i!}\]
+\end{itemize}
+Voraussetzung : $x \in \mathbb{R};\ x > 0;\ \alpha; \beta \in \mathbb{R}$
+\begin{alignat*}{1}
+    x^{\alpha + \beta}            & = x^\alpha \cdot x^\beta                                                                                                        \\
+    x^{\alpha \cdot \beta}        & = \left(x^\alpha\right)^\beta = \left(x^\beta\right)	\alpha                                                                     \\
+    x^{-\alpha}                   & = \frac{1}{x^{\alpha}}                                                                                                          \\
+    x^0                           & = 1;\ x^1 = x;\ x^{-1}    = \frac{1}{x}                                                                                         \\
+    \left(x \cdot y\right)^\alpha & = x^\alpha \cdot y^\beta                                                                                                        \\
+    x^{y^z}                       & = x^{\left(y^z\right)}                                                                                                          \\
+    \textrm{Wurzel}               & = \sqrt[m]{x}                                                                                                                   \\
+    \sqrt[m]{x}                   & = x^{\frac{1}{m}}                                                                                                               \\
+    \sqrt[m]{\sqrt[n]{x}}         & = \left(x^{\frac{1}{n}}\right)^\frac{1}{m} = x^{\frac{1}{m \cdot n}=\sqrt[m \cdot n]{x}}                                        \\
+    \sqrt[m]{x^n}                 & = \left(\sqrt[m]{x}\right)^n = x^{\frac{n}{m}}                                                                                  \\
+    \sqrt[1]{x}                   & = x                                                                                                                             \\
+    \sqrt[m]{x} \cdot \sqrt[n]{x} & = x^{\frac{1}{m}} \cdot x^{\frac{1}{n}} = x^{\frac{1}{n}+\frac{1}{m}} = x^{\frac{m+n}{m \cdot n}} = \sqrt[m \cdot n]{x^{m + n}}
+\end{alignat*}
